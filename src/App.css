@@ -1,0 +1,52 @@
+/* App-level styles */
+.app {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+}
+
+main {
+  position: relative;
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 46px;
+  height: 46px;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(0, 198, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  color: white;
+}
+
+.scroll-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 198, 255, 0.6);
+}
+
+/* ===== SECTION DIVIDERS ===== */
+section+section {
+  position: relative;
+}
+
+/* ===== SELECTION COLOR ===== */
+::selection {
+  background: rgba(0, 198, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

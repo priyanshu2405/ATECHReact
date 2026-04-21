@@ -1,0 +1,116 @@
+.team {
+    background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
+}
+
+.team__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* ===== TEAM CARD ===== */
+.team-card {
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.team-card__avatar-wrap {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.team-card__avatar-ring {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 2px solid;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card__avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    border: 2px solid var(--dark-surface);
+}
+
+.team-card__glow-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-card);
+}
+
+.team-card__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.team-card__role {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.team-card__bio {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+}
+
+.team-card__social {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.team-card__social-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.team-card__social-btn:hover {
+    background: rgba(0, 198, 255, 0.1);
+    border-color: rgba(0, 198, 255, 0.3);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .team__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .team__grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,189 @@
+.footer {
+    background: var(--dark-bg);
+    border-top: 1px solid var(--dark-border);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== TOP CTA BANNER ===== */
+.footer__top {
+    background: linear-gradient(135deg, rgba(0, 114, 255, 0.12) 0%, rgba(123, 47, 247, 0.12) 100%);
+    border-bottom: 1px solid var(--dark-border);
+    padding: 64px 0;
+    text-align: center;
+    position: relative;
+}
+
+.footer__top::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(0, 198, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.footer__top-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer__cta-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.footer__cta-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.footer__cta-btn {
+    font-size: 15px;
+    padding: 14px 32px;
+    margin-top: 8px;
+}
+
+/* ===== MAIN GRID ===== */
+.footer__main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding: 60px 24px;
+}
+
+/* ===== BRAND ===== */
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.footer__brand-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.footer__certifications {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer__cert-badge {
+    padding: 4px 12px;
+    background: rgba(0, 198, 255, 0.05);
+    border: 1px solid rgba(0, 198, 255, 0.15);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ===== LINK GROUPS ===== */
+.footer__links-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.footer__links-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__links-group a {
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer__links-group a:hover {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+/* ===== BOTTOM BAR ===== */
+.footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-bottom: 32px;
+    border-top: 1px solid var(--dark-border);
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer__bottom p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.footer__bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer__bottom-links a {
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.footer__bottom-links a:hover {
+    color: var(--primary);
+}
+
+.footer__bottom-flag {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .footer__main {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer__brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer__main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__bottom-links {
+        gap: 16px;
+    }
+}
