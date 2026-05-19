@@ -55,21 +55,29 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true);
 
+        // Web3Forms submission logic
+        const formData = new FormData();
+        // ⚠️ USER: Replace this with your actual Web3Forms Access Key
+        formData.append("access_key", "e6c3c45b-47a9-4bc8-95bb-c7da12ed2352");
+        formData.append("name", form.name);
+        formData.append("email", form.email);
+        formData.append("service", form.service);
+        formData.append("message", form.message);
+        formData.append("subject", "New Contact Form Submission!");
+
         try {
-            const response = await fetch("https://formsubmit.co/ajax/priyanshu.in@gmail.com", {
+            const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(form)
+                body: formData
             });
 
-            if (response.ok) {
+            const data = await response.json();
+
+            if (data.success) {
                 setSubmitted(true);
                 setForm({ name: '', email: '', service: '', message: '' });
             } else {
-                console.error("Form submission failed");
+                console.error("Form submission failed", data);
                 alert("Something went wrong. Please try again.");
             }
         } catch (error) {
@@ -126,68 +134,76 @@ const Contact = () => {
 
                     {/* Form Panel */}
                     <div className="contact__form-wrap glass-card">
-                        <form className="contact__form" action="https://formsubmit.co/priyanshu.in@gmail.com" method="POST">
-                            <h3 className="contact__form-title">Send Us a Message</h3>
-                            
-                            {/* FormSubmit Configuration */}
-                            <input type="hidden" name="_captcha" value="false" />
-                            <input type="hidden" name="_template" value="table" />
-                            <input type="hidden" name="_subject" value="New Contact Form Submission!" />
-                            
-                            <div className="contact__form-row">
-                                <div className="contact__field">
-                                    <label htmlFor="name">Full Name</label>
-                                    <input
-                                        id="name"
-                                        name="name"
-                                        type="text"
-                                        placeholder="John Doe"
-                                        value={form.name}
-                                        onChange={handleChange}
-                                        required
-                                    />
+                        {submitted ? (
+                            <div className="contact__success">
+                                <div className="contact__success-icon">✅</div>
+                                <h3>Message Sent!</h3>
+                                <p>Thank you! Our team will reach out to you within 24 business hours.</p>
+                                <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Send Another</button>
+                            </div>
+                        ) : (
+                            <form className="contact__form" onSubmit={handleSubmit}>
+                                <h3 className="contact__form-title">Send Us a Message</h3>
+
+                                <div className="contact__form-row">
+                                    <div className="contact__field">
+                                        <label htmlFor="name">Full Name</label>
+                                        <input
+                                            id="name"
+                                            name="name"
+                                            type="text"
+                                            placeholder="John Doe"
+                                            value={form.name}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="contact__field">
+                                        <label htmlFor="email">Email Address</label>
+                                        <input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            placeholder="john@company.com"
+                                            value={form.email}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
                                 </div>
                                 <div className="contact__field">
-                                    <label htmlFor="email">Email Address</label>
-                                    <input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        placeholder="john@company.com"
-                                        value={form.email}
+                                    <label htmlFor="service">Service Interested In</label>
+                                    <select id="service" name="service" value={form.service} onChange={handleChange} required>
+                                        <option value="">Select a service...</option>
+                                        <option>Web Development</option>
+                                        <option>Mobile App Development</option>
+                                        <option>Cloud Solutions</option>
+                                        <option>AI & Machine Learning</option>
+                                        <option>Cybersecurity</option>
+                                        <option>Digital Transformation</option>
+                                    </select>
+                                </div>
+                                <div className="contact__field">
+                                    <label htmlFor="message">Your Message</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="5"
+                                        placeholder="Tell us about your project..."
+                                        value={form.message}
                                         onChange={handleChange}
                                         required
-                                    />
+                                    ></textarea>
                                 </div>
-                            </div>
-                            <div className="contact__field">
-                                <label htmlFor="service">Service Interested In</label>
-                                <select id="service" name="service" value={form.service} onChange={handleChange} required>
-                                    <option value="">Select a service...</option>
-                                    <option>Web Development</option>
-                                    <option>Mobile App Development</option>
-                                    <option>Cloud Solutions</option>
-                                    <option>AI & Machine Learning</option>
-                                    <option>Cybersecurity</option>
-                                    <option>Digital Transformation</option>
-                                </select>
-                            </div>
-                            <div className="contact__field">
-                                <label htmlFor="message">Your Message</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="5"
-                                    placeholder="Tell us about your project..."
-                                    value={form.message}
-                                    onChange={handleChange}
-                                    required
-                                ></textarea>
-                            </div>
-                            <button type="submit" className="btn btn-primary contact__submit">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg> Send Message
-                            </button>
-                        </form>
+                                <button type="submit" className="btn btn-primary contact__submit" disabled={loading}>
+                                    {loading ? (
+                                        <><span className="spinner"></span> Sending...</>
+                                    ) : (
+                                        <><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg> Send Message</>
+                                    )}
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>
