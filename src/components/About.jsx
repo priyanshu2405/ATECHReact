@@ -2,11 +2,11 @@ import React from 'react';
 import './About.css';
 
 const milestones = [
-    { year: '2012', event: 'Founded in Pune, India' },
-    { year: '2015', event: 'Expanded to cloud services' },
-    { year: '2018', event: '100+ successful projects' },
-    { year: '2020', event: 'Launched AI division' },
-    { year: '2023', event: 'Global offices in 5 countries' },
+    { year: '2024', event: 'Founded in Indore, India' },
+    { year: '2024', event: 'Expanded to cloud services' },
+    { year: '2026', event: '10+ successful projects' },
+    { year: '2026', event: 'Launched AI division' },
+
 ];
 
 const values = [

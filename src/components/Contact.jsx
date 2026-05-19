@@ -9,7 +9,7 @@ const contactInfo = [
             </svg>
         ),
         label: 'Headquarters',
-        value: '5th Floor, Tech Park, Hinjewadi, Pune - 411057, India',
+        value: '1782 Omaxe city-1 Indore, Madhya pradesh - 452010, India',
         color: '#00c6ff',
     },
     {
@@ -19,7 +19,7 @@ const contactInfo = [
             </svg>
         ),
         label: 'Phone',
-        value: '+91 20 1234 5678',
+        value: '+91 7678410628',
         color: '#7b2ff7',
     },
     {
@@ -29,7 +29,7 @@ const contactInfo = [
             </svg>
         ),
         label: 'Email',
-        value: 'hello@atechinfotech.com',
+        value: 'priyanshu.in@gmail.com',
         color: '#f72585',
     },
     {
@@ -51,13 +51,33 @@ const Contact = () => {
 
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setTimeout(() => {
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/priyanshu.in@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(form)
+            });
+
+            if (response.ok) {
+                setSubmitted(true);
+                setForm({ name: '', email: '', service: '', message: '' });
+            } else {
+                console.error("Form submission failed");
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error submitting form", error);
+            alert("Something went wrong. Please try again.");
+        } finally {
             setLoading(false);
-            setSubmitted(true);
-        }, 1500);
+        }
     };
 
     return (

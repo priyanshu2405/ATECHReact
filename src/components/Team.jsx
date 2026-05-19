@@ -3,23 +3,23 @@ import './Team.css';
 
 const team = [
     {
-        name: 'Rahul Sharma',
+        name: 'Priyanshu Dixit',
         role: 'CEO & Co-Founder',
-        bio: '15+ years in enterprise software. Former CTO at TechGiant Inc.',
+        bio: '12+ years in enterprise software. Former CTO at P&P sheron solutions.',
         avatar: 'RS',
         color: '#00c6ff',
         social: { linkedin: '#', twitter: '#', github: '#' },
     },
     {
-        name: 'Priya Desai',
+        name: 'Ajay Rathore',
         role: 'CTO & Co-Founder',
-        bio: 'Cloud architect and AI enthusiast. Ex-Google SWE with expertise in distributed systems.',
+        bio: 'Sr. Full stack developer, Expert in MERN Stack, . ',
         avatar: 'PD',
         color: '#7b2ff7',
         social: { linkedin: '#', twitter: '#', github: '#' },
     },
     {
-        name: 'Arjun Mehta',
+        name: 'Rahul Sahu',
         role: 'VP of Engineering',
         bio: 'Full-stack expert with 10+ years building scalable applications for global enterprises.',
         avatar: 'AM',

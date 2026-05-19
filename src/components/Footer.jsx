@@ -30,12 +30,12 @@ const Footer = () => {
                     </a>
                     <p className="footer__brand-desc">
                         Engineering the digital future with innovation, expertise, and a passion for excellence.
-                        Your trusted technology partner since 2012.
+                        Your trusted technology partner since 2024.
                     </p>
                     <div className="footer__certifications">
-                        {['ISO 9001', 'ISO 27001', 'AWS Partner', 'Google Cloud'].map((c) => (
+                        {/* {['ISO 9001', 'ISO 27001', 'AWS Partner', 'Google Cloud'].map((c) => (
                             <span key={c} className="footer__cert-badge">{c}</span>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
 
             <div className="container footer__bottom">
-                <p>&copy; {new Date().getFullYear()} Atech Infotech Pvt. Ltd. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Atech Infotech .All rights reserved.</p>
                 <div className="footer__bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
