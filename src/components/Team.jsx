@@ -27,7 +27,7 @@ const team = [
         social: { linkedin: '#', twitter: '#', github: '#' },
     },
     {
-        name: 'Sneha Patil',
+        name: 'Ritu Dixit',
         role: 'Head of Design',
         bio: 'UX visionary crafting beautiful digital experiences. Led design at 3 Y-Combinator startups.',
         avatar: 'SP',
@@ -35,15 +35,15 @@ const team = [
         social: { linkedin: '#', twitter: '#', github: '#' },
     },
     {
-        name: 'Vikram Rao',
+        name: 'Tanmay',
         role: 'Head of AI/ML',
-        bio: 'PhD in Machine Learning. Published researcher with 20+ papers in top AI conferences.',
+        bio: 'Btech student from psit, interested in ai ml.',
         avatar: 'VR',
         color: '#06d6a0',
         social: { linkedin: '#', twitter: '#', github: '#' },
     },
     {
-        name: 'Ananya Gupta',
+        name: 'Komal',
         role: 'Head of Sales & BD',
         bio: 'Business development leader with a track record of closing $50M+ in enterprise deals.',
         avatar: 'AG',
