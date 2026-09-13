@@ -40,7 +40,7 @@ const About = () => {
                     {/* Left Column */}
                     <div className="about__content">
                         <div className="section-tag">Who We Are</div>
-                        <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '24px' }}>
+                        <h2 className="section-title about__title">
                             Building the Digital <span className="gradient-text">Future Together</span>
                         </h2>
                         <p className="about__text">

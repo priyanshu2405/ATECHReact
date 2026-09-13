@@ -33,6 +33,15 @@ main {
   box-shadow: 0 8px 32px rgba(0, 198, 255, 0.6);
 }
 
+@media (max-width: 480px) {
+  .scroll-top {
+    bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
 /* ===== SECTION DIVIDERS ===== */
 section+section {
   position: relative;

@@ -83,8 +83,8 @@
 }
 
 .team-card__social-btn {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: var(--radius-sm);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -93,6 +93,7 @@
     justify-content: center;
     color: var(--text-muted);
     transition: var(--transition);
+    touch-action: manipulation;
 }
 
 .team-card__social-btn:hover {
@@ -112,5 +113,21 @@
 @media (max-width: 600px) {
     .team__grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .team-card {
+        padding: 28px 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .team-card {
+        padding: 22px 14px;
+    }
+
+    .team-card__avatar-ring {
+        width: 76px;
+        height: 76px;
     }
 }

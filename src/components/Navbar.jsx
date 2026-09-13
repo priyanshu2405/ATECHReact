@@ -28,8 +28,36 @@ const Navbar = () => {
                 }
             }
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [menuOpen]);
+
+    // Close on Escape or screen resize to desktop
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') setMenuOpen(false);
+        };
+        const handleResize = () => {
+            if (window.innerWidth > 768) setMenuOpen(false);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     const handleNavClick = (href) => {
@@ -51,7 +79,14 @@ const Navbar = () => {
                     </div>
                 </a>
 
-                <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
+                {/* Mobile Backdrop */}
+                <div
+                    className={`navbar__backdrop ${menuOpen ? 'navbar__backdrop--open' : ''}`}
+                    onClick={() => setMenuOpen(false)}
+                    aria-hidden="true"
+                />
+
+                <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`} id="mobile-nav">
                     {navLinks.map((link) => (
                         <li key={link.label}>
                             <a
@@ -77,7 +112,9 @@ const Navbar = () => {
                     <button
                         className={`hamburger ${menuOpen ? 'hamburger--open' : ''}`}
                         onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label="Toggle menu"
+                        aria-label={menuOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={menuOpen}
+                        aria-controls="mobile-nav"
                     >
                         <span></span>
                         <span></span>

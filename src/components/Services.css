@@ -111,9 +111,35 @@
 @media (max-width: 640px) {
     .services__grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .service-card {
-        padding: 28px 24px;
+        padding: 24px 20px;
+        border-radius: var(--radius-md);
+    }
+
+    .service-card__icon {
+        width: 54px;
+        height: 54px;
+    }
+
+    .service-card__title {
+        font-size: 1.18rem;
+    }
+
+    .service-card__link {
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 360px) {
+    .service-card {
+        padding: 18px 14px;
+    }
+
+    .service-card__icon {
+        width: 48px;
+        height: 48px;
     }
 }

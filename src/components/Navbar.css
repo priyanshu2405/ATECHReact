@@ -149,13 +149,15 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-sm);
-    padding: 7px;
+    padding: 11px 9px;
     transition: var(--transition);
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 .hamburger:hover {
@@ -185,6 +187,10 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
+.navbar__backdrop {
+    display: none;
+}
+
 .navbar__cta-mobile {
     display: none;
 }
@@ -199,21 +205,49 @@
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 1020;
+    }
+
+    .navbar__backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 11, 24, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+        z-index: 1005;
+    }
+
+    .navbar__backdrop--open {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .navbar__links {
         position: fixed;
-        inset: 0;
         top: 0;
-        background: rgba(5, 11, 24, 0.97);
-        backdrop-filter: blur(20px);
+        right: 0;
+        bottom: 0;
+        width: min(85vw, 340px);
+        background: rgba(8, 17, 36, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid rgba(0, 198, 255, 0.2);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 84px 20px 32px;
+        gap: 6px;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: -1;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1010;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .navbar__links--open {
@@ -221,12 +255,60 @@
     }
 
     .navbar__link {
-        font-size: 20px;
-        padding: 12px 32px;
+        font-size: 15px;
+        padding: 12px 18px;
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .navbar__link::after {
+        display: none;
+    }
+
+    .navbar__link.active {
+        background: rgba(0, 198, 255, 0.12);
+        border-left: 3px solid var(--primary);
+        font-weight: 600;
     }
 
     .navbar__cta-mobile {
         display: flex;
         margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--dark-border);
+    }
+
+    .navbar__cta-mobile .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar__inner {
+        gap: 12px;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .logo-icon span {
+        font-size: 18px;
+    }
+
+    .logo-name {
+        font-size: 18px;
+    }
+
+    .logo-tagline {
+        font-size: 9.5px;
+        letter-spacing: 1.5px;
     }
 }

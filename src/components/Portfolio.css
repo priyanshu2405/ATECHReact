@@ -12,7 +12,7 @@
 }
 
 .portfolio__filter-btn {
-    padding: 9px 24px;
+    padding: 10px 22px;
     border-radius: var(--radius-full);
     font-size: 14px;
     font-weight: 600;
@@ -20,6 +20,12 @@
     color: var(--text-secondary);
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: var(--transition);
+    cursor: pointer;
+    touch-action: manipulation;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
 }
 
 .portfolio__filter-btn:hover {
@@ -148,7 +154,50 @@
 }
 
 @media (max-width: 640px) {
+    .portfolio__filters {
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+
+    .portfolio__filter-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+        min-height: 38px;
+    }
+
     .portfolio__grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .portfolio-card__header {
+        padding: 22px 18px 16px;
+    }
+
+    .portfolio-card__body {
+        padding: 0 18px 22px;
+    }
+}
+
+@media (max-width: 360px) {
+    .portfolio__filter-btn {
+        padding: 7px 13px;
+        font-size: 12px;
+    }
+
+    .portfolio-card__emoji {
+        font-size: 34px;
+    }
+
+    .portfolio-card__title {
+        font-size: 1.1rem;
+    }
+
+    .portfolio-card__header {
+        padding: 18px 14px 14px;
+    }
+
+    .portfolio-card__body {
+        padding: 0 14px 18px;
     }
 }

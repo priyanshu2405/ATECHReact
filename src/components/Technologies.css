@@ -122,5 +122,32 @@
 @media (max-width: 600px) {
     .tech__grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 36px;
+    }
+
+    .tech-group {
+        padding: 20px 16px;
+    }
+
+    .tech-item {
+        padding: 5px 12px;
+        font-size: 12.5px;
+    }
+
+    .tech__marquee-item {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .tech-group {
+        padding: 16px 12px;
+    }
+
+    .tech-item {
+        padding: 4px 9px;
+        font-size: 11.5px;
     }
 }

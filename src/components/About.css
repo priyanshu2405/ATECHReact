@@ -205,11 +205,17 @@
     padding-bottom: 16px;
 }
 
+/* ===== TITLE ===== */
+.about__title {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
     .about__grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
     }
 
     .about__visual {
@@ -220,5 +226,46 @@
 @media (max-width: 600px) {
     .about__values {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .about__value-card {
+        padding: 16px;
+    }
+
+    .about__main-card {
+        padding: 22px 18px;
+    }
+
+    .about__timeline {
+        padding: 22px 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    .about__milestone {
+        grid-template-columns: 44px 20px 1fr;
+        gap: 8px;
+    }
+
+    .about__milestone-year {
+        font-size: 11px;
+    }
+
+    .about__milestone-event {
+        font-size: 12px;
+    }
+
+    .about__value-card {
+        padding: 14px 12px;
+        gap: 10px;
+    }
+
+    .about__main-card {
+        padding: 18px 14px;
+    }
+
+    .about__timeline {
+        padding: 18px 14px;
     }
 }
