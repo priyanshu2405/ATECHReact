@@ -2,69 +2,11 @@ import React from 'react';
 import './Technologies.css';
 
 const techGroups = [
-    {
-        category: 'Frontend',
-        color: '#00c6ff',
-        techs: [
-            { name: 'React', logo: '⚛️' },
-            { name: 'Next.js', logo: '▲' },
-            { name: 'Vue.js', logo: '💚' },
-            { name: 'TypeScript', logo: '🔷' },
-            { name: 'Angular', logo: '🅰️' },
-        ],
-    },
-    {
-        category: 'Backend',
-        color: '#7b2ff7',
-        techs: [
-            { name: 'Node.js', logo: '🟢' },
-            { name: 'Python', logo: '🐍' },
-            { name: 'Java', logo: '☕' },
-            { name: 'Go', logo: '🐹' },
-            { name: 'Django', logo: '🎸' },
-        ],
-    },
-    {
-        category: 'Mobile',
-        color: '#f72585',
-        techs: [
-            { name: 'React Native', logo: '📱' },
-            { name: 'Flutter', logo: '🦋' },
-            { name: 'Swift', logo: '🐦' },
-            { name: 'Kotlin', logo: '🎯' },
-        ],
-    },
-    {
-        category: 'Cloud & DevOps',
-        color: '#4cc9f0',
-        techs: [
-            { name: 'AWS', logo: '☁️' },
-            { name: 'Azure', logo: '🔵' },
-            { name: 'GCP', logo: '🌐' },
-            { name: 'Docker', logo: '🐳' },
-            { name: 'Kubernetes', logo: '⚙️' },
-        ],
-    },
-    {
-        category: 'Databases',
-        color: '#06d6a0',
-        techs: [
-            { name: 'PostgreSQL', logo: '🐘' },
-            { name: 'MongoDB', logo: '🍃' },
-            { name: 'Redis', logo: '🔴' },
-            { name: 'MySQL', logo: '🗄️' },
-        ],
-    },
-    {
-        category: 'AI & Data',
-        color: '#f4a261',
-        techs: [
-            { name: 'TensorFlow', logo: '🧠' },
-            { name: 'PyTorch', logo: '🔥' },
-            { name: 'OpenAI', logo: '🤖' },
-            { name: 'Pandas', logo: '🐼' },
-        ],
-    },
+    { category: 'Frontend', color: '#00c6ff', techs: [{ name: 'React', logo: '⚛️' }, { name: 'Next.js', logo: '▲' }, { name: 'TypeScript', logo: '🔷' }] },
+    { category: 'Backend', color: '#7b2ff7', techs: [{ name: 'Node.js', logo: '🟢' }, { name: 'Laravel', logo: '🔺' }, { name: 'Python', logo: '🐍' }] },
+    { category: 'Mobile', color: '#f72585', techs: [{ name: 'Flutter', logo: '🦋' }, { name: 'React Native', logo: '📱' }] },
+    { category: 'Databases', color: '#06d6a0', techs: [{ name: 'MySQL', logo: '🗄️' }, { name: 'MongoDB', logo: '🍃' }, { name: 'PostgreSQL', logo: '🐘' }] },
+    { category: 'DevOps', color: '#4cc9f0', techs: [{ name: 'Docker', logo: '🐳' }, { name: 'AWS', logo: '☁️' }] },
 ];
 
 const Technologies = () => {
@@ -74,11 +16,10 @@ const Technologies = () => {
                 <div className="section-header">
                     <div className="section-tag">Tech Stack</div>
                     <h2 className="section-title">
-                        Technologies We <span className="gradient-text">Master</span>
+                        Tools We <span className="gradient-text">Build With</span>
                     </h2>
                     <p className="section-subtitle">
-                        We leverage the most powerful and proven technologies to build
-                        solutions that scale, perform, and endure.
+                        The stacks we use day to day to build and ship products.
                     </p>
                 </div>
 

@@ -269,3 +269,7 @@
         padding: 18px 14px;
     }
 }
+.about__process { list-style: decimal; padding-left: 1.25rem; display: grid; gap: 0.9rem; margin: 0.75rem 0 0; }
+.about__process li { display: flex; flex-direction: column; gap: 0.15rem; }
+.about__process strong { color: var(--text-primary, #fff); }
+.about__process span { color: var(--text-secondary, #aab); font-size: 0.9rem; line-height: 1.5; }

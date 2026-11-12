@@ -29,8 +29,8 @@ const Footer = () => {
                         </div>
                     </a>
                     <p className="footer__brand-desc">
-                        Engineering the digital future with innovation, expertise, and a passion for excellence.
-                        Your trusted technology partner since 2024.
+                        Web apps, mobile apps and custom software for startups and growing businesses.
+                        Based in Indore, India, since 2024.
                     </p>
                     <div className="footer__certifications">
                         {/* {['ISO 9001', 'ISO 27001', 'AWS Partner', 'Google Cloud'].map((c) => (
@@ -42,7 +42,7 @@ const Footer = () => {
                 <div className="footer__links-group">
                     <h4>Services</h4>
                     <ul>
-                        {['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI & ML', 'Cybersecurity', 'Digital Transformation'].map((s) => (
+                        {['Web Development', 'Mobile Apps', 'Custom CRM & ERP', 'Cloud & DevOps'].map((s) => (
                             <li key={s}><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>{s}</a></li>
                         ))}
                     </ul>
@@ -51,7 +51,7 @@ const Footer = () => {
                 <div className="footer__links-group">
                     <h4>Company</h4>
                     <ul>
-                        {[['About Us', 'about'], ['Portfolio', 'portfolio'], ['Our Team', 'team'], ['Careers', 'contact'], ['Blog', 'contact'], ['Contact', 'contact']].map(([label, id]) => (
+                        {[['About Us', 'about'], ['Portfolio', 'portfolio'], ['Our Team', 'team'], ['Contact', 'contact']].map(([label, id]) => (
                             <li key={label}><a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); }}>{label}</a></li>
                         ))}
                     </ul>
@@ -60,7 +60,7 @@ const Footer = () => {
                 <div className="footer__links-group">
                     <h4>Technologies</h4>
                     <ul>
-                        {['React.js', 'Node.js', 'Python', 'AWS Cloud', 'Kubernetes', 'TensorFlow'].map((t) => (
+                        {['React.js', 'Node.js', 'Laravel', 'Flutter'].map((t) => (
                             <li key={t}><a href="#technologies" onClick={(e) => { e.preventDefault(); scrollTo('technologies'); }}>{t}</a></li>
                         ))}
                     </ul>
@@ -68,12 +68,8 @@ const Footer = () => {
             </div>
 
             <div className="container footer__bottom">
-                <p>&copy; {new Date().getFullYear()} Atech Infotech .All rights reserved.</p>
-                <div className="footer__bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
+                <p>&copy; {new Date().getFullYear()} Atech Infotech. All rights reserved.</p>
+                
                 <div className="footer__bottom-flag">
                     Made with ❤️ in India 🇮🇳
                 </div>

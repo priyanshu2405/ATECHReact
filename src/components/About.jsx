@@ -3,10 +3,14 @@ import './About.css';
 
 const milestones = [
     { year: '2024', event: 'Founded in Indore, India' },
-    { year: '2024', event: 'Expanded to cloud services' },
-    { year: '2026', event: '10+ successful projects' },
-    { year: '2026', event: 'Launched AI division' },
+    { year: '2026', event: '10+ projects delivered' },
+];
 
+const process = [
+    { title: 'Discovery call', desc: 'We learn what you want to build and who it is for.' },
+    { title: 'Scope and proposal', desc: 'A written scope, price and timeline before work starts.' },
+    { title: 'Build in milestones', desc: 'You see working software at each milestone.' },
+    { title: 'Launch and support', desc: 'We deploy it and stay available after release.' },
 ];
 
 const values = [
@@ -41,17 +45,13 @@ const About = () => {
                     <div className="about__content">
                         <div className="section-tag">Who We Are</div>
                         <h2 className="section-title about__title">
-                            Building the Digital <span className="gradient-text">Future Together</span>
+                            Software Built <span className="gradient-text">Around Your Business</span>
                         </h2>
                         <p className="about__text">
-                            Atech Infotech is a premier IT solutions company founded in 2012, headquartered in Pune, India.
-                            With over a decade of experience, we have built a reputation for delivering robust, scalable,
-                            and innovative technology solutions to clients across the globe.
+                            Atech Infotech is a software development company based in Indore, India, founded in 2024. We build web apps, mobile apps and custom business software for startups and growing businesses.
                         </p>
                         <p className="about__text">
-                            Our team of 50+ seasoned engineers, designers, and strategists work collaboratively to
-                            transform complex business challenges into elegant digital solutions. From startups to Fortune 500
-                            companies, we empower organizations at every scale.
+                            We work in small, focused teams. You get a clear scope, regular milestones and a direct line to the people building your product.
                         </p>
 
                         <div className="about__values">
@@ -71,43 +71,12 @@ const About = () => {
                     <div className="about__visual">
                         <div className="about__card-stack">
                             <div className="about__main-card glass-card">
-                                <div className="about__card-header">
-                                    <div className="about__avatar-group">
-                                        {['A', 'B', 'C', 'D'].map((l, i) => (
-                                            <div key={l} className="about__avatar" style={{ '--i': i }}>{l}</div>
-                                        ))}
-                                    </div>
-                                    <div>
-                                        <p className="about__card-title">Global Team</p>
-                                        <p className="about__card-sub">50+ Expert Engineers</p>
-                                    </div>
-                                </div>
-                                <div className="about__metrics">
-                                    <div className="about__metric">
-                                        <div className="about__metric-bar">
-                                            <div className="about__metric-fill" style={{ width: '97%', background: 'var(--gradient-primary)' }}></div>
-                                        </div>
-                                        <div className="about__metric-label">
-                                            <span>Client Satisfaction</span><span>97%</span>
-                                        </div>
-                                    </div>
-                                    <div className="about__metric">
-                                        <div className="about__metric-bar">
-                                            <div className="about__metric-fill" style={{ width: '92%', background: 'var(--gradient-accent)' }}></div>
-                                        </div>
-                                        <div className="about__metric-label">
-                                            <span>On-Time Delivery</span><span>92%</span>
-                                        </div>
-                                    </div>
-                                    <div className="about__metric">
-                                        <div className="about__metric-bar">
-                                            <div className="about__metric-fill" style={{ width: '88%', background: 'linear-gradient(135deg, #06d6a0, #4cc9f0)' }}></div>
-                                        </div>
-                                        <div className="about__metric-label">
-                                            <span>Client Retention</span><span>88%</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h4 className="about__timeline-title">How we work</h4>
+                                <ol className="about__process">
+                                    {process.map((s) => (
+                                        <li key={s.title}><strong>{s.title}</strong><span>{s.desc}</span></li>
+                                    ))}
+                                </ol>
                             </div>
 
                             {/* Milestone Timeline */}

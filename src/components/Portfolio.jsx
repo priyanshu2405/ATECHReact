@@ -1,62 +1,32 @@
 import React, { useState } from 'react';
 import './Portfolio.css';
 
-const categories = ['All', 'Web', 'Mobile', 'Cloud', 'AI'];
+const categories = ['All', 'Web', 'Mobile'];
 
 const projects = [
     {
-        title: 'FinTrack Pro',
+        title: 'Multi-Tenant CRM Platform',
         category: 'Web',
-        tags: ['React', 'Node.js', 'PostgreSQL'],
-        description: 'A comprehensive financial tracking dashboard with real-time analytics, automated reports, and AI-powered insights.',
+        tags: ['Node.js', 'React', 'REST API'],
+        description: 'A standalone CRM that serves multiple businesses, with a generic integration API so it can connect to other platforms.',
         color: '#00c6ff',
         icon: '📊',
-        metrics: ['2M+ Users', '99.9% Uptime'],
     },
     {
-        title: 'MediCare Connect',
+        title: 'Flutter App with Laravel Backend',
         category: 'Mobile',
-        tags: ['React Native', 'Firebase'],
-        description: 'Telehealth platform connecting patients with doctors, featuring video consultations and prescription management.',
+        tags: ['Flutter', 'Laravel', 'REST API'],
+        description: 'Android and iOS app that shares a backend API with its Laravel website.',
         color: '#7b2ff7',
-        icon: '🏥',
-        metrics: ['500K Downloads', '4.8 ★ Rating'],
+        icon: '📱',
     },
     {
-        title: 'CloudVault Platform',
-        category: 'Cloud',
-        tags: ['AWS', 'Kubernetes', 'Terraform'],
-        description: 'Enterprise cloud infrastructure platform providing automated scaling, monitoring, and cost optimization.',
-        color: '#4cc9f0',
-        icon: '☁️',
-        metrics: ['99.99% SLA', '60% Cost Saved'],
-    },
-    {
-        title: 'RetailAI Engine',
-        category: 'AI',
-        tags: ['Python', 'TensorFlow', 'FastAPI'],
-        description: 'Machine learning system for retail giants providing demand forecasting, inventory optimization, and customer personalization.',
-        color: '#f72585',
-        icon: '🤖',
-        metrics: ['35% Revenue Boost', '150+ Retailers'],
-    },
-    {
-        title: 'EduLearn Platform',
+        title: 'Sales and Profit/Loss Reporting',
         category: 'Web',
-        tags: ['Next.js', 'Django', 'Redis'],
-        description: 'Next-gen e-learning platform with live classes, AI tutoring, gamification, and real-time progress analytics.',
+        tags: ['Reporting', 'Multi-currency'],
+        description: 'Purchase and sales tracking with profit and loss calculated in a single base currency.',
         color: '#06d6a0',
-        icon: '🎓',
-        metrics: ['1M+ Students', '50K+ Courses'],
-    },
-    {
-        title: 'DeliverFast App',
-        category: 'Mobile',
-        tags: ['Flutter', 'Google Maps API'],
-        description: 'Last-mile delivery app with real-time tracking, smart route optimization, and driver performance analytics.',
-        color: '#f4a261',
-        icon: '🚀',
-        metrics: ['10M+ Deliveries', '5 Countries'],
+        icon: '💹',
     },
 ];
 
@@ -76,8 +46,7 @@ const Portfolio = () => {
                         Featured <span className="gradient-text">Projects</span>
                     </h2>
                     <p className="section-subtitle">
-                        Real solutions for real businesses. Explore our portfolio of high-impact projects
-                        delivered across diverse industries.
+                        A few products we have built. Client names are kept private; ask us for details on a call.
                     </p>
                 </div>
 
@@ -105,14 +74,6 @@ const Portfolio = () => {
                             <div className="portfolio-card__body">
                                 <h3 className="portfolio-card__title">{project.title}</h3>
                                 <p className="portfolio-card__description">{project.description}</p>
-
-                                <div className="portfolio-card__metrics">
-                                    {project.metrics.map((m) => (
-                                        <div key={m} className="portfolio-card__metric" style={{ borderColor: `${project.color}30`, background: `${project.color}10` }}>
-                                            <span style={{ color: project.color }}>{m}</span>
-                                        </div>
-                                    ))}
-                                </div>
 
                                 <div className="portfolio-card__tags">
                                     {project.tags.map((t) => (

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import './Contact.css';
 
+const BOOKING_URL = ''; // paste your free Calendly / Cal.com link here
+const socials = [
+    { label: 'LinkedIn', url: '' },
+    { label: 'GitHub', url: '' },
+    { label: 'Instagram', url: '' },
+]; // add real profile URLs; empty ones stay hidden
+
 const contactInfo = [
     {
         icon: (
@@ -97,8 +104,7 @@ const Contact = () => {
                         Let's Build Something <span className="gradient-text">Amazing</span>
                     </h2>
                     <p className="section-subtitle">
-                        Have a project in mind? We'd love to hear about it.
-                        Send us a message and our team will get back to you within 24 hours.
+                        Have a project in mind? Tell us what you want to build and we will reply by email.
                     </p>
                 </div>
 
@@ -119,17 +125,19 @@ const Contact = () => {
                             ))}
                         </div>
 
-                        <div className="contact__social glass-card">
+                        <a className="btn btn-primary" href="https://wa.me/917678410628?text=Hi%20Atech%20Infotech%2C%20I%20have%20a%20project%20to%20discuss." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+                        {BOOKING_URL && <a className="btn btn-ghost" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book a free call</a>}
+                        {socials.some((s) => s.url) && (<div className="contact__social glass-card">
                             <p className="contact__social-title">Follow Us</p>
                             <div className="contact__social-links">
-                                {['LinkedIn', 'Twitter', 'GitHub', 'Instagram'].map((s) => (
-                                    <a href="#" key={s} className="contact__social-link">
-                                        {s}
+                                {socials.filter((s) => s.url).map((s) => (
+                                    <a href={s.url} key={s.label} target="_blank" rel="noopener noreferrer" className="contact__social-link">
+                                        {s.label}
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
                                     </a>
                                 ))}
                             </div>
-                        </div>
+                        </div>)}
                     </div>
 
                     {/* Form Panel */}
@@ -138,7 +146,7 @@ const Contact = () => {
                             <div className="contact__success">
                                 <div className="contact__success-icon">✅</div>
                                 <h3>Message Sent!</h3>
-                                <p>Thank you! Our team will reach out to you within 24 business hours.</p>
+                                <p>Thank you! We will reply to your email soon.</p>
                                 <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Send Another</button>
                             </div>
                         ) : (
@@ -177,10 +185,9 @@ const Contact = () => {
                                         <option value="">Select a service...</option>
                                         <option>Web Development</option>
                                         <option>Mobile App Development</option>
-                                        <option>Cloud Solutions</option>
-                                        <option>AI & Machine Learning</option>
-                                        <option>Cybersecurity</option>
-                                        <option>Digital Transformation</option>
+                                        <option>Custom CRM, ERP &amp; Automation</option>
+                                        <option>Cloud &amp; DevOps</option>
+                                        <option>Not sure yet</option>
                                     </select>
                                 </div>
                                 <div className="contact__field">

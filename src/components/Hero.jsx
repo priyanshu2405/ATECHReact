@@ -89,25 +89,25 @@ const Hero = () => {
             <div className="container hero__content">
                 <div className="hero__badge">
                     <span className="hero__badge-dot"></span>
-                    Trusted by 200+ companies worldwide
+                    Web &amp; mobile app development for startups
                 </div>
 
                 <h1 className="hero__title">
-                    Transforming Ideas Into
+                    Web &amp; Mobile Apps
                     <span className="hero__title-highlight">
-                        <br />Digital Reality
+                        <br />Built for Startups
                     </span>
                 </h1>
 
                 <p className="hero__description">
-                    Atech Infotech delivers cutting-edge IT solutions — from bespoke software development
-                    and cloud infrastructure to AI-powered applications. We engineer the future, today.
+                    Atech Infotech designs and builds web apps, mobile apps and custom business software.
+                    Tell us what you want to launch and we will help you scope it, build it and ship it.
                 </p>
 
                 <div className="hero__actions">
-                    <button className="btn btn-primary hero__btn" onClick={() => scrollToSection('services')}>
+                    <button className="btn btn-primary hero__btn" onClick={() => scrollToSection('contact')}>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                        Explore Services
+                        Book a Free Call
                     </button>
                     <button className="btn btn-ghost hero__btn" onClick={() => scrollToSection('portfolio')}>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3" /></svg>
@@ -117,24 +117,20 @@ const Hero = () => {
 
                 <div className="hero__stats">
                     <div className="hero__stat">
-                        <span className="hero__stat-number">200+</span>
+                        <span className="hero__stat-number">10+</span>
                         <span className="hero__stat-label">Projects Delivered</span>
                     </div>
                     <div className="hero__stat-divider" />
                     <div className="hero__stat">
-                        <span className="hero__stat-number">50+</span>
-                        <span className="hero__stat-label">Expert Engineers</span>
+                        <span className="hero__stat-number">2024</span>
+                        <span className="hero__stat-label">Year Founded</span>
                     </div>
                     <div className="hero__stat-divider" />
                     <div className="hero__stat">
-                        <span className="hero__stat-number">99%</span>
-                        <span className="hero__stat-label">Client Satisfaction</span>
+                        <span className="hero__stat-number">Free</span>
+                        <span className="hero__stat-label">Discovery Call</span>
                     </div>
-                    <div className="hero__stat-divider" />
-                    <div className="hero__stat">
-                        <span className="hero__stat-number">12+</span>
-                        <span className="hero__stat-label">Years Experience</span>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -154,13 +150,13 @@ const Hero = () => {
             <div className="hero__floating hero__floating--3">
                 <div className="hero__floating-card">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f72585" strokeWidth="1.5"><rect x="2" y="2" width="9" height="11" /><rect x="13" y="2" width="9" height="7" /><rect x="13" y="13" width="9" height="9" /><rect x="2" y="17" width="9" height="5" /></svg>
-                    <span>AI &amp; ML</span>
+                    <span>Apps</span>
                 </div>
             </div>
             <div className="hero__floating hero__floating--4">
                 <div className="hero__floating-card">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                    <span>Security</span>
+                    <span>APIs</span>
                 </div>
             </div>
 
