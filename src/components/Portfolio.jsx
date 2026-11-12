@@ -8,7 +8,7 @@ const projects = [
         title: 'Futura Kitchen Sinks',
         category: 'Web',
         url: 'https://futurasink.com/',
-        tags: ['WordPress', 'Elementor', 'WhatsApp enquiries'],
+        tags: ['React.js', 'Node.js', 'WhatsApp enquiries'],
         description: 'Product catalogue website for a kitchen sink and fittings manufacturer, with catalogue download and WhatsApp enquiry forms.',
         color: '#ec2027',
         icon: '🚰',
