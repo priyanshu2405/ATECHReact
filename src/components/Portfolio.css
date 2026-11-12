@@ -201,3 +201,5 @@
         padding: 0 14px 18px;
     }
 }
+.portfolio-card__link { display: inline-block; margin: 0.25rem 0 0.75rem; font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+.portfolio-card__link:hover, .portfolio-card__link:focus-visible { text-decoration: underline; }

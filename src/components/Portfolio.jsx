@@ -5,6 +5,24 @@ const categories = ['All', 'Web', 'Mobile'];
 
 const projects = [
     {
+        title: 'Futura Kitchen Sinks',
+        category: 'Web',
+        url: 'https://futurasink.com/',
+        tags: ['WordPress', 'Elementor', 'WhatsApp enquiries'],
+        description: 'Product catalogue website for a kitchen sink and fittings manufacturer, with catalogue download and WhatsApp enquiry forms.',
+        color: '#ec2027',
+        icon: '🚰',
+    },
+    {
+        title: 'UniCou Exam Vouchers',
+        category: 'Web',
+        url: 'https://unicouuk.janshaurya.org/',
+        tags: ['Voucher platform', 'Agent accounts', 'Bulk vouchers'],
+        description: 'Exam voucher platform for students, education agents and institutions, with agent accounts and bulk voucher access.',
+        color: '#06d6a0',
+        icon: '🎓',
+    },
+    {
         title: 'Multi-Tenant CRM Platform',
         category: 'Web',
         tags: ['Node.js', 'React', 'REST API'],
@@ -19,14 +37,6 @@ const projects = [
         description: 'Android and iOS app that shares a backend API with its Laravel website.',
         color: '#7b2ff7',
         icon: '📱',
-    },
-    {
-        title: 'Sales and Profit/Loss Reporting',
-        category: 'Web',
-        tags: ['Reporting', 'Multi-currency'],
-        description: 'Purchase and sales tracking with profit and loss calculated in a single base currency.',
-        color: '#06d6a0',
-        icon: '💹',
     },
 ];
 
@@ -46,7 +56,7 @@ const Portfolio = () => {
                         Featured <span className="gradient-text">Projects</span>
                     </h2>
                     <p className="section-subtitle">
-                        A few products we have built. Client names are kept private; ask us for details on a call.
+                        A selection of products we have built. Ask us for details on a call.
                     </p>
                 </div>
 
@@ -74,6 +84,11 @@ const Portfolio = () => {
                             <div className="portfolio-card__body">
                                 <h3 className="portfolio-card__title">{project.title}</h3>
                                 <p className="portfolio-card__description">{project.description}</p>
+                                {project.url && (
+                                    <a className="portfolio-card__link" href={project.url} target="_blank" rel="noopener noreferrer" style={{ color: project.color }}>
+                                        Visit live site
+                                    </a>
+                                )}
 
                                 <div className="portfolio-card__tags">
                                     {project.tags.map((t) => (

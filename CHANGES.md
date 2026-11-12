@@ -23,3 +23,7 @@
 - src/components/Technologies.jsx and Services.jsx: only keep what you can actually deliver
 - src/components/Contact.jsx: set BOOKING_URL (free Calendly/Cal.com) and the socials URLs
 - Consider a business email instead of a personal Gmail
+
+## Portfolio update
+- Added two live projects (futurasink.com, unicouuk.janshaurya.org) with "Visit live site" links. Descriptions use only what is visible on the public sites; edit them to match your actual role.
+- Removed the anonymised reporting entry (it overlapped with the UniCou card). Two anonymised entries remain (CRM, Flutter + Laravel).
