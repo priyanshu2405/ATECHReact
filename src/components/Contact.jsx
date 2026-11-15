@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { track } from '../analytics';
 
 const BOOKING_URL = ''; // paste your free Calendly / Cal.com link here
 const socials = [
@@ -60,6 +61,8 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // Basic honeypot: ignore submissions that fill the hidden field.
+        if (e.currentTarget.elements.website_url?.value) return;
         setLoading(true);
 
         // Web3Forms submission logic
@@ -71,6 +74,7 @@ const Contact = () => {
         formData.append("service", form.service);
         formData.append("message", form.message);
         formData.append("subject", "New Contact Form Submission!");
+        formData.append("from_name", "Atech Infotech Website");
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -81,6 +85,7 @@ const Contact = () => {
             const data = await response.json();
 
             if (data.success) {
+                track('generate_lead', { lead_source: 'contact_form', service: form.service || 'not_selected' });
                 setSubmitted(true);
                 setForm({ name: '', email: '', service: '', message: '' });
             } else {
@@ -125,7 +130,7 @@ const Contact = () => {
                             ))}
                         </div>
 
-                        <a className="btn btn-primary" href="https://wa.me/917678410628?text=Hi%20Atech%20Infotech%2C%20I%20have%20a%20project%20to%20discuss." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+                        <a className="btn btn-primary" href="https://wa.me/917678410628?text=Hi%20Atech%20Infotech%2C%20I%20have%20a%20project%20to%20discuss." target="_blank" rel="noopener noreferrer" onClick={() => track('whatsapp_click', { location: 'contact_section' })}>Chat on WhatsApp</a>
                         {BOOKING_URL && <a className="btn btn-ghost" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book a free call</a>}
                         {socials.some((s) => s.url) && (<div className="contact__social glass-card">
                             <p className="contact__social-title">Follow Us</p>
@@ -151,6 +156,10 @@ const Contact = () => {
                             </div>
                         ) : (
                             <form className="contact__form" onSubmit={handleSubmit}>
+                                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+                                    <label htmlFor="website_url">Leave this field empty</label>
+                                    <input id="website_url" name="website_url" type="text" tabIndex={-1} autoComplete="off" />
+                                </div>
                                 <h3 className="contact__form-title">Send Us a Message</h3>
 
                                 <div className="contact__form-row">
@@ -186,6 +195,8 @@ const Contact = () => {
                                         <option>Web Development</option>
                                         <option>Mobile App Development</option>
                                         <option>Custom CRM, ERP &amp; Automation</option>
+                                        <option>Ecommerce Development</option>
+                                        <option>SEO &amp; Digital Marketing</option>
                                         <option>Cloud &amp; DevOps</option>
                                         <option>Not sure yet</option>
                                     </select>

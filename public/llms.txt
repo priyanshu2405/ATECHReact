@@ -1,0 +1,18 @@
+# Atech Infotech
+
+> Software development company in Indore, India. We build business websites, ecommerce stores, Android and iOS mobile apps, custom CRM and ERP software, and provide deployment and SEO support.
+
+## Services
+- [Website Development](https://www.atechinfotech.com/services/website-development/)
+- [Mobile App Development](https://www.atechinfotech.com/services/mobile-app-development/)
+- [Ecommerce Development](https://www.atechinfotech.com/services/ecommerce-development/)
+- [Custom CRM and ERP](https://www.atechinfotech.com/services/crm-erp-development/)
+- [Cloud and DevOps](https://www.atechinfotech.com/services/cloud-devops/)
+- [SEO and Digital Marketing](https://www.atechinfotech.com/services/seo-digital-marketing/)
+
+## Guides
+- [Blog](https://www.atechinfotech.com/blog/)
+
+## Contact
+- Phone: +91 7678410628
+- Address: 1782 Omaxe City-1, Indore, Madhya Pradesh 452010, India

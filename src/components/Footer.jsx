@@ -42,8 +42,8 @@ const Footer = () => {
                 <div className="footer__links-group">
                     <h4>Services</h4>
                     <ul>
-                        {['Web Development', 'Mobile Apps', 'Custom CRM & ERP', 'Cloud & DevOps'].map((s) => (
-                            <li key={s}><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>{s}</a></li>
+                        {[['Website Development', 'website-development'], ['Mobile App Development', 'mobile-app-development'], ['Ecommerce Development', 'ecommerce-development'], ['Custom CRM & ERP', 'crm-erp-development'], ['Cloud & DevOps', 'cloud-devops'], ['SEO & Digital Marketing', 'seo-digital-marketing']].map(([label, slug]) => (
+                            <li key={slug}><a href={`/services/${slug}/`}>{label}</a></li>
                         ))}
                     </ul>
                 </div>
@@ -54,6 +54,7 @@ const Footer = () => {
                         {[['About Us', 'about'], ['Portfolio', 'portfolio'], ['Our Team', 'team'], ['Contact', 'contact']].map(([label, id]) => (
                             <li key={label}><a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); }}>{label}</a></li>
                         ))}
+                        <li><a href="/blog/">Blog</a></li>
                     </ul>
                 </div>
 

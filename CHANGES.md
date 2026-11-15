@@ -1,29 +1,17 @@
-# Changes made to the Atech Infotech website
+# SEO and digital marketing changes
 
-## Removed (could not be verified, or contradicted other text on the site)
-- "Trusted by 200+ companies", "200+ projects", "50+ engineers", "99% satisfaction", "12+ years" (hero)
-- "Founded 2012 in Pune" (About said 2012/Pune, the timeline and footer said 2024/Indore; kept 2024/Indore)
-- "Fortune 500", 97% / 92% / 88% progress bars, "Global Team" card
-- Portfolio projects with invented metrics (2M+ users, 500K downloads, etc.)
-- Team bios claiming Y-Combinator, "$50M+ deals", "former CTO"
-- AI/ML and Cybersecurity services, Kubernetes/Go/Java/Swift/etc. in the tech list
-- Dead links: Careers, Blog, Privacy/Terms/Cookie (#), social icons with "#" links
-- Promises: "reply within 24 hours"
+## This revision
+- Homepage: crawlable static HTML (headings, service links, projects, guides, contact) now sits inside `#root` so search engines see content without running JavaScript; React replaces it on load.
+- Structured data on the homepage: Organization/ProfessionalService (with hours, services catalogue), WebSite, WebPage and FAQPage.
+- Social sharing: added `public/og-image.png` (1200x630), `og:image`, and `summary_large_image` Twitter cards on every page.
+- Blog: `/blog/` plus four guides (website vs web app, Flutter vs React Native, custom vs off-the-shelf CRM, technical SEO checklist) with Article schema, breadcrumbs and links to the matching service pages.
+- Service pages: now generated entirely by `scripts/generate-seo-pages.mjs` (removed stale `public/services/`), with header navigation, related guides, other-services links, WhatsApp/email/phone CTAs.
+- Sitemap now includes the blog and `lastmod`; robots.txt blocks only `/404.html`; added `404.html`, `manifest.webmanifest`, `llms.txt`.
+- Internal linking: footer now links to all six service pages and the blog; navbar has a Blog link.
+- Lead tracking: `src/analytics.js` pushes `generate_lead` (form) and `whatsapp_click` events to the GTM dataLayer.
+- Performance: Google Fonts no longer block rendering.
+- Hosting: security headers in `netlify.toml` and `vercel.json`; `public/.htaccess` for Apache/cPanel hosting (HTTPS, www, caching, compression).
+- Fixed the ESLint config (it crashed) and an unused import; lint and build both pass.
 
-## Added / fixed
-- SEO: canonical now https://www.atechinfotech.com/ (was atech.example.com), new title/description,
-  og:url, JSON-LD business data, robots.txt, sitemap.xml, noscript text
-- Startup-focused hero, "Book a Free Call" button, WhatsApp button in Contact
-- "How we work" process block, 3 anonymised portfolio entries, trimmed services/tech lists
-
-## Please review and edit (these use details I could not confirm)
-- src/components/Portfolio.jsx: confirm the 3 entries are accurate and OK to show; add real case studies
-- src/components/Team.jsx: bios are generic; put in your real ones; fill social links
-- src/components/Hero.jsx: "10+ projects delivered" came from your own About timeline; confirm
-- src/components/Technologies.jsx and Services.jsx: only keep what you can actually deliver
-- src/components/Contact.jsx: set BOOKING_URL (free Calendly/Cal.com) and the socials URLs
-- Consider a business email instead of a personal Gmail
-
-## Portfolio update
-- Added two live projects (futurasink.com, unicouuk.janshaurya.org) with "Visit live site" links. Descriptions use only what is visible on the public sites; edit them to match your actual role.
-- Removed the anonymised reporting entry (it overlapped with the UniCou card). Two anonymised entries remain (CRM, Flutter + Laravel).
+## Still needs you (cannot be done from source code)
+See the checklist in the chat reply: Search Console, Google Business Profile, GTM/GA4 tags, social profile URLs, booking link, real project screenshots.

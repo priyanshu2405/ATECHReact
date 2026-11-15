@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -98,6 +98,9 @@ const Navbar = () => {
                             </a>
                         </li>
                     ))}
+                    <li>
+                        <a href="/blog/" className="navbar__link">Blog</a>
+                    </li>
                     <li className="navbar__cta-mobile">
                         <button className="btn btn-primary" onClick={() => handleNavClick('#contact')}>
                             Get Started

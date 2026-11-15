@@ -1,16 +1,42 @@
-# React + Vite
+# Atech Infotech website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + Vite website for Atech Infotech.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm ci
+npm run dev
+```
 
-## React Compiler
+## Production build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm ci
+npm run build
+```
 
-## Expanding the ESLint configuration
+The build creates `dist/` and generates crawlable static HTML pages for each service under `dist/services/`, plus `sitemap.xml` and `robots.txt`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Service pages generated at build time
+
+- `/services/website-development/`
+- `/services/mobile-app-development/`
+- `/services/ecommerce-development/`
+- `/services/crm-erp-development/`
+- `/services/cloud-devops/`
+- `/services/seo-digital-marketing/`
+
+## Deployment notes
+
+Upload the **contents** of `dist/` to the document root of the hosting service that actually serves `atechinfotech.com`. Do not upload the source ZIP as the live website. Back up the current website and verify the hosting provider and deployment method before changing DNS or replacing production files.
+
+The current GoDaddy dashboard screenshots show a GoDaddy Airo/Website Builder connection. They do not prove that this React project is currently hosted in a cPanel account. Confirm the active hosting product before deployment.
+
+## Before launch
+
+- Confirm phone, email, office address, business hours and portfolio descriptions.
+- Confirm that the GTM container ID in `index.html` belongs to Atech Infotech and is configured correctly; otherwise remove it or replace it with the correct ID.
+- Test the contact form and confirm the Web3Forms access key and recipient settings.
+- Run a production build and test all routes, mobile layouts, forms and redirects.
+- Verify the domain in Google Search Console and submit `/sitemap.xml` after deployment.

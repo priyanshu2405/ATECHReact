@@ -10,6 +10,7 @@ const services = [
             </svg>
         ),
         title: 'Web Development',
+        slug: 'website-development',
         description: 'We build fast, scalable web applications and APIs with React, Node.js and Laravel.',
         features: ['React & Node.js', 'Laravel & APIs', 'Progressive Web Apps', 'SEO Optimized'],
         color: '#00c6ff',
@@ -23,6 +24,7 @@ const services = [
             </svg>
         ),
         title: 'Mobile App Development',
+        slug: 'mobile-app-development',
         description: 'Native and cross-platform mobile apps for iOS and Android that deliver exceptional user experiences and performance.',
         features: ['React Native', 'Flutter', 'iOS & Android', 'App Store Deployment'],
         color: '#7b2ff7',
@@ -35,6 +37,7 @@ const services = [
             </svg>
         ),
         title: 'Cloud & DevOps',
+        slug: 'cloud-devops',
         description: 'Deployment, CI/CD pipelines and hosting setup so your product runs reliably after launch.',
         features: ['Deployment', 'CI/CD Pipelines', 'Docker', 'Hosting Setup'],
         color: '#4cc9f0',
@@ -43,10 +46,38 @@ const services = [
     {
         icon: (
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H6" />
+                <circle cx="10" cy="20" r="1" /><circle cx="18" cy="20" r="1" />
+            </svg>
+        ),
+        title: 'Ecommerce Development',
+        slug: 'ecommerce-development',
+        description: 'Online stores with product catalogues, admin tools, checkout flows and integrations shaped around your business.',
+        features: ['Product & category management', 'Admin and order management', 'Payment integrations', 'Responsive storefronts'],
+        color: '#f4a261',
+        gradient: 'linear-gradient(135deg, rgba(244, 162, 97, 0.15), rgba(244, 162, 97, 0.05))',
+    },
+    {
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="11" cy="11" r="7" /><path d="m20 20-4-4M8 11h6M11 8v6" />
+            </svg>
+        ),
+        title: 'SEO & Digital Marketing',
+        slug: 'seo-digital-marketing',
+        description: 'Website-focused SEO, content structure and organic search improvements to help relevant customers discover your business.',
+        features: ['Technical SEO', 'On-page optimization', 'Keyword and content planning', 'Search visibility setup'],
+        color: '#f72585',
+        gradient: 'linear-gradient(135deg, rgba(247, 37, 133, 0.15), rgba(247, 37, 133, 0.05))',
+    },
+    {
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
             </svg>
         ),
         title: 'Custom CRM, ERP & Automation',
+        slug: 'crm-erp-development',
         description: 'Custom CRMs, ERPs and internal tools that replace spreadsheets and manual work with software built around how your business runs.',
         features: ['Custom CRM', 'ERP Solutions', 'Process Automation', 'API Integrations'],
         color: '#06d6a0',
@@ -89,9 +120,8 @@ const Services = () => {
                                 ))}
                             </ul>
                             <div className="service-card__footer">
-                                <a href="#contact" className="service-card__link" style={{ color: service.color }}
-                                    onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                                    Discuss a project
+                                <a href={service.slug ? `/services/${service.slug}/` : '#contact'} className="service-card__link" aria-label={`${service.slug ? `Learn more about ${service.title}` : `Discuss ${service.title}`} with Atech Infotech`} style={{ color: service.color }}>
+                                    {service.slug ? 'Explore service' : 'Discuss a project'}
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>

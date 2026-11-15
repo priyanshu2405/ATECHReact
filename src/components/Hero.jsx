@@ -8,17 +8,25 @@ const Hero = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas?.getContext('2d');
+        if (!canvas || !ctx) return;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let width, height;
 
         const resize = () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         };
         resize();
         window.addEventListener('resize', resize);
 
-        const NUM_PARTICLES = 80;
+        const NUM_PARTICLES = window.innerWidth < 640 ? 24 : window.innerWidth < 1024 ? 42 : 64;
         particlesRef.current = Array.from({ length: NUM_PARTICLES }, () => ({
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
@@ -65,7 +73,13 @@ const Hero = () => {
 
             animFrameRef.current = requestAnimationFrame(draw);
         };
-        draw();
+        if (reducedMotion) {
+            // Keep the decorative background static for visitors who request reduced motion.
+            ctx.clearRect(0, 0, width, height);
+            particlesRef.current.forEach((p) => { ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`; ctx.fill(); });
+        } else {
+            draw();
+        }
 
         return () => {
             window.removeEventListener('resize', resize);
@@ -89,19 +103,20 @@ const Hero = () => {
             <div className="container hero__content">
                 <div className="hero__badge">
                     <span className="hero__badge-dot"></span>
-                    Web &amp; mobile app development for startups
+                    Software development company in Indore, India
                 </div>
 
                 <h1 className="hero__title">
-                    Web &amp; Mobile Apps
+                    Websites, Apps &amp;
                     <span className="hero__title-highlight">
-                        <br />Built for Startups
+                        <br />Business Software
                     </span>
                 </h1>
 
                 <p className="hero__description">
-                    Atech Infotech designs and builds web apps, mobile apps and custom business software.
-                    Tell us what you want to launch and we will help you scope it, build it and ship it.
+                    Atech Infotech is an Indore-based software development company building business websites,
+                    ecommerce platforms, mobile apps, custom CRM and ERP systems, and SEO-ready digital experiences.
+                    Tell us what your business needs and we will help you plan, build and launch it.
                 </p>
 
                 <div className="hero__actions">

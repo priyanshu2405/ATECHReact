@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.atechinfotech.com/</loc></url>
+  <url><loc>https://www.atechinfotech.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.atechinfotech.com/services/website-development/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.atechinfotech.com/services/mobile-app-development/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.atechinfotech.com/services/ecommerce-development/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.atechinfotech.com/services/crm-erp-development/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.atechinfotech.com/services/cloud-devops/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.atechinfotech.com/services/seo-digital-marketing/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

@@ -1,0 +1,13 @@
+{
+  "name": "Atech Infotech",
+  "short_name": "Atech",
+  "description": "Website, ecommerce, mobile app and custom business software development in Indore, India.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#080b16",
+  "theme_color": "#080b16",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
