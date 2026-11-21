@@ -82,3 +82,12 @@ All prices on public pages show **"Request a quote"** until you replace these pl
 ## 5. Legal & Compliance Notice
 
 - [ ] **Privacy Policy & Terms of Service**: The templates provided at `/privacy-policy` and `/terms` are clean, reasonable starting templates. They **must be reviewed by a qualified legal professional** in your jurisdiction and target markets (UK GDPR, Canada PIPEDA, UAE Data Protection Law) before commercial deployment.
+
+---
+
+## 6. Regional Personalisation & Timezone Overlap (`src/data/regions.js`)
+
+- [ ] **UK Overlap Window**: `[TODO: overlap window in UK time]` (default displayed: "2:00 PM – 6:00 PM UK time (GMT/BST)"). Fill in your exact preferred overlap schedule.
+- [ ] **Canada Overlap Window**: `[TODO: overlap window]` (default displayed: "Morning Eastern Time (EST/EDT) calls"). Fill in your exact preferred overlap schedule.
+- [ ] **Regional Starting Rates**: Fill in starting figures in `src/data/pricing.js` for GBP (£), CAD ($), AED (د.إ), and USD ($) once finalized. Until filled, all cards safely show "Request a quote".
+

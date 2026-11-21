@@ -1,0 +1,84 @@
+/* ===== SUGGESTION BANNER ===== */
+.suggestion-banner {
+  background: linear-gradient(90deg, rgba(8, 26, 54, 0.96) 0%, rgba(20, 15, 45, 0.96) 100%);
+  border-bottom: 1px solid rgba(0, 198, 255, 0.25);
+  color: #f7f9ff;
+  font-size: 0.84rem;
+  padding: 8px 0;
+  position: relative;
+  z-index: 1002;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease-in-out;
+}
+
+.suggestion-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.suggestion-banner__content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  line-height: 1.4;
+}
+
+.suggestion-banner__flag {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.suggestion-banner__text {
+  color: #d1dcf0;
+  font-weight: 500;
+}
+
+.suggestion-banner__link {
+  color: #00c6ff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.suggestion-banner__link:hover,
+.suggestion-banner__link:focus {
+  color: #7b2ff7;
+  text-decoration: none;
+}
+
+.suggestion-banner__close {
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.suggestion-banner__close:hover,
+.suggestion-banner__close:focus {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .suggestion-banner {
+    font-size: 0.78rem;
+    padding: 6px 0;
+  }
+  .suggestion-banner__inner {
+    gap: 8px;
+  }
+}

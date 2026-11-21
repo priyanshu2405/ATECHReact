@@ -33,7 +33,20 @@ function App() {
                 <Navbar />
                 <main>
                     <Routes>
+                        {/* Canonical Global Homepage */}
                         <Route path="/" element={<HomePage />} />
+
+                        {/* Internal Regional Variant Routes (Edge Rewrites target these without URL redirect) */}
+                        <Route path="/v/uk" element={<HomePage region="uk" />} />
+                        <Route path="/v/uk/" element={<HomePage region="uk" />} />
+                        <Route path="/v/canada" element={<HomePage region="canada" />} />
+                        <Route path="/v/canada/" element={<HomePage region="canada" />} />
+                        <Route path="/v/uae" element={<HomePage region="uae" />} />
+                        <Route path="/v/uae/" element={<HomePage region="uae" />} />
+                        <Route path="/v/global" element={<HomePage region="global" />} />
+                        <Route path="/v/global/" element={<HomePage region="global" />} />
+
+                        {/* Core Pages */}
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/about/" element={<AboutPage />} />
                         <Route path="/contact" element={<ContactPage />} />
@@ -44,16 +57,21 @@ function App() {
                         <Route path="/work/" element={<WorkIndexPage />} />
                         <Route path="/work/:slug" element={<CaseStudyPage />} />
                         <Route path="/work/:slug/" element={<CaseStudyPage />} />
+
+                        {/* Standalone Target Market Landing Pages */}
                         <Route path="/uk" element={<MarketPage marketSlug="uk" />} />
                         <Route path="/uk/" element={<MarketPage marketSlug="uk" />} />
                         <Route path="/canada" element={<MarketPage marketSlug="canada" />} />
                         <Route path="/canada/" element={<MarketPage marketSlug="canada" />} />
                         <Route path="/dubai-uae" element={<MarketPage marketSlug="dubai-uae" />} />
                         <Route path="/dubai-uae/" element={<MarketPage marketSlug="dubai-uae" />} />
+
+                        {/* Legal */}
                         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                         <Route path="/privacy-policy/" element={<PrivacyPolicyPage />} />
                         <Route path="/terms" element={<TermsPage />} />
                         <Route path="/terms/" element={<TermsPage />} />
+
                         {/* Fallback to homepage */}
                         <Route path="*" element={<HomePage />} />
                     </Routes>

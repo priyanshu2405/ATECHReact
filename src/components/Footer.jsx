@@ -4,6 +4,7 @@ import config from '../data/config';
 import services from '../data/services';
 import markets from '../data/markets';
 import { trackWhatsAppClick } from '../analytics';
+import RegionSwitcher from './RegionSwitcher';
 
 const Footer = () => {
     return (
@@ -93,8 +94,11 @@ const Footer = () => {
 
             <div className="container footer__bottom">
                 <p>&copy; {new Date().getFullYear()} Atech Infotech. All rights reserved. Built with senior engineers in India, serving clients in the UK, Canada &amp; UAE.</p>
-                <div className="footer__bottom-flag">
-                    🇬🇧 UK &middot; 🇨🇦 Canada &middot; 🇦🇪 UAE &middot; 🇮🇳 India
+                <div className="footer__bottom-right">
+                    <RegionSwitcher variant="footer" />
+                    <div className="footer__bottom-flag">
+                        🇬🇧 UK &middot; 🇨🇦 Canada &middot; 🇦🇪 UAE &middot; 🇮🇳 India
+                    </div>
                 </div>
             </div>
         </footer>

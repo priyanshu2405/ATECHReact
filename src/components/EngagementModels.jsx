@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './EngagementModels.css';
 import { currencies, engagementModels, servicePricingRanges, formatPriceDisplay } from '../data/pricing';
 import { trackPricingView, trackBookingClick } from '../analytics';
 import config from '../data/config';
 
-const EngagementModels = ({ showServicesList = true }) => {
-    const [selectedCurrency, setSelectedCurrency] = useState('GBP');
+const EngagementModels = ({ showServicesList = true, defaultCurrency = 'GBP' }) => {
+    const [selectedCurrency, setSelectedCurrency] = useState(defaultCurrency);
+
+    useEffect(() => {
+        if (defaultCurrency) {
+            setSelectedCurrency(defaultCurrency);
+        }
+    }, [defaultCurrency]);
 
     const handleCurrencyChange = (code) => {
         setSelectedCurrency(code);
@@ -98,7 +104,7 @@ const EngagementModels = ({ showServicesList = true }) => {
                                         className={`btn ${model.popular ? 'btn-primary' : 'btn-ghost'} model-card__btn`}
                                         onClick={handleModelCTA}
                                     >
-                                        Choose {model.name}
+                                        Request a Scope &amp; Quote
                                     </button>
                                 </div>
                             </div>
@@ -106,36 +112,49 @@ const EngagementModels = ({ showServicesList = true }) => {
                     })}
                 </div>
 
-                {/* Optional Service Starting From Ranges */}
+                {/* Optional Service Pricing Ranges Table */}
                 {showServicesList && (
-                    <div className="pricing__services-breakdown">
+                    <div className="pricing__services-wrap glass-card">
                         <div className="pricing__services-header">
-                            <h3 className="pricing__services-title">Indicative Ranges by Service</h3>
+                            <h3 className="pricing__services-title">Starting Rates by Project Type ({selectedCurrency})</h3>
                             <p className="pricing__services-sub">
-                                Based on typical project scopes. Exact proposals are calculated upon review of your requirements.
+                                Indicative ranges based on technical scope. Every project receives an itemized milestone breakdown before work begins.
                             </p>
                         </div>
 
-                        <div className="pricing__services-grid">
-                            {servicePricingRanges.map((srv) => {
-                                const rawSrvPrice = srv.startingPrices[selectedCurrency];
-                                const displaySrvPrice = formatPriceDisplay(rawSrvPrice);
+                        <div className="pricing__table-container">
+                            <table className="pricing__table">
+                                <thead>
+                                    <tr>
+                                        <th>Project Type</th>
+                                        <th>Typical Scope</th>
+                                        <th>Starting From ({selectedCurrency})</th>
+                                        <th>Timeline</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {servicePricingRanges.map((srv) => {
+                                        const raw = srv.startingPrices?.[selectedCurrency] || srv.pricing?.[selectedCurrency] || '';
+                                        const formatted = formatPriceDisplay(raw);
+                                        const slug = srv.serviceSlug || srv.slug;
+                                        const name = srv.serviceName || srv.title;
+                                        const timeline = srv.timeline || srv.typicalTimeline;
 
-                                return (
-                                    <div className="pricing__service-item glass-card" key={srv.serviceSlug}>
-                                        <div className="pricing__service-info">
-                                            <h4 className="pricing__service-name">{srv.serviceName}</h4>
-                                            <p className="pricing__service-desc">{srv.description}</p>
-                                            <span className="pricing__service-timeline">⏱ {srv.timeline}</span>
-                                        </div>
-                                        <div className="pricing__service-price-wrap">
-                                            <span className="pricing__service-starting-lbl">Starting from</span>
-                                            <span className="pricing__service-price">{displaySrvPrice}</span>
-                                            <a href="#contact" className="pricing__service-quote-btn">Enquire →</a>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                        return (
+                                            <tr key={slug}>
+                                                <td className="pricing__td-name">
+                                                    <a href={`/services/${slug}/`}>{name}</a>
+                                                </td>
+                                                <td className="pricing__td-desc">{srv.description}</td>
+                                                <td className="pricing__td-price">
+                                                    <strong>{formatted}</strong>
+                                                </td>
+                                                <td className="pricing__td-timeline">{timeline}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 )}

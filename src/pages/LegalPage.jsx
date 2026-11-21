@@ -57,13 +57,29 @@ export const PrivacyPolicyPage = () => {
                         for business and accounting purposes.
                     </p>
 
-                    <h2>6. Your Rights</h2>
+                    <h2>6. Functional Cookies &amp; Regional Preferences</h2>
+                    <p>
+                        We use functional cookies to provide an optimized regional experience:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong><code>atech_region</code></strong>: A functional preference cookie stored for up to 180 days (SameSite=Lax) when you manually select a regional currency or market (UK, Canada, UAE, Global). It stores zero personal data or identifying information and is used strictly to display relevant regional currency and time-zone overlap information.
+                        </li>
+                        <li>
+                            <strong><code>atech_banner_dismissed_[region]</code></strong>: A functional cookie stored for up to 180 days to remember that you dismissed a country recommendation banner, avoiding repetitive notices.
+                        </li>
+                    </ul>
+                    <p>
+                        We do not log, persist, or store your IP address. Geolocation detection is performed in real-time at the edge (via Vercel Edge Middleware) solely to deliver the appropriate regional variant with zero tracking.
+                    </p>
+
+                    <h2>7. Your Rights</h2>
                     <p>
                         Depending on your location (including the UK, Canada, and EU), you may have the right to request access to,
                         rectification of, or deletion of your personal data held by us.
                     </p>
 
-                    <h2>7. Contact Information</h2>
+                    <h2>8. Contact Information</h2>
                     <p>
                         For any questions regarding this Privacy Policy or our data practices, please contact us at:
                         <br />

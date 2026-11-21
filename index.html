@@ -3,6 +3,30 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    window.addEventListener('error', function (e) {
+      console.error('GLOBAL JS ERROR:', e.error || e.message);
+      var b = document.getElementById('global-error-overlay');
+      if (!b) {
+        b = document.createElement('div');
+        b.id = 'global-error-overlay';
+        b.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:16px;z-index:999999;font-family:monospace;font-size:14px;white-space:pre-wrap;box-shadow:0 4px 12px rgba(0,0,0,0.5);';
+        document.body ? document.body.prepend(b) : document.documentElement.appendChild(b);
+      }
+      b.textContent = 'Global JS Error: ' + (e.message || e.error) + '\nat ' + (e.filename || '') + ':' + (e.lineno || '');
+    });
+    window.addEventListener('unhandledrejection', function (e) {
+      console.error('UNHANDLED REJECTION:', e.reason);
+      var b = document.getElementById('global-error-overlay');
+      if (!b) {
+        b = document.createElement('div');
+        b.id = 'global-error-overlay';
+        b.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#b91c1c;color:white;padding:16px;z-index:999999;font-family:monospace;font-size:14px;white-space:pre-wrap;box-shadow:0 4px 12px rgba(0,0,0,0.5);';
+        document.body ? document.body.prepend(b) : document.documentElement.appendChild(b);
+      }
+      b.textContent = 'Unhandled Promise Rejection: ' + (e.reason?.stack || e.reason);
+    });
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

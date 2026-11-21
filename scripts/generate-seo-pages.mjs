@@ -781,7 +781,8 @@ write('privacy-policy/index.html', head({
 <h2>1. Overview</h2><p>Atech Infotech respects your privacy and is committed to protecting your personal data when you visit our website or engage our software development services.</p>
 <h2>2. Information We Collect</h2><p>We collect contact information voluntarily provided through forms, technical specifications shared for project quotes, and anonymized analytics traffic data.</p>
 <h2>3. Purpose</h2><p>Data is used exclusively to prepare project estimates, fulfill software development contracts, and maintain system security.</p>
-<h2>4. Contact</h2><p>Email: ${EMAIL} | Address: 1782 Omaxe City-1, Indore, MP 452010, India</p>
+<h2>4. Functional Cookies</h2><p>We use essential and functional cookies, including <code>atech_region</code> (stores your country preference for up to 180 days with no personal data or IP tracking) and <code>atech_banner_dismissed_[region]</code> (remembers dismissals). No IP addresses are logged or stored.</p>
+<h2>5. Contact</h2><p>Email: ${EMAIL} | Address: 1782 Omaxe City-1, Indore, MP 452010, India</p>
 </div></section></main>` + footer);
 
 write('terms/index.html', head({
@@ -802,6 +803,64 @@ write('terms/index.html', head({
 <h2>3. Confidentiality</h2><p>We execute bilateral Non-Disclosure Agreements (NDAs) before reviewing confidential technical requirements.</p>
 </div></section></main>` + footer);
 
+// 8b. ---- REGIONAL HOMEPAGE VARIANTS (/v/uk, /v/canada, /v/uae)
+// Statically cached, noindex, canonical points to "/", excluded from sitemap, disallowed in robots.txt
+const regionalVariants = [
+  {
+    region: 'uk',
+    currency: 'GBP',
+    subheadline: 'We engineer custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups, with senior engineers, fixed-scope milestones and UK afternoon overlap.',
+    overlap: 'UK dedicated overlap: 2:00 PM – 6:00 PM UK time (GMT/BST) [TODO: overlap window in UK time]',
+    bannerText: 'Visiting from the UK? Explore our dedicated UK services & GDPR-aware builds.',
+    bannerLink: '/uk/'
+  },
+  {
+    region: 'canada',
+    currency: 'CAD',
+    subheadline: 'We build bespoke web applications, cross-platform mobile apps, and business systems for Canadian startups and growing businesses, with senior engineers, fixed-scope milestones and dedicated morning EST overlap.',
+    overlap: 'Canada dedicated overlap: Morning Eastern Time (EST/EDT) calls [TODO: overlap window]',
+    bannerText: 'Visiting from Canada? Explore our Canadian development services & PIPEDA-aware builds.',
+    bannerLink: '/canada/'
+  },
+  {
+    region: 'uae',
+    currency: 'AED',
+    subheadline: 'We engineer high-performance web applications, mobile apps, and custom CRM/ERP platforms for Dubai and UAE companies, with full working-day alignment, Arabic/RTL support, and AED billing.',
+    overlap: 'UAE near-full working day overlap: only 1.5h time difference (GST, UTC+4)',
+    bannerText: 'Visiting from the UAE? Explore our Dubai & UAE solutions with Arabic & VAT support.',
+    bannerLink: '/dubai-uae/'
+  }
+];
+
+const indexPath = path.join(out, 'index.html');
+if (fs.existsSync(indexPath)) {
+  const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+  for (const v of regionalVariants) {
+    let variantHtml = indexHtml;
+    // 1. Robots & Canonical: noindex, follow, canonical to root "/"
+    variantHtml = variantHtml.replace(
+      '<meta name="robots" content="index,follow,max-image-preview:large" />',
+      '<meta name="robots" content="noindex,follow" />'
+    );
+    variantHtml = variantHtml.replace(
+      '<meta name="googlebot" content="index,follow,max-image-preview:large" />',
+      '<meta name="googlebot" content="noindex,follow" />'
+    );
+
+    // 2. Inject Region metadata and window global
+    const regionInject = `<meta name="atech-region" content="${v.region}" />\n  <script>window.__ATECH_REGION__ = "${v.region}";</script>\n</head>`;
+    variantHtml = variantHtml.replace('</head>', regionInject);
+
+    // 3. Replace pre-rendered hero subtitle with region-tailored subtitle
+    const defaultSub = 'We design and build websites, ecommerce platforms, mobile apps, and custom CRM/ERP systems, with senior engineers, fixed-scope milestones and full code ownership.';
+    if (variantHtml.includes(defaultSub)) {
+      variantHtml = variantHtml.replace(defaultSub, v.subheadline);
+    }
+
+    write(`v/${v.region}/index.html`, variantHtml);
+  }
+}
+
 // 9. ---- 404 PAGE
 write('404.html', head({
   title: 'Page not found | Atech Infotech',
@@ -811,7 +870,7 @@ write('404.html', head({
 }).replace('content="index,follow,max-image-preview:large"', 'content="noindex,follow"') + `
 <main class="wrap"><section class="hero"><div class="eyebrow">Error 404</div><h1>Page not found</h1><p class="lead">That page does not exist or has moved. Try one of our services, case studies, or return to the homepage.</p><a class="cta" href="/">Go to homepage</a><a class="cta-ghost" href="/work/">View case studies</a><a class="cta-ghost" href="/blog/">Read the blog</a></section></main>` + footer);
 
-// 10. ---- SITEMAP & ROBOTS (Excludes drafts, includes all canonical public pages)
+// 10. ---- SITEMAP & ROBOTS (Excludes drafts & variants, includes all canonical public pages)
 const entries = [
   [`${base}/`, '1.0', 'weekly'],
   [`${base}/uk/`, '0.9', 'monthly'],
@@ -830,12 +889,13 @@ const entries = [
 ];
 
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map(([u, p, c]) => `  <url><loc>${u}</loc><lastmod>${today}</lastmod><changefreq>${c}</changefreq><priority>${p}</priority></url>`).join('\n')}\n</urlset>\n`);
-write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /404.html\n\nSitemap: ${base}/sitemap.xml\n`);
+write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /404.html\nDisallow: /v/\n\nSitemap: ${base}/sitemap.xml\n`);
 
 console.log(`Generated:
 - ${services.length} service pages
 - ${articles.length} articles & blog index
 - 3 international market pages (UK, Canada, UAE)
 - ${caseStudies.length} case studies & work index (drafts excluded)
+- 3 regional static variant pages (UK, Canada, UAE at /v/*) with noindex
 - Pricing, About, Contact, Privacy, Terms, 404.html
-- sitemap.xml (${entries.length} URLs) & robots.txt`);
+- sitemap.xml (${entries.length} URLs, /v/* excluded) & robots.txt (Disallow: /v/)`);

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import config from '../data/config';
 import { trackBookingClick } from '../analytics';
+import SuggestionBanner from './SuggestionBanner';
+import RegionSwitcher from './RegionSwitcher';
+import { detectClientRegion } from '../utils/region';
 
 const navItems = [
     { label: 'Services', href: '/#services' },
@@ -22,6 +25,11 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [marketsOpen, setMarketsOpen] = useState(false);
+    const [activeRegion, setActiveRegion] = useState('global');
+
+    useEffect(() => {
+        setActiveRegion(detectClientRegion());
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -93,97 +101,109 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-            <div className="container navbar__inner">
-                {/* Logo */}
-                <a href="/" className="navbar__logo">
-                    <div className="logo-icon">
-                        <span>A</span>
-                    </div>
-                    <div className="logo-text">
-                        <span className="logo-name">Atech</span>
-                        <span className="logo-tagline">Infotech</span>
-                    </div>
-                </a>
+        <header className="navbar-fixed-header">
+            {/* Country Personalisation Suggestion Banner */}
+            <SuggestionBanner region={activeRegion} />
 
-                {/* Mobile Backdrop */}
-                <div
-                    className={`navbar__backdrop ${menuOpen ? 'navbar__backdrop--open' : ''}`}
-                    onClick={() => setMenuOpen(false)}
-                    aria-hidden="true"
-                />
-
-                {/* Links */}
-                <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`} id="mobile-nav">
-                    {/* Markets Dropdown */}
-                    <li className="navbar__dropdown-wrapper">
-                        <button
-                            type="button"
-                            className="navbar__link navbar__dropdown-toggle"
-                            onClick={() => setMarketsOpen(!marketsOpen)}
-                            aria-expanded={marketsOpen}
-                        >
-                            <span>Markets</span>
-                            <span className="navbar__dropdown-arrow">▾</span>
-                        </button>
-                        <div className={`navbar__dropdown-menu ${marketsOpen ? 'navbar__dropdown-menu--open' : ''}`}>
-                            {marketLinks.map((m) => (
-                                <a
-                                    key={m.href}
-                                    href={m.href}
-                                    className="navbar__dropdown-item"
-                                    onClick={(e) => { e.preventDefault(); handleLinkClick(m.href); }}
-                                >
-                                    <span className="navbar__market-flag">{m.flag}</span>
-                                    <span>{m.label}</span>
-                                </a>
-                            ))}
+            <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+                <div className="container navbar__inner">
+                    {/* Logo */}
+                    <a href="/" className="navbar__logo">
+                        <div className="logo-icon">
+                            <span>A</span>
                         </div>
-                    </li>
+                        <div className="logo-text">
+                            <span className="logo-name">Atech</span>
+                            <span className="logo-tagline">Infotech</span>
+                        </div>
+                    </a>
 
-                    {navItems.map((item) => (
-                        <li key={item.label}>
-                            <a
-                                href={item.href}
-                                className="navbar__link"
-                                onClick={(e) => {
-                                    if (item.href.startsWith('/#')) {
-                                        e.preventDefault();
-                                    }
-                                    handleLinkClick(item.href);
-                                }}
+                    {/* Mobile Backdrop */}
+                    <div
+                        className={`navbar__backdrop ${menuOpen ? 'navbar__backdrop--open' : ''}`}
+                        onClick={() => setMenuOpen(false)}
+                        aria-hidden="true"
+                    />
+
+                    {/* Links */}
+                    <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`} id="mobile-nav">
+                        {/* Markets Dropdown */}
+                        <li className="navbar__dropdown-wrapper">
+                            <button
+                                type="button"
+                                className="navbar__link navbar__dropdown-toggle"
+                                onClick={() => setMarketsOpen(!marketsOpen)}
+                                aria-expanded={marketsOpen}
                             >
-                                {item.label}
-                            </a>
+                                <span>Markets</span>
+                                <span className="navbar__dropdown-arrow">▾</span>
+                            </button>
+                            <div className={`navbar__dropdown-menu ${marketsOpen ? 'navbar__dropdown-menu--open' : ''}`}>
+                                {marketLinks.map((m) => (
+                                    <a
+                                        key={m.href}
+                                        href={m.href}
+                                        className="navbar__dropdown-item"
+                                        onClick={(e) => { e.preventDefault(); handleLinkClick(m.href); }}
+                                    >
+                                        <span className="navbar__market-flag">{m.flag}</span>
+                                        <span>{m.label}</span>
+                                    </a>
+                                ))}
+                            </div>
                         </li>
-                    ))}
 
-                    <li className="navbar__cta-mobile">
-                        <button className="btn btn-primary" onClick={handleBooking}>
+                        {navItems.map((item) => (
+                            <li key={item.label}>
+                                <a
+                                    href={item.href}
+                                    className="navbar__link"
+                                    onClick={(e) => {
+                                        if (item.href.startsWith('/#')) {
+                                            e.preventDefault();
+                                        }
+                                        handleLinkClick(item.href);
+                                    }}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))}
+
+                        {/* Mobile Region Switcher */}
+                        <li className="navbar__switcher-mobile">
+                            <span className="navbar__switcher-mobile-label">Active Region:</span>
+                            <RegionSwitcher variant="mobile" />
+                        </li>
+
+                        <li className="navbar__cta-mobile">
+                            <button className="btn btn-primary" onClick={handleBooking}>
+                                Book a 30-Min Call
+                            </button>
+                        </li>
+                    </ul>
+
+                    {/* Actions on Desktop */}
+                    <div className="navbar__actions">
+                        <RegionSwitcher variant="header" />
+                        <button className="btn btn-primary navbar__cta" onClick={handleBooking}>
                             Book a 30-Min Call
                         </button>
-                    </li>
-                </ul>
-
-                {/* Actions on Desktop */}
-                <div className="navbar__actions">
-                    <button className="btn btn-primary navbar__cta" onClick={handleBooking}>
-                        Book a 30-Min Call
-                    </button>
-                    <button
-                        className={`hamburger ${menuOpen ? 'hamburger--open' : ''}`}
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-                        aria-expanded={menuOpen}
-                        aria-controls="mobile-nav"
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+                        <button
+                            className={`hamburger ${menuOpen ? 'hamburger--open' : ''}`}
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                            aria-expanded={menuOpen}
+                            aria-controls="mobile-nav"
+                        >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
     );
 };
 

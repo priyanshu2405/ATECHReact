@@ -10,12 +10,22 @@ import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import TrustSection from '../components/TrustSection';
 import homepageFaqs from '../data/faqs';
+import { getRegionConfig } from '../data/regions';
+import { detectClientRegion } from '../utils/region';
 
-const HomePage = () => {
+const HomePage = ({ region: propRegion }) => {
+    const activeRegion = propRegion || detectClientRegion();
+    const regionConfig = getRegionConfig(activeRegion);
+
+    const initialCountry = activeRegion === 'uk' ? 'UK'
+        : activeRegion === 'canada' ? 'Canada'
+        : activeRegion === 'uae' ? 'UAE'
+        : 'Other';
+
     return (
-        <div className="homepage">
+        <div className="homepage" data-region={activeRegion}>
             {/* Hero with Outcome-Focused Messaging & Real Facts Badges */}
-            <Hero />
+            <Hero region={activeRegion} />
 
             {/* 1. Core Services (CRM/ERP, Mobile App, Ecommerce leading) */}
             <Services />
@@ -29,8 +39,8 @@ const HomePage = () => {
             {/* 4. Selected Work (Case studies linking to /work/[slug]) */}
             <Portfolio />
 
-            {/* 5. Engagement Models & Starting Prices (Currency toggle) */}
-            <EngagementModels showServicesList={true} />
+            {/* 5. Engagement Models & Starting Prices (Currency tailored to region) */}
+            <EngagementModels showServicesList={true} defaultCurrency={regionConfig.currency} />
 
             {/* 6. Testimonials (Only renders if real entries exist in data file) */}
             <Testimonials />
@@ -45,6 +55,8 @@ const HomePage = () => {
             <Contact
                 title="Start Your Project Today"
                 subtitle="Book a free 30-min discovery call or send your requirements. We respond with a fixed milestone proposal within 24 hours."
+                region={activeRegion}
+                initialCountry={initialCountry}
             />
         </div>
     );

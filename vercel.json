@@ -13,8 +13,23 @@
       ]
     },
     {
+      "source": "/",
+      "headers": [
+        { "key": "Vary", "value": "x-vercel-ip-country, Cookie, User-Agent" }
+      ]
+    },
+    {
+      "source": "/v/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" },
+        { "key": "Vary", "value": "x-vercel-ip-country, Cookie, User-Agent" }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
     }
   ]
 }

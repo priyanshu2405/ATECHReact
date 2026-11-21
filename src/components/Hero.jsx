@@ -1,12 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 import config from '../data/config';
+import { getRegionConfig } from '../data/regions';
+import { detectClientRegion } from '../utils/region';
 import { trackWhatsAppClick, trackBookingClick } from '../analytics';
 
-const Hero = () => {
+const Hero = ({ region }) => {
     const canvasRef = useRef(null);
     const particlesRef = useRef([]);
     const animFrameRef = useRef(null);
+
+    const activeRegion = region || detectClientRegion();
+    const configRegion = getRegionConfig(activeRegion);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -109,8 +114,43 @@ const Hero = () => {
 
     const handleWhatsAppClick = () => {
         trackWhatsAppClick('hero');
-        window.open(config.getWhatsAppLink('Hi Atech Infotech, I would like to book a call / discuss a project.'), '_blank', 'noopener,noreferrer');
+        window.open(
+            config.getWhatsAppLink(`Hi Atech Infotech, I would like to discuss a software project for ${configRegion.name || 'my business'}.`),
+            '_blank',
+            'noopener,noreferrer'
+        );
     };
+
+    const isWhatsAppPrimary = configRegion.ctaOrder && configRegion.ctaOrder[0] === 'whatsapp';
+
+    const renderBookingCTA = (isPrimary) => (
+        <button
+            key="booking"
+            type="button"
+            className={`btn ${isPrimary ? 'btn-primary' : 'btn-ghost'} hero__btn hero__btn--primary`}
+            onClick={handleBookingClick}
+        >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            Book a Free 30-Min Call
+        </button>
+    );
+
+    const renderWhatsAppCTA = (isPrimary) => (
+        <button
+            key="whatsapp"
+            type="button"
+            className={`btn ${isPrimary ? 'btn-primary' : 'btn-ghost'} hero__btn hero__btn--whatsapp`}
+            onClick={handleWhatsAppClick}
+        >
+            <span className="hero__wa-icon" aria-hidden="true">💬</span>
+            WhatsApp Us
+        </button>
+    );
 
     return (
         <section className="hero" id="home">
@@ -136,54 +176,42 @@ const Hero = () => {
                         in the UK, Canada &amp; UAE
                     </h1>
 
-                    {/* Sub-headline */}
+                    {/* Sub-headline (Tailored per region) */}
                     <p className="hero__subtitle">
-                        We design and build websites, ecommerce platforms, mobile apps, and custom CRM/ERP systems,
-                        with senior engineers, fixed-scope milestones and full code ownership.
+                        {configRegion.heroSubheadline}
                     </p>
 
-                    {/* CTAs */}
+                    {/* CTAs (Tailored priority: UAE puts WhatsApp first; others put Booking first) */}
                     <div className="hero__actions">
-                        <button
-                            type="button"
-                            className="btn btn-primary hero__btn hero__btn--primary"
-                            onClick={handleBookingClick}
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                                <line x1="16" y1="2" x2="16" y2="6" />
-                                <line x1="8" y1="2" x2="8" y2="6" />
-                                <line x1="3" y1="10" x2="21" y2="10" />
-                            </svg>
-                            Book a Free 30-Min Call
-                        </button>
-
-                        <button
-                            type="button"
-                            className="btn btn-ghost hero__btn hero__btn--whatsapp"
-                            onClick={handleWhatsAppClick}
-                        >
-                            <span className="hero__wa-icon">💬</span>
-                            WhatsApp Us
-                        </button>
+                        {isWhatsAppPrimary ? (
+                            <>
+                                {renderWhatsAppCTA(true)}
+                                {renderBookingCTA(false)}
+                            </>
+                        ) : (
+                            <>
+                                {renderBookingCTA(true)}
+                                {renderWhatsAppCTA(false)}
+                            </>
+                        )}
                     </div>
 
                     {/* Badge Row of Real Facts Only */}
                     <div className="hero__facts-row">
                         <div className="hero__fact-item">
-                            <span className="hero__fact-icon">⭐</span>
+                            <span className="hero__fact-icon" aria-hidden="true">⭐</span>
                             <span className="hero__fact-text">15+ years of experience</span>
                         </div>
                         <div className="hero__fact-item">
-                            <span className="hero__fact-icon">📜</span>
+                            <span className="hero__fact-icon" aria-hidden="true">📜</span>
                             <span className="hero__fact-text">Full IP &amp; source code ownership</span>
                         </div>
                         <div className="hero__fact-item">
-                            <span className="hero__fact-icon">🔒</span>
+                            <span className="hero__fact-icon" aria-hidden="true">🔒</span>
                             <span className="hero__fact-text">NDA on request</span>
                         </div>
                         <div className="hero__fact-item">
-                            <span className="hero__fact-icon">🌐</span>
+                            <span className="hero__fact-icon" aria-hidden="true">🌐</span>
                             <span className="hero__fact-text">Overlap hours for UK / UAE / Canada</span>
                         </div>
                     </div>
