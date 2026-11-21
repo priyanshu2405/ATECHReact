@@ -1,0 +1,74 @@
+/* ===== BUSINESS HOURS OVERLAP BLOCK ===== */
+.business-hours-card {
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--dark-border);
+  background: var(--gradient-card);
+  margin-top: 24px;
+}
+
+.business-hours__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.business-hours__icon {
+  font-size: 1.8rem;
+}
+
+.business-hours__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.business-hours__sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.business-hours__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.business-hours__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.business-hours__flag {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.business-hours__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+}
+
+.business-hours__info strong {
+  color: var(--text-primary);
+}
+
+.business-hours__info span {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+@media (max-width: 680px) {
+  .business-hours__grid {
+    grid-template-columns: 1fr;
+  }
+}

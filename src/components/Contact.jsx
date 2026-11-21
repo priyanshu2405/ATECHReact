@@ -1,100 +1,136 @@
 import React, { useState } from 'react';
 import './Contact.css';
-import { track } from '../analytics';
+import config from '../data/config';
+import { trackContactSubmit, trackWhatsAppClick } from '../analytics';
+import BusinessHours from './BusinessHours';
 
-const BOOKING_URL = ''; // paste your free Calendly / Cal.com link here
-const socials = [
-    { label: 'LinkedIn', url: '' },
-    { label: 'GitHub', url: '' },
-    { label: 'Instagram', url: '' },
-]; // add real profile URLs; empty ones stay hidden
-
-const contactInfo = [
-    {
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
-            </svg>
-        ),
-        label: 'Headquarters',
-        value: '1782 Omaxe city-1 Indore, Madhya pradesh - 452010, India',
-        color: '#00c6ff',
-    },
-    {
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.93 3.29 2 2 0 0 1 3.92.7H7a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-        ),
-        label: 'Phone',
-        value: '+91 7678410628',
-        color: '#7b2ff7',
-    },
-    {
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
-            </svg>
-        ),
-        label: 'Email',
-        value: 'priyanshu.in@gmail.com',
-        color: '#f72585',
-    },
-    {
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-            </svg>
-        ),
-        label: 'Business Hours',
-        value: 'Mon–Fri: 9:00 AM – 7:00 PM IST',
-        color: '#4cc9f0',
-    },
+const countries = [
+    { code: 'UK', label: 'United Kingdom (UK)' },
+    { code: 'Canada', label: 'Canada' },
+    { code: 'UAE', label: 'United Arab Emirates (Dubai / UAE)' },
+    { code: 'Other', label: 'Other / Global' }
 ];
 
-const Contact = () => {
-    const [form, setForm] = useState({ name: '', email: '', service: '', message: '' });
+const projectTypes = [
+    'Custom CRM / ERP & Automation',
+    'Mobile App Development (Flutter / React Native)',
+    'Ecommerce & Storefronts',
+    'Website Development & Web Apps',
+    'Cloud Architecture & DevOps',
+    'Technical SEO Foundations',
+    'Other / Advisory'
+];
+
+const budgetRanges = [
+    'Under £5,000 / $8,500 CAD / 22,000 AED',
+    '£5,000 – £15,000 / $8,500 – $25,000 CAD',
+    '£15,000 – £30,000 / $25,000 – $50,000 CAD',
+    '£30,000+ / $50,000+ CAD / Enterprise'
+];
+
+const Contact = ({ initialCountry = '', title = 'Start Your Project', subtitle = 'Tell us what you want to build. We reply with a practical scope and milestone plan within 24 hours.' }) => {
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        company: '',
+        country: initialCountry || 'UK',
+        projectType: 'Custom CRM / ERP & Automation',
+        budget: '£5,000 – £15,000 / $8,500 – $25,000 CAD',
+        message: '',
+        consent: false,
+    });
+
+    const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [submitError, setSubmitError] = useState('');
 
-    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setForm({
+            ...form,
+            [name]: type === 'checkbox' ? checked : value
+        });
+        if (errors[name]) {
+            setErrors({ ...errors, [name]: '' });
+        }
+    };
+
+    const validate = () => {
+        const errs = {};
+        if (!form.name.trim()) errs.name = 'Please provide your name.';
+        if (!form.email.trim()) {
+            errs.email = 'Please provide your email address.';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+            errs.email = 'Please provide a valid email address.';
+        }
+        if (!form.message.trim()) errs.message = 'Please provide details about your project.';
+        if (!form.consent) errs.consent = 'You must accept the privacy policy to proceed.';
+        return errs;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Basic honeypot: ignore submissions that fill the hidden field.
-        if (e.currentTarget.elements.website_url?.value) return;
-        setLoading(true);
 
-        // Web3Forms submission logic
+        // Honeypot check
+        if (e.currentTarget.elements.website_url?.value) {
+            setSubmitted(true);
+            return;
+        }
+
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        setLoading(true);
+        setSubmitError('');
+
         const formData = new FormData();
-        // ⚠️ USER: Replace this with your actual Web3Forms Access Key
-        formData.append("access_key", "e6c3c45b-47a9-4bc8-95bb-c7da12ed2352");
-        formData.append("name", form.name);
-        formData.append("email", form.email);
-        formData.append("service", form.service);
-        formData.append("message", form.message);
-        formData.append("subject", "New Contact Form Submission!");
-        formData.append("from_name", "Atech Infotech Website");
+        const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || config.web3FormsKey;
+        formData.append('access_key', accessKey);
+        formData.append('name', form.name);
+        formData.append('email', form.email);
+        formData.append('company', form.company || 'Not specified');
+        formData.append('country', form.country);
+        formData.append('project_type', form.projectType);
+        formData.append('budget_range', form.budget);
+        formData.append('message', form.message);
+        formData.append('subject', `New Client Enquiry from ${form.country}: ${form.name}`);
+        formData.append('from_name', 'Atech Infotech Website');
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
                 body: formData
             });
 
             const data = await response.json();
 
             if (data.success) {
-                track('generate_lead', { lead_source: 'contact_form', service: form.service || 'not_selected' });
+                trackContactSubmit({
+                    lead_source: 'contact_form',
+                    country: form.country,
+                    service: form.projectType,
+                    budget: form.budget
+                });
                 setSubmitted(true);
-                setForm({ name: '', email: '', service: '', message: '' });
+                setForm({
+                    name: '',
+                    email: '',
+                    company: '',
+                    country: initialCountry || 'UK',
+                    projectType: 'Custom CRM / ERP & Automation',
+                    budget: '£5,000 – £15,000 / $8,500 – $25,000 CAD',
+                    message: '',
+                    consent: false,
+                });
             } else {
-                console.error("Form submission failed", data);
-                alert("Something went wrong. Please try again.");
+                setSubmitError('Submission could not be completed. Please chat with us on WhatsApp or email us directly.');
             }
-        } catch (error) {
-            console.error("Error submitting form", error);
-            alert("Something went wrong. Please try again.");
+        } catch {
+            setSubmitError('Network error. Please message us directly via WhatsApp or email.');
         } finally {
             setLoading(false);
         }
@@ -104,121 +140,233 @@ const Contact = () => {
         <section className="section contact" id="contact">
             <div className="container">
                 <div className="section-header">
-                    <div className="section-tag">Get In Touch</div>
+                    <div className="section-tag">Let's Connect</div>
                     <h2 className="section-title">
-                        Let's Build Something <span className="gradient-text">Amazing</span>
+                        {title.split(' ')[0]} <span className="gradient-text">{title.split(' ').slice(1).join(' ')}</span>
                     </h2>
-                    <p className="section-subtitle">
-                        Have a project in mind? Tell us what you want to build and we will reply by email.
-                    </p>
+                    <p className="section-subtitle">{subtitle}</p>
                 </div>
 
-                <div className="contact__grid">
-                    {/* Info Panel */}
+                <div className="contact__wrapper">
+                    {/* Left: Contact Info & Overlap windows */}
                     <div className="contact__info">
-                        <div className="contact__info-cards">
-                            {contactInfo.map((info) => (
-                                <div className="contact__info-card glass-card" key={info.label}>
-                                    <div className="contact__info-icon" style={{ color: info.color, background: `${info.color}15`, border: `1px solid ${info.color}30` }}>
-                                        {info.icon}
-                                    </div>
-                                    <div>
-                                        <p className="contact__info-label">{info.label}</p>
-                                        <p className="contact__info-value">{info.value}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <div className="contact__info-card glass-card">
+                            <h3 className="contact__info-heading">Direct Contact</h3>
+                            <p className="contact__info-desc">
+                                We work directly with founders, CTOs, and product managers.
+                                Reach out via form, email, or instant WhatsApp.
+                            </p>
 
-                        <a className="btn btn-primary" href="https://wa.me/917678410628?text=Hi%20Atech%20Infotech%2C%20I%20have%20a%20project%20to%20discuss." target="_blank" rel="noopener noreferrer" onClick={() => track('whatsapp_click', { location: 'contact_section' })}>Chat on WhatsApp</a>
-                        {BOOKING_URL && <a className="btn btn-ghost" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book a free call</a>}
-                        {socials.some((s) => s.url) && (<div className="contact__social glass-card">
-                            <p className="contact__social-title">Follow Us</p>
-                            <div className="contact__social-links">
-                                {socials.filter((s) => s.url).map((s) => (
-                                    <a href={s.url} key={s.label} target="_blank" rel="noopener noreferrer" className="contact__social-link">
-                                        {s.label}
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
-                                    </a>
-                                ))}
+                            <div className="contact__direct-links">
+                                <a
+                                    href={config.getWhatsAppLink('Hi Atech Infotech, I would like to discuss a project.')}
+                                    className="contact__direct-item"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => trackWhatsAppClick('contact_direct')}
+                                >
+                                    <span className="contact__direct-icon">💬</span>
+                                    <div>
+                                        <strong>WhatsApp (Fastest Response)</strong>
+                                        <span>+91 7678410628</span>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href={`mailto:${config.email}`}
+                                    className="contact__direct-item"
+                                >
+                                    <span className="contact__direct-icon">✉️</span>
+                                    <div>
+                                        <strong>Primary Email</strong>
+                                        <span>{config.email}</span>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href={`tel:${config.phone}`}
+                                    className="contact__direct-item"
+                                >
+                                    <span className="contact__direct-icon">📞</span>
+                                    <div>
+                                        <strong>Direct Telephone</strong>
+                                        <span>{config.phoneDisplay}</span>
+                                    </div>
+                                </a>
                             </div>
-                        </div>)}
+
+                            {/* Business Hours & Overlap */}
+                            <BusinessHours />
+                        </div>
                     </div>
 
-                    {/* Form Panel */}
-                    <div className="contact__form-wrap glass-card">
+                    {/* Right: Contact Form */}
+                    <div className="contact__form-card glass-card">
                         {submitted ? (
                             <div className="contact__success">
-                                <div className="contact__success-icon">✅</div>
-                                <h3>Message Sent!</h3>
-                                <p>Thank you! We will reply to your email soon.</p>
-                                <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Send Another</button>
+                                <div className="contact__success-icon">✓</div>
+                                <h3>Thank you! Message Received.</h3>
+                                <p>
+                                    Our senior team will review your project requirements and respond within 24 hours
+                                    with a clear milestone roadmap.
+                                </p>
+                                <button
+                                    type="button"
+                                    className="btn btn-ghost"
+                                    onClick={() => setSubmitted(false)}
+                                >
+                                    Send another message
+                                </button>
                             </div>
                         ) : (
-                            <form className="contact__form" onSubmit={handleSubmit}>
-                                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
-                                    <label htmlFor="website_url">Leave this field empty</label>
-                                    <input id="website_url" name="website_url" type="text" tabIndex={-1} autoComplete="off" />
-                                </div>
-                                <h3 className="contact__form-title">Send Us a Message</h3>
+                            <form className="contact__form" onSubmit={handleSubmit} noValidate>
+                                {/* Honeypot */}
+                                <input
+                                    type="text"
+                                    name="website_url"
+                                    style={{ display: 'none' }}
+                                    tabIndex="-1"
+                                    autoComplete="off"
+                                />
 
-                                <div className="contact__form-row">
-                                    <div className="contact__field">
-                                        <label htmlFor="name">Full Name</label>
+                                <div className="form-group-row">
+                                    <div className="form-group">
+                                        <label htmlFor="name">Your Name *</label>
                                         <input
+                                            type="text"
                                             id="name"
                                             name="name"
-                                            type="text"
-                                            placeholder="John Doe"
                                             value={form.name}
                                             onChange={handleChange}
-                                            required
+                                            placeholder="John Doe"
+                                            className={errors.name ? 'input--error' : ''}
                                         />
+                                        {errors.name && <span className="field-error">{errors.name}</span>}
                                     </div>
-                                    <div className="contact__field">
-                                        <label htmlFor="email">Email Address</label>
+
+                                    <div className="form-group">
+                                        <label htmlFor="email">Work Email *</label>
                                         <input
+                                            type="email"
                                             id="email"
                                             name="email"
-                                            type="email"
-                                            placeholder="john@company.com"
                                             value={form.email}
                                             onChange={handleChange}
-                                            required
+                                            placeholder="john@company.com"
+                                            className={errors.email ? 'input--error' : ''}
                                         />
+                                        {errors.email && <span className="field-error">{errors.email}</span>}
                                     </div>
                                 </div>
-                                <div className="contact__field">
-                                    <label htmlFor="service">Service Interested In</label>
-                                    <select id="service" name="service" value={form.service} onChange={handleChange} required>
-                                        <option value="">Select a service...</option>
-                                        <option>Web Development</option>
-                                        <option>Mobile App Development</option>
-                                        <option>Custom CRM, ERP &amp; Automation</option>
-                                        <option>Ecommerce Development</option>
-                                        <option>SEO &amp; Digital Marketing</option>
-                                        <option>Cloud &amp; DevOps</option>
-                                        <option>Not sure yet</option>
-                                    </select>
+
+                                <div className="form-group-row">
+                                    <div className="form-group">
+                                        <label htmlFor="company">Company / Organization</label>
+                                        <input
+                                            type="text"
+                                            id="company"
+                                            name="company"
+                                            value={form.company}
+                                            onChange={handleChange}
+                                            placeholder="Company Ltd"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="country">Your Location / Country *</label>
+                                        <select
+                                            id="country"
+                                            name="country"
+                                            value={form.country}
+                                            onChange={handleChange}
+                                        >
+                                            {countries.map((c) => (
+                                                <option key={c.code} value={c.code}>
+                                                    {c.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
                                 </div>
-                                <div className="contact__field">
-                                    <label htmlFor="message">Your Message</label>
+
+                                <div className="form-group-row">
+                                    <div className="form-group">
+                                        <label htmlFor="projectType">Service / Project Type</label>
+                                        <select
+                                            id="projectType"
+                                            name="projectType"
+                                            value={form.projectType}
+                                            onChange={handleChange}
+                                        >
+                                            {projectTypes.map((pt) => (
+                                                <option key={pt} value={pt}>
+                                                    {pt}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="budget">Target Budget Range</label>
+                                        <select
+                                            id="budget"
+                                            name="budget"
+                                            value={form.budget}
+                                            onChange={handleChange}
+                                        >
+                                            {budgetRanges.map((b) => (
+                                                <option key={b} value={b}>
+                                                    {b}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="message">Project Overview &amp; Goals *</label>
                                     <textarea
                                         id="message"
                                         name="message"
-                                        rows="5"
-                                        placeholder="Tell us about your project..."
+                                        rows="4"
                                         value={form.message}
                                         onChange={handleChange}
-                                        required
-                                    ></textarea>
+                                        placeholder="Briefly describe what you are looking to build, any key integrations, and your desired launch timeline..."
+                                        className={errors.message ? 'input--error' : ''}
+                                    />
+                                    {errors.message && <span className="field-error">{errors.message}</span>}
                                 </div>
-                                <button type="submit" className="btn btn-primary contact__submit" disabled={loading}>
-                                    {loading ? (
-                                        <><span className="spinner"></span> Sending...</>
-                                    ) : (
-                                        <><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg> Send Message</>
-                                    )}
+
+                                <div className="form-group form-group--checkbox">
+                                    <label className="checkbox-label">
+                                        <input
+                                            type="checkbox"
+                                            name="consent"
+                                            checked={form.consent}
+                                            onChange={handleChange}
+                                        />
+                                        <span>
+                                            I agree to the processing of my contact information according to the{' '}
+                                            <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer">
+                                                Privacy Policy
+                                            </a>. (NDA available on request).
+                                        </span>
+                                    </label>
+                                    {errors.consent && <span className="field-error">{errors.consent}</span>}
+                                </div>
+
+                                {submitError && (
+                                    <div className="form-submit-error">
+                                        {submitError}
+                                    </div>
+                                )}
+
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary contact__submit-btn"
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Submitting...' : 'Send Project Enquiry →'}
                                 </button>
                             </form>
                         )}

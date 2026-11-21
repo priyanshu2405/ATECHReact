@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import config from '../data/config';
+import { trackBookingClick } from '../analytics';
+
+const navItems = [
+    { label: 'Services', href: '/#services' },
+    { label: 'Work', href: '/work/' },
+    { label: 'Pricing', href: '/pricing/' },
+    { label: 'About', href: '/about/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'Contact', href: '/#contact' },
+];
+
+const marketLinks = [
+    { label: 'United Kingdom (UK)', href: '/uk/', flag: '🇬🇧' },
+    { label: 'Canada', href: '/canada/', flag: '🇨🇦' },
+    { label: 'Dubai / UAE', href: '/dubai-uae/', flag: '🇦🇪' },
+];
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('home');
-
-    const navLinks = [
-        { label: 'Home', href: '#home' },
-        { label: 'Services', href: '#services' },
-        { label: 'About', href: '#about' },
-        { label: 'Portfolio', href: '#portfolio' },
-        { label: 'Technologies', href: '#technologies' },
-        { label: 'Team', href: '#team' },
-        { label: 'Contact', href: '#contact' },
-    ];
+    const [marketsOpen, setMarketsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-            const sections = navLinks.map(l => l.href.replace('#', ''));
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const el = document.getElementById(sections[i]);
-                if (el && window.scrollY >= el.offsetTop - 120) {
-                    setActiveSection(sections[i]);
-                    break;
-                }
-            }
+            setScrolled(window.scrollY > 40);
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
@@ -47,10 +46,16 @@ const Navbar = () => {
     // Close on Escape or screen resize to desktop
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (e.key === 'Escape') setMenuOpen(false);
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
+                setMarketsOpen(false);
+            }
         };
         const handleResize = () => {
-            if (window.innerWidth > 768) setMenuOpen(false);
+            if (window.innerWidth > 900) {
+                setMenuOpen(false);
+                setMarketsOpen(false);
+            }
         };
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('resize', handleResize);
@@ -60,16 +65,38 @@ const Navbar = () => {
         };
     }, []);
 
-    const handleNavClick = (href) => {
+    const handleLinkClick = (href) => {
         setMenuOpen(false);
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        setMarketsOpen(false);
+        if (href.startsWith('/#')) {
+            const id = href.replace('/#', '');
+            if (window.location.pathname === '/' || window.location.pathname === '') {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                    return;
+                }
+            }
+            window.location.href = href;
+        } else {
+            window.location.href = href;
+        }
+    };
+
+    const handleBooking = () => {
+        trackBookingClick('navbar');
+        if (config.bookingUrl) {
+            window.open(config.bookingUrl, '_blank', 'noopener,noreferrer');
+        } else {
+            handleLinkClick('/#contact');
+        }
     };
 
     return (
         <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
             <div className="container navbar__inner">
-                <a href="#home" className="navbar__logo" onClick={() => handleNavClick('#home')}>
+                {/* Logo */}
+                <a href="/" className="navbar__logo">
                     <div className="logo-icon">
                         <span>A</span>
                     </div>
@@ -86,36 +113,67 @@ const Navbar = () => {
                     aria-hidden="true"
                 />
 
+                {/* Links */}
                 <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`} id="mobile-nav">
-                    {navLinks.map((link) => (
-                        <li key={link.label}>
+                    {/* Markets Dropdown */}
+                    <li className="navbar__dropdown-wrapper">
+                        <button
+                            type="button"
+                            className="navbar__link navbar__dropdown-toggle"
+                            onClick={() => setMarketsOpen(!marketsOpen)}
+                            aria-expanded={marketsOpen}
+                        >
+                            <span>Markets</span>
+                            <span className="navbar__dropdown-arrow">▾</span>
+                        </button>
+                        <div className={`navbar__dropdown-menu ${marketsOpen ? 'navbar__dropdown-menu--open' : ''}`}>
+                            {marketLinks.map((m) => (
+                                <a
+                                    key={m.href}
+                                    href={m.href}
+                                    className="navbar__dropdown-item"
+                                    onClick={(e) => { e.preventDefault(); handleLinkClick(m.href); }}
+                                >
+                                    <span className="navbar__market-flag">{m.flag}</span>
+                                    <span>{m.label}</span>
+                                </a>
+                            ))}
+                        </div>
+                    </li>
+
+                    {navItems.map((item) => (
+                        <li key={item.label}>
                             <a
-                                href={link.href}
-                                className={`navbar__link ${activeSection === link.href.replace('#', '') ? 'active' : ''}`}
-                                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                                href={item.href}
+                                className="navbar__link"
+                                onClick={(e) => {
+                                    if (item.href.startsWith('/#')) {
+                                        e.preventDefault();
+                                    }
+                                    handleLinkClick(item.href);
+                                }}
                             >
-                                {link.label}
+                                {item.label}
                             </a>
                         </li>
                     ))}
-                    <li>
-                        <a href="/blog/" className="navbar__link">Blog</a>
-                    </li>
+
                     <li className="navbar__cta-mobile">
-                        <button className="btn btn-primary" onClick={() => handleNavClick('#contact')}>
-                            Get Started
+                        <button className="btn btn-primary" onClick={handleBooking}>
+                            Book a 30-Min Call
                         </button>
                     </li>
                 </ul>
 
+                {/* Actions on Desktop */}
                 <div className="navbar__actions">
-                    <button className="btn btn-primary navbar__cta" onClick={() => handleNavClick('#contact')}>
-                        Get Started
+                    <button className="btn btn-primary navbar__cta" onClick={handleBooking}>
+                        Book a 30-Min Call
                     </button>
                     <button
                         className={`hamburger ${menuOpen ? 'hamburger--open' : ''}`}
                         onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label={menuOpen ? "Close menu" : "Open menu"}
+                        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={menuOpen}
                         aria-controls="mobile-nav"
                     >

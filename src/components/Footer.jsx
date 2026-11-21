@@ -1,27 +1,17 @@
 import React from 'react';
 import './Footer.css';
+import config from '../data/config';
+import services from '../data/services';
+import markets from '../data/markets';
+import { trackWhatsAppClick } from '../analytics';
 
 const Footer = () => {
-    const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-
     return (
         <footer className="footer">
-            <div className="footer__top">
-                <div className="container footer__top-inner">
-                    <p className="footer__cta-label">Ready to build something great?</p>
-                    <h2 className="footer__cta-title">
-                        Start Your <span className="gradient-text">Project Today</span>
-                    </h2>
-                    <button className="btn btn-primary footer__cta-btn" onClick={() => scrollTo('contact')}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                        Get a Free Consultation
-                    </button>
-                </div>
-            </div>
-
             <div className="container footer__main">
+                {/* Brand & International Overview */}
                 <div className="footer__brand">
-                    <a href="#home" className="footer__logo" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>
+                    <a href="/" className="footer__logo">
                         <div className="logo-icon"><span>A</span></div>
                         <div className="logo-text">
                             <span className="logo-name">Atech</span>
@@ -29,50 +19,82 @@ const Footer = () => {
                         </div>
                     </a>
                     <p className="footer__brand-desc">
-                        Web apps, mobile apps and custom software for startups and growing businesses.
-                        Based in Indore, India, since 2024.
+                        Bespoke web applications, cross-platform mobile apps, and custom CRM/ERP platforms
+                        for growing businesses in the UK, Canada, UAE, and worldwide.
                     </p>
-                    <div className="footer__certifications">
-                        {/* {['ISO 9001', 'ISO 27001', 'AWS Partner', 'Google Cloud'].map((c) => (
-                            <span key={c} className="footer__cert-badge">{c}</span>
-                        ))} */}
+                    <p className="footer__address-line">
+                        <strong>Headquarters:</strong> {config.address.fullFormatted}
+                    </p>
+                    <div className="footer__contact-direct">
+                        <a href={`mailto:${config.email}`} className="footer__contact-link">
+                            ✉️ {config.email}
+                        </a>
+                        <a href={`tel:${config.phone}`} className="footer__contact-link">
+                            📞 {config.phoneDisplay}
+                        </a>
+                        <a
+                            href={config.getWhatsAppLink()}
+                            className="footer__contact-link footer__contact-link--wa"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackWhatsAppClick('footer')}
+                        >
+                            💬 WhatsApp Us
+                        </a>
                     </div>
                 </div>
 
+                {/* Services Column */}
                 <div className="footer__links-group">
                     <h4>Services</h4>
                     <ul>
-                        {[['Website Development', 'website-development'], ['Mobile App Development', 'mobile-app-development'], ['Ecommerce Development', 'ecommerce-development'], ['Custom CRM & ERP', 'crm-erp-development'], ['Cloud & DevOps', 'cloud-devops'], ['SEO & Digital Marketing', 'seo-digital-marketing']].map(([label, slug]) => (
-                            <li key={slug}><a href={`/services/${slug}/`}>{label}</a></li>
+                        {services.map((s) => (
+                            <li key={s.slug}>
+                                <a href={`/services/${s.slug}/`}>{s.shortTitle || s.nav}</a>
+                            </li>
                         ))}
                     </ul>
                 </div>
 
+                {/* International Markets */}
                 <div className="footer__links-group">
-                    <h4>Company</h4>
+                    <h4>Target Markets</h4>
                     <ul>
-                        {[['About Us', 'about'], ['Portfolio', 'portfolio'], ['Our Team', 'team'], ['Contact', 'contact']].map(([label, id]) => (
-                            <li key={label}><a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); }}>{label}</a></li>
+                        {markets.map((m) => (
+                            <li key={m.slug}>
+                                <a href={m.path}>
+                                    <span style={{ marginRight: '6px' }}>{m.hero.eyebrow.includes('UK') ? '🇬🇧' : m.hero.eyebrow.includes('Canada') ? '🇨🇦' : '🇦🇪'}</span>
+                                    {m.countryName}
+                                </a>
+                            </li>
                         ))}
-                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/work/">Case Studies (/work)</a></li>
+                        <li><a href="/pricing/">Pricing &amp; Rates</a></li>
+                        <li><a href="/blog/">Guides &amp; Articles</a></li>
                     </ul>
                 </div>
 
+                {/* Company & Legal */}
                 <div className="footer__links-group">
-                    <h4>Technologies</h4>
+                    <h4>Company &amp; Legal</h4>
                     <ul>
-                        {['React.js', 'Node.js', 'Laravel', 'Flutter'].map((t) => (
-                            <li key={t}><a href="#technologies" onClick={(e) => { e.preventDefault(); scrollTo('technologies'); }}>{t}</a></li>
-                        ))}
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/terms/">Terms of Service</a></li>
                     </ul>
+
+                    {/* Socials if configured */}
+                    <div className="footer__socials-note">
+                        <small style={{ color: 'var(--text-muted)' }}>15+ Years Senior Engineering</small>
+                    </div>
                 </div>
             </div>
 
             <div className="container footer__bottom">
-                <p>&copy; {new Date().getFullYear()} Atech Infotech. All rights reserved.</p>
-                
+                <p>&copy; {new Date().getFullYear()} Atech Infotech. All rights reserved. Built with senior engineers in India, serving clients in the UK, Canada &amp; UAE.</p>
                 <div className="footer__bottom-flag">
-                    Made with ❤️ in India 🇮🇳
+                    🇬🇧 UK &middot; 🇨🇦 Canada &middot; 🇦🇪 UAE &middot; 🇮🇳 India
                 </div>
             </div>
         </footer>

@@ -1,0 +1,223 @@
+/* ===== ABOUT PAGE ===== */
+.about-page {
+  padding-top: 80px;
+}
+
+.about-hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 20%, rgba(0, 198, 255, 0.08) 0%, transparent 60%);
+}
+
+.about-hero__badge {
+  display: inline-flex;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 198, 255, 0.08);
+  border: 1px solid rgba(0, 198, 255, 0.25);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #00c6ff;
+  margin-bottom: 20px;
+}
+
+.about-hero__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-hero__subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About Story */
+.about-story__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-story__p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.about-story__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 40px 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--dark-border);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-stat__num {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #00c6ff;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.about-stat__label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Founder Section */
+.founder-card {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--dark-border);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.founder-card__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00c6ff, #7b2ff7);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0, 198, 255, 0.4);
+}
+
+.founder-card__tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #00c6ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.founder-card__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 4px 0 2px;
+  color: var(--text-primary);
+}
+
+.founder-card__title {
+  font-size: 0.95rem;
+  color: #4cc9f0;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.founder-card__bio {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* International Grid */
+.about-intl__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.about-intl__card {
+  padding: 28px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--dark-border);
+}
+
+.about-intl__icon {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.about-intl__card h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.about-intl__card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Values Grid */
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.about-value-card {
+  padding: 30px 26px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--dark-border);
+}
+
+.about-value-card__icon {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.about-value-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.about-value-card__desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .about-story__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-intl__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .founder-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-intl__grid,
+  .about-values__grid {
+    grid-template-columns: 1fr;
+  }
+}
