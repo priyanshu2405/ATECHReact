@@ -7,7 +7,7 @@ No real statistics, prices, client identities, certifications, or testimonials h
 
 ## 1. Business & Contact Configuration (`src/data/config.js`)
 
-- [ ] **Email**: `[TODO: hello@atechinfotech.com, a domain email]` (currently configured to default fallback)
+- [x] **Email**: `priyanshu@atechinfotech.com` (Official domain email configured)
 - [ ] **Booking URL**: `[TODO: Calendly/Cal.com link]` (e.g. `https://calendly.com/atechinfotech/discovery` or `https://cal.com/atechinfotech/30min`)
 - [ ] **Canada Overlap Window**: `[TODO: Canada timezone overlap window]` (e.g. "Canada (EST): 8:00 AM – 11:30 AM EST" or similar based on your preferred shift)
 - [ ] **Founder Section**:

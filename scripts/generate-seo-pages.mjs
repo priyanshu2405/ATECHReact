@@ -6,7 +6,7 @@ const out = path.join(root, 'dist');
 const base = 'https://www.atechinfotech.com';
 const today = new Date().toISOString().slice(0, 10);
 const PHONE = '+91 7678410628';
-const EMAIL = 'priyanshu.in@gmail.com';
+const EMAIL = 'priyanshu@atechinfotech.com';
 const ogImage = `${base}/og-image.png`;
 
 // Services with updated international priority ordering

@@ -13,7 +13,7 @@ export const config = {
   // Contact details
   phone: '+91 7678410628',
   phoneDisplay: '+91 7678410628',
-  email: 'priyanshu.in@gmail.com', // Active primary contact email
+  email: 'priyanshu@atechinfotech.com', // Official domain contact email
   domainEmailPlaceholder: '[TODO: hello@atechinfotech.com, a domain email]',
   
   // WhatsApp: link format https://wa.me/<number without + or spaces>
