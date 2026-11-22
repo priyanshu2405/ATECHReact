@@ -125,7 +125,7 @@ export const TermsPage = () => {
 
                     <h2>3. Intellectual Property &amp; Code Ownership</h2>
                     <p>
-                        Unless expressly agreed otherwise in writing: upon receipt of full payment for an agreed milestone or project,
+                        Unless expressly agreed otherwise in writing: upon full payment of the relevant invoices,
                         all custom source code, documentation, and digital assets developed specifically for the client are assigned
                         100% to the client. Atech Infotech retains no proprietary lock-in.
                     </p>

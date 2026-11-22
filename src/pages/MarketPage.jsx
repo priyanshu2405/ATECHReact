@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MarketPage.css';
 import { getMarketBySlug } from '../data/markets';
 import FAQ from '../components/FAQ';
@@ -11,6 +11,27 @@ const MarketPage = ({ marketSlug }) => {
     // If not passed as prop, infer from URL
     const slug = marketSlug || window.location.pathname.replace(/^\/|\/$/g, '');
     const market = getMarketBySlug(slug) || getMarketBySlug('uk');
+
+    // Keep India unpublished as noindex until official release
+    useEffect(() => {
+        if (market.slug === 'india') {
+            let meta = document.querySelector('meta[name="robots"]');
+            const originalContent = meta ? meta.getAttribute('content') : null;
+            if (meta) {
+                meta.setAttribute('content', 'noindex,follow');
+            } else {
+                meta = document.createElement('meta');
+                meta.name = 'robots';
+                meta.content = 'noindex,follow';
+                document.head.appendChild(meta);
+            }
+            return () => {
+                if (meta && originalContent) {
+                    meta.setAttribute('content', originalContent);
+                }
+            };
+        }
+    }, [market.slug]);
 
     const handleBooking = () => {
         trackBookingClick(`market_${market.slug}`);
@@ -67,7 +88,7 @@ const MarketPage = ({ marketSlug }) => {
                                     className="btn btn-ghost market-hero__btn"
                                     onClick={handleBooking}
                                 >
-                                    {config.bookingUrl ? `Book a 30-Min Call (${market.currency})` : `Request a Call (${market.currency})`}
+                                    Book a 30-min call
                                 </button>
                             </>
                         ) : (
@@ -77,7 +98,7 @@ const MarketPage = ({ marketSlug }) => {
                                     className="btn btn-primary market-hero__btn"
                                     onClick={handleBooking}
                                 >
-                                    {config.bookingUrl ? `Book a 30-Min Call (${market.currency})` : `Request a Call (${market.currency})`}
+                                    Book a 30-min call
                                 </button>
                                 <button
                                     type="button"

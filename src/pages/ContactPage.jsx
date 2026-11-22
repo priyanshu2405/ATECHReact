@@ -13,7 +13,7 @@ const ContactPage = () => {
                         Let's Plan Your <span className="gradient-text">Next Software Milestone</span>
                     </h1>
                     <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--text-secondary)', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
-                        Direct access to senior software architects. Complete the brief below or contact us via WhatsApp for instant scheduling.
+                        Direct access to our team. Complete the brief below or contact us via WhatsApp for instant scheduling.
                     </p>
                 </div>
             </section>

@@ -66,12 +66,12 @@ export const regions = {
     flag: '🇦🇪',
     currency: 'AED',
     currencySymbol: 'AED ',
-    heroSubheadline: 'We engineer high-performance web applications, mobile apps, and custom CRM/ERP platforms for Dubai and UAE companies, with full working-day alignment, Arabic/RTL support, and AED billing.',
+    heroSubheadline: 'We engineer high-performance web applications, mobile apps, and custom CRM/ERP platforms for Dubai and UAE companies, with full working-day alignment, RTL-ready architecture, and AED billing.',
     ctaOrder: ['whatsapp', 'booking'], // WhatsApp first, booking second
     overlapHours: 'UAE near-full working day overlap: only 1.5h time difference (GST, UTC+4)',
     marketPath: '/dubai-uae/',
     banner: {
-      text: 'Visiting from the UAE? Explore our Dubai & UAE solutions with Arabic & VAT support.',
+      text: 'Visiting from the UAE? Explore our Dubai & UAE solutions with VAT-ready billing & integrations.',
       linkText: 'See UAE Page →',
       linkUrl: '/dubai-uae/'
     }
@@ -88,11 +88,7 @@ export const regions = {
     ctaOrder: ['whatsapp', 'booking'], // WhatsApp first, booking second
     overlapHours: 'Same time zone (IST): full working-day overlap',
     marketPath: '/india/',
-    banner: {
-      text: 'Visiting from India? See our dedicated India page.',
-      linkText: 'See India Page →',
-      linkUrl: '/india/'
-    }
+    banner: null
   }
 };
 

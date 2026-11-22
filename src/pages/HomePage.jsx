@@ -55,7 +55,7 @@ const HomePage = ({ region: propRegion }) => {
             {/* 8. Final CTA & Full Contact Form */}
             <Contact
                 title="Start Your Project Today"
-                subtitle="Request a call or send your requirements. We respond with a fixed milestone proposal within 1 business day."
+                subtitle="Book a 30-min call or send your requirements. We respond with a fixed milestone proposal within 1 business day."
                 region={activeRegion}
                 initialCountry={initialCountry}
             />

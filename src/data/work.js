@@ -40,14 +40,12 @@ export const caseStudies = [
     techStack: ['React.js', 'Node.js', 'Vite', 'CSS3 Modern Layouts', 'WhatsApp Web API'],
     results: [
       'Delivered a fully responsive digital catalogue accessible on all modern devices',
-      'Streamlined customer enquiries directly to the sales desk via instant WhatsApp routing',
-      '[TODO: result/metric: % increase in distributor catalogue enquiries or pageviews since launch]'
+      'Streamlined customer enquiries directly to the sales desk via instant WhatsApp routing'
     ],
     metrics: [
       { label: 'Platform Availability', value: '99.9%' },
       { label: 'Enquiry Flow', value: 'Direct WhatsApp' },
-      { label: 'Catalogue Access', value: 'Instant PDF' },
-      { label: 'Client Metric', value: '[TODO: metric]' }
+      { label: 'Catalogue Access', value: 'Instant PDF' }
     ],
     testimonial: null,
     // Stored client metadata (activated only when permission === 'named')
@@ -86,14 +84,12 @@ export const caseStudies = [
     techStack: ['React.js', 'Node.js', 'REST API Backend', 'Secure Session Management'],
     results: [
       'Reduced manual verification overhead for international voucher orders',
-      'Enabled registered education agents to order multiple exam vouchers in one checkout session',
-      '[TODO: result/metric: volume of student vouchers issued or time saved per agent order]'
+      'Enabled registered education agents to order multiple exam vouchers in one checkout session'
     ],
     metrics: [
       { label: 'Target Audience', value: 'UK & Global Students' },
       { label: 'Account Types', value: 'Student & Agent' },
-      { label: 'Security', value: 'Encrypted Allocation' },
-      { label: 'Agent Metric', value: '[TODO: metric]' }
+      { label: 'Security', value: 'Encrypted Allocation' }
     ],
     testimonial: null,
     // Stored client metadata (activated only when permission === 'named')

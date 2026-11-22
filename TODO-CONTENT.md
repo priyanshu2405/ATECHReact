@@ -8,7 +8,7 @@ No real statistics, prices, client identities, certifications, or testimonials h
 ## 1. Business & Contact Configuration (`src/data/config.js`)
 
 - [x] **Email**: `priyanshu@atechinfotech.com` (Official domain email configured)
-- [ ] **Booking URL**: `[TODO: Cal.com link]` (e.g. `https://cal.com/atechinfotech/30min`)
+- [x] **Booking URL**: `https://cal.com/priyanshuatech/30min` (Central booking calendar configured)
 - [ ] **Canada Overlap Window**: `Evening-IST calls by arrangement (morning EST/EDT alignment)`
 - [ ] **Founder Section**:
   - Founder Name: `[TODO: Founder Name]`
@@ -106,12 +106,29 @@ All prices on public pages show **"Request a quote"** until you replace these pl
 
 ---
 
-## 7. India Target Market Placeholders & Confirmations (`/india/`)
+## 7. Unconfirmed Claims & Country Content Placeholders
 
-Before public promotion or marketing in India, confirm the following items:
+The following capability and language claims were removed from public copy to avoid unverified statements. Confirm before restoring:
 
-- [ ] **Hindi/English Interfaces**: Confirm team scope for bilingual UI development and localized support before removing `[TODO: confirm]` in `/india/` solutions and FAQs.
-- [ ] **Indore In-Person Meetings**: Confirm company policy on travel and in-person architecture scoping workshops in Indore / client offices before removing `[TODO: confirm]`.
-- [ ] **GST Registration & E-Invoicing**: Do not claim GST registration number or GST e-invoicing compliance until official GSTIN registration and tax invoicing credentials are fully established.
-- [ ] **INR Pricing**: Provide standard INR rates for fixed milestones, monthly retainers, and dedicated developer augmentation in `src/data/pricing.js`.
+- [ ] **India (`/india/`)**:
+  - [x] **GST Registration**: Confirmed GST-registered. Invoices include GSTIN and GST breakdown.
+  - [ ] **GSTIN Number**: `[TODO: add GSTIN, or omit]`
+  - [ ] **GST E-Invoicing / IRN**: Do not claim GST e-invoicing or IRN generation until required and confirmed.
+  - **Hindi Native UI Translation**: Removed until dedicated Hindi localization and translation workflows are confirmed. (Current public copy describes generic multilingual i18n architecture).
+  - **Indore In-Person Meetings**: Removed guarantee of in-person kickoff meetings until travel and on-site meeting policy is formalized.
+  - **Publication Status**: `/india/` is currently set to `noindex` and excluded from `sitemap.xml`, hidden from header navigation and footer menus until approved for release.
+- [ ] **Canada (`/canada/`)**:
+  - **French Language Support**: Removed explicit claim of bilingual English/French support until French translation resources are confirmed. (Current public copy describes generic multilingual i18n architecture).
+- [ ] **Dubai / UAE (`/dubai-uae/`)**:
+  - **Arabic / RTL Localization**: Removed explicit claim of Arabic translation/typography until native Arabic resources are confirmed. (Current public copy describes modern RTL-ready and multilingual UI architecture).
+  - **Real Estate Capabilities**: Removed unconfirmed specific claims ("lead distribution engines", "property listing aggregators", "agent commission modules"). (Current public copy describes custom sales pipelines, automated enquiry routing, and client portals).
+- [ ] **Delivered Integrations & Warranty** (`[TODO: delivered integrations/warranty]`):
+  - **Cashfree & E-Mandates**: Removed until a specific delivered project with Cashfree or automated e-mandates is confirmed.
+  - **Official WhatsApp Business API**: Removed claims of official API partner setup; replaced with supported WhatsApp messaging and lead routing workflows.
+  - **30-Day Warranty**: Removed formal warranty claims; replaced with agreed post-launch support windows.
+- [ ] **Case Study Metrics**:
+  - **Futura**: Specific percentage increase in distributor enquiries or brochure downloads.
+  - **UniCou**: Specific volume of student vouchers issued or time saved per agent order.
+- [ ] **Legal Review**:
+  - Terms of Service and Privacy Policy require professional legal review before general public reliance.
 

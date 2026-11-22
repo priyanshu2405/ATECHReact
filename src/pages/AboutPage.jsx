@@ -17,7 +17,7 @@ const values = [
     {
         icon: '🔐',
         title: 'Complete IP & Code Ownership',
-        desc: 'You own 100% of your source code, database schemas, and designs. Complete repository transfer and IP assignment take place upon milestone completion and final payment.'
+        desc: 'You own 100% of your source code, database schemas, and designs. Complete repository transfer and IP assignment take place upon full payment of the relevant invoices.'
     },
     {
         icon: '🌐',
@@ -106,9 +106,6 @@ const AboutPage = () => {
                             <p className="founder-card__title">{config.founder.title}</p>
                             <p className="founder-card__bio">
                                 {config.founder.bio}
-                            </p>
-                            <p className="founder-card__placeholder-note" style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                                [TODO: Founder photo &amp; LinkedIn profile URL can be added in config.js]
                             </p>
                         </div>
                     </div>

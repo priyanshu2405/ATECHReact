@@ -51,7 +51,7 @@ export const markets = [
       {
         icon: '📜',
         title: 'Full IP & Source Code Ownership',
-        desc: 'We are happy to sign an NDA before you share confidential requirements. Complete assignment of intellectual property rights and full Git repository handover upon milestone completion and final payment.'
+        desc: 'We are happy to sign an NDA before you share confidential requirements. Complete assignment of intellectual property rights and full Git repository handover upon full payment of the relevant invoices.'
       }
     ],
     servicesList: [
@@ -75,7 +75,7 @@ export const markets = [
       },
       {
         q: 'Who owns the intellectual property and code?',
-        a: 'You own 100% of the code, designs, and intellectual property. We provide complete repository transfer and IP assignment upon milestone completion and final payment.'
+        a: 'You own 100% of the code, designs, and intellectual property. We provide complete repository transfer and IP assignment upon full payment of the relevant invoices.'
       }
     ]
   },
@@ -104,8 +104,8 @@ export const markets = [
       },
       {
         icon: '🌐',
-        title: 'Bilingual English/French Capabilities',
-        desc: 'Internationalization (i18n) engineered into the core architecture, allowing your digital product to support seamless English and French language switching across Canada.'
+        title: 'Multilingual & Localization (i18n) Architecture',
+        desc: 'Internationalization (i18n) engineered into the core architecture, allowing your digital product to support multiple languages and locale-specific routing.'
       },
       {
         icon: '💳',
@@ -140,7 +140,7 @@ export const markets = [
         a: 'We structure scheduled evening-IST calls by arrangement during your morning hours (EST/EDT). Regular sprint updates, async video walkthroughs, and shared task boards keep progress continuous and transparent.'
       },
       {
-        q: 'Can our website or app be built in both English and French?',
+        q: 'Can our website or app be built for multiple languages?',
         a: 'Yes. We architect localization (i18n) from the beginning, supporting dynamic content switching, locale-specific URLs, and bilingual SEO metadata.'
       },
       {
@@ -163,18 +163,18 @@ export const markets = [
     locale: 'en_AE',
     htmlLang: 'en-AE',
     metaTitle: 'Web & Mobile App Development for UAE Businesses | Atech',
-    metaDescription: 'Software, mobile apps, custom CRM and ecommerce development for businesses in Dubai & the UAE. Arabic/RTL support, UAE payment gateways and close time-zone alignment.',
+    metaDescription: 'Software, mobile apps, custom CRM and ecommerce development for businesses in Dubai & the UAE. RTL-ready architecture, UAE payment gateways and close time-zone alignment.',
     hero: {
       eyebrow: 'Dubai & UAE Delivery · Senior Engineering',
       title: 'Web & Mobile App Development for UAE Businesses',
-      subtitle: 'We engineer high-performance web applications, mobile apps, and custom business platforms for Dubai and UAE companies. Full working day time-zone alignment, Arabic/RTL support, and AED pricing.',
+      subtitle: 'We engineer high-performance web applications, mobile apps, and custom business platforms for Dubai and UAE companies. Full working day time-zone alignment, RTL-ready architecture, and AED pricing.',
       badge: 'Full Working Day Alignment (GST, UTC+4)',
     },
     solutions: [
       {
         icon: '🌍',
-        title: 'Arabic & Right-to-Left (RTL) Layouts',
-        desc: 'Complete bidirectional support engineered from the ground up: native Arabic typography, mirrored UI elements, and seamless English/Arabic toggling.'
+        title: 'Modern RTL & Multilingual UI Architecture',
+        desc: 'Bidirectional and internationalization support engineered into frontend frameworks: clean RTL-friendly layout structures, flexible font rendering, and locale switching.'
       },
       {
         icon: '🧾',
@@ -188,24 +188,24 @@ export const markets = [
       },
       {
         icon: '💬',
-        title: 'WhatsApp Business API Workflows',
+        title: 'WhatsApp Messaging Workflows',
         desc: 'Automated customer enquiry capture, instant order updates, quote dispatches, and CRM lead routing directly via WhatsApp.'
       },
       {
         icon: '⏰',
-        title: 'Seamless GST Time-Zone Alignment',
+        title: 'Gulf Standard Time alignment',
         desc: 'India Standard Time is only 1.5 hours ahead of UAE Gulf Standard Time (GST), giving our engineering teams complete real-time working day overlap.'
       },
       {
         icon: '🏢',
-        title: 'Enterprise CRM & Real Estate Solutions',
-        desc: 'Lead distribution engines, property listing aggregators, agent commission modules, and multi-currency deal pipelines tailored for Dubai enterprises.'
+        title: 'Enterprise CRM & Business Solutions',
+        desc: 'Custom sales pipelines, automated enquiry routing, client portals, and multi-currency reporting tailored for modern businesses.'
       }
     ],
     servicesList: [
-      { name: 'Custom CRM & Real Estate Portals', desc: 'Bespoke pipelines, WhatsApp lead routing, and inventory tracking.' },
+      { name: 'Custom CRM & Business Portals', desc: 'Bespoke pipelines, WhatsApp lead routing, and operational workflows.' },
       { name: 'Mobile Apps (iOS & Android)', desc: 'Bilingual mobile apps with biometric login and UAE payment gateways.' },
-      { name: 'High-Converting Ecommerce', desc: 'Multi-currency storefronts with Arabic localization and express checkouts.' },
+      { name: 'High-Converting Ecommerce', desc: 'Multi-currency storefronts with localized checkout and express payment options.' },
       { name: 'Internal ERP & Operations', desc: 'Automate approvals, VAT-ready invoices, and multi-branch inventory.' }
     ],
     faqs: [
@@ -215,10 +215,10 @@ export const markets = [
       },
       {
         q: 'Can you integrate local UAE payment processors like Telr or PayTabs?',
-        a: 'Yes. We have experience integrating UAE gateways including Telr, PayTabs, Network International, as well as Stripe UAE, Apple Pay, and Tabby.'
+        a: 'Yes. We can integrate UAE gateways including Telr, PayTabs, Network International, as well as Stripe UAE, Apple Pay, and Tabby.'
       },
       {
-        q: 'Do you support bilingual English and Arabic interfaces?',
+        q: 'Do you support right-to-left (RTL) and multilingual interfaces?',
         a: 'Yes. We build responsive RTL layouts with proper Arabic typography, mirrored icons, and localized number formats.'
       },
       {
@@ -249,17 +249,17 @@ export const markets = [
       {
         icon: '₹',
         title: 'INR Milestone Pricing & Invoicing',
-        desc: 'Transparent pricing and milestone-based invoicing in Indian Rupees (INR). Fixed-scope deliverables ensure zero budget ambiguity for your engineering roadmap [TODO: confirm GST registration & invoicing status before claiming GST e-invoicing].'
+        desc: 'Transparent pricing and milestone-based invoicing in Indian Rupees (INR). GST-registered. Invoices include GSTIN and GST breakdown. Fixed-scope deliverables ensure predictable budgets with milestones tied to verified code releases.'
       },
       {
         icon: '💳',
-        title: 'Indian Payment Integrations (UPI, Razorpay, PayU, Cashfree)',
-        desc: 'Seamless integration with Indian payment infrastructure: instant UPI QR & intent flows, Razorpay, PayU, and Cashfree for cards, net banking, and automated recurring e-mandates.'
+        title: 'Indian Payment Integrations (UPI, Razorpay, PayU)',
+        desc: 'Seamless integration with Indian payment infrastructure: instant UPI QR & intent flows, Razorpay, and PayU for cards and net banking.'
       },
       {
         icon: '💬',
-        title: 'WhatsApp Business API Integrations',
-        desc: 'Automate customer lead capture, order confirmations, payment receipts, status notifications, and customer support routing natively through the official WhatsApp Business API.'
+        title: 'WhatsApp Messaging Integrations',
+        desc: 'Automate customer lead capture, order confirmations, payment receipts, status notifications, and customer support routing directly through WhatsApp.'
       },
       {
         icon: '🛡️',
@@ -268,8 +268,8 @@ export const markets = [
       },
       {
         icon: '🌐',
-        title: 'Hindi & English Interfaces [TODO: confirm]',
-        desc: 'Bilingual user experience support for Hindi and English interfaces [TODO: confirm bilingual interface capability with team], enabling seamless multi-language navigation for regional customer bases across India.'
+        title: 'Multilingual User Experience Architecture',
+        desc: 'Frontends engineered with internationalization (i18n) frameworks, allowing multi-language UI toggles, localized form labels, and regional notification flows across web and mobile.'
       },
       {
         icon: '🕒',
@@ -278,8 +278,8 @@ export const markets = [
       },
       {
         icon: '📍',
-        title: 'Indore-Based Team & In-Person Meetings [TODO: confirm]',
-        desc: 'Headquartered in Indore, Madhya Pradesh. Direct collaboration with our senior technical leads, with in-person architecture workshops and kickoff meetings available [TODO: confirm policy on in-person client meetings].'
+        title: 'Indore-Based Engineering Team',
+        desc: 'Headquartered in Indore, Madhya Pradesh. Direct remote collaboration with our team via scheduled video walkthroughs, shared communication channels, and real-time sprint tracking.'
       }
     ],
     servicesList: [
@@ -291,27 +291,27 @@ export const markets = [
     faqs: [
       {
         q: 'How are milestone payments and invoicing handled for Indian businesses?',
-        a: 'We provide structured milestone-based proposals in Indian Rupees (INR). Payments are split across clear deliverables (e.g. architecture & wireframes, MVP core, final release), with invoices settled via direct NEFT/RTGS/IMPS bank transfer or payment gateways. [TODO: confirm GST invoicing details].'
+        a: 'We provide structured milestone-based proposals in Indian Rupees (INR). We are GST-registered; invoices include our GSTIN and a clear GST tax breakdown. Payments are split across clear deliverables (e.g. architecture & wireframes, MVP core, final release), with invoices settled via direct NEFT/RTGS/IMPS bank transfer or online payment gateways.'
       },
       {
         q: 'Which Indian payment gateways do you integrate?',
-        a: 'We integrate leading Indian payment processors including Razorpay, Cashfree, PayU, and Stripe India, supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, net banking, and automated recurring e-mandates.'
+        a: 'We can integrate leading Indian payment processors including Razorpay, PayU, and Stripe India, supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, and net banking.'
       },
       {
         q: 'How do you address data privacy under the DPDP Act?',
         a: 'We architect platforms with Digital Personal Data Protection (DPDP) Act principles in mind: explicit user consent mechanisms, data minimization, secure encrypted storage, and straightforward mechanisms for users to request data correction or erasure. We build with DPDP Act principles in mind and never claim government certification.'
       },
       {
-        q: 'Can our software support both Hindi and English?',
-        a: 'Yes, we can architect localization (i18n) to support both English and Hindi UI languages, including localized form labels, validation messages, and regional notification templates [TODO: confirm specific language scope].'
+        q: 'Can our website or application support multiple languages?',
+        a: 'Yes, we architect internationalization (i18n) from the foundation, allowing clean multi-language switching, localized validation messages, and regional notification templates.'
       },
       {
         q: 'Are in-person discovery or review meetings possible?',
-        a: 'Our core engineering and leadership team is based in Indore, Madhya Pradesh. In-person scoping workshops, architecture discussions, or milestone reviews can be arranged in Indore or at your office [TODO: confirm travel & meeting availability].'
+        a: 'Our core engineering and leadership team is based in Indore, Madhya Pradesh. We conduct detailed virtual architecture and scoping workshops via video conference, with in-person sessions possible subject to scheduling and mutual agreement.'
       },
       {
         q: 'Who owns the intellectual property and source code?',
-        a: 'You own 100% of the intellectual property, source code, and design assets upon milestone completion and final payment. We provide full Git repository access with zero proprietary lock-in. We are happy to sign an NDA before you share confidential requirements.'
+        a: 'You own 100% of the intellectual property, source code, and design assets upon full payment of the relevant invoices. We provide full Git repository access with zero proprietary lock-in. We are happy to sign an NDA before you share confidential requirements.'
       }
     ]
   }

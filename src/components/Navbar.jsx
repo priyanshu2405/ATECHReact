@@ -19,7 +19,6 @@ const marketLinks = [
     { label: 'United Kingdom (UK)', href: '/uk/', flag: '🇬🇧' },
     { label: 'Canada', href: '/canada/', flag: '🇨🇦' },
     { label: 'Dubai / UAE', href: '/dubai-uae/', flag: '🇦🇪' },
-    { label: 'India', href: '/india/', flag: '🇮🇳' },
 ];
 
 const Navbar = () => {
@@ -179,7 +178,7 @@ const Navbar = () => {
 
                         <li className="navbar__cta-mobile">
                             <button className="btn btn-primary" onClick={handleBooking}>
-                                {config.bookingUrl ? 'Book a 30-Min Call' : 'Request a Call'}
+                                Book a 30-min call
                             </button>
                         </li>
                     </ul>
@@ -188,7 +187,7 @@ const Navbar = () => {
                     <div className="navbar__actions">
                         <RegionSwitcher variant="header" />
                         <button className="btn btn-primary navbar__cta" onClick={handleBooking}>
-                            {config.bookingUrl ? 'Book a 30-Min Call' : 'Request a Call'}
+                            Book a 30-min call
                         </button>
                         <button
                             className={`hamburger ${menuOpen ? 'hamburger--open' : ''}`}

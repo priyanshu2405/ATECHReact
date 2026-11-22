@@ -4,7 +4,7 @@
  * 1. Working across time zones (UK, UAE, Canada)
  * 2. How payments work (milestone-based, multi-currency)
  * 3. IP & source code ownership
- * 4. Post-launch support & warranty
+ * 4. Post-launch support
  * 5. Non-Disclosure Agreements (NDA)
  * 6. How long projects take
  * 7. Working with existing codebases
@@ -22,7 +22,7 @@ export const homepageFaqs = [
   },
   {
     q: 'Who owns the intellectual property and source code?',
-    a: 'You own 100% of the intellectual property, design assets, and source code. We work as a work-for-hire engineering team and transfer full Git repository rights upon milestone completion and final payment. There are zero licensing traps or proprietary lock-ins.'
+    a: 'You own 100% of the intellectual property, design assets, and source code. We work as a work-for-hire engineering team and transfer full Git repository rights upon full payment of the relevant invoices. There are zero licensing traps or proprietary lock-ins.'
   },
   {
     q: 'Do you provide post-launch support and maintenance?',

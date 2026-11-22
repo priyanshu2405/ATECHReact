@@ -25,7 +25,7 @@ export const engagementModels = [
       'Zero cost overruns on agreed scope',
       'Weekly progress demos & code reviews',
       'Included post-launch support & bug-fix window',
-      'Full IP and source code assignment upon completion'
+      'Full IP and source code assignment upon full payment of the relevant invoices'
     ],
     pricing: {
       GBP: '[TODO: price in GBP]',
@@ -73,7 +73,7 @@ export const engagementModels = [
       'Direct integration into your Git repositories and project boards',
       'Managed infrastructure, workstations, and high-speed fiber connectivity',
       'Zero recruiter fees, holiday liabilities, or long-term employment overhead',
-      'Full IP assignment for every line of code written'
+      'Full IP and source code assignment upon full payment of the relevant invoices'
     ],
     pricing: {
       GBP: '[TODO: price in GBP/mo]',

@@ -23,7 +23,7 @@
 - Rigid pipeline structures that do not match off-plan developer booking workflows or secondary market conveyancing stages.
 
 ### H2: 3. Essential Features for a Custom UAE Real Estate CRM
-- Instant WhatsApp Business API lead capture, automated qualification bot, and direct assignment to available agents.
+- Instant WhatsApp lead capture, automated qualification bot, and direct assignment to available agents.
 - Portal lead synchronization (APIs for Bayut, Property Finder, Dubizzle, and Meta Lead Ads).
 - Bilingual Arabic/English interface and document generation (tenancy contracts, sales agreements, receipts).
 - UAE VAT calculation (5%) and Federal Tax Authority (FTA) complaint invoicing modules.

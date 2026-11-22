@@ -3,6 +3,8 @@
  * HARD RULE: Read all business details from this config file.
  */
 
+export const BOOKING_URL = 'https://cal.com/priyanshuatech/30min';
+
 export const config = {
   companyName: 'Atech Infotech',
   tagline: 'Software Development Company',
@@ -23,8 +25,8 @@ export const config = {
     `https://wa.me/917678410628?text=${encodeURIComponent(text)}`,
   
   // Booking URL (Calendly/Cal.com)
-  bookingUrl: '', // [TODO: Cal.com link] - when empty, booking CTAs link to #contact or open modal
-  bookingPlaceholder: '[TODO: Cal.com link]',
+  bookingUrl: BOOKING_URL,
+  bookingPlaceholder: BOOKING_URL,
   
   // Address & Locations
   address: {

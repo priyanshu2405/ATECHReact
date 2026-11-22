@@ -7,6 +7,7 @@ const base = 'https://www.atechinfotech.com';
 const today = new Date().toISOString().slice(0, 10);
 const PHONE = '+91 7678410628';
 const EMAIL = 'priyanshu@atechinfotech.com';
+const BOOKING_URL = 'https://cal.com/priyanshuatech/30min';
 const ogImage = `${base}/og-image.png`;
 
 // Services with updated international priority ordering
@@ -213,8 +214,7 @@ const caseStudies = [
     techStack: ['React.js', 'Node.js', 'Vite', 'CSS3 Modern Layouts', 'WhatsApp Web API'],
     results: [
       'Delivered a fully responsive digital catalogue accessible on all modern devices',
-      'Streamlined customer enquiries directly to the sales desk via instant WhatsApp routing',
-      '[TODO: result/metric: % increase in distributor catalogue enquiries or pageviews since launch]'
+      'Streamlined customer enquiries directly to the sales desk via instant WhatsApp routing'
     ]
   },
   {
@@ -240,8 +240,7 @@ const caseStudies = [
     techStack: ['React.js', 'Node.js', 'REST API Backend', 'Secure Session Management'],
     results: [
       'Reduced manual verification overhead for international voucher orders',
-      'Enabled registered education agents to order multiple exam vouchers in one checkout session',
-      '[TODO: result/metric: volume of student vouchers issued or time saved per agent order]'
+      'Enabled registered education agents to order multiple exam vouchers in one checkout session'
     ]
   }
 ];
@@ -265,13 +264,13 @@ const markets = [
       ['Accessibility (WCAG-Minded Builds)', 'We engineer frontends with WCAG 2.1 AA accessibility guidelines in mind: semantic landmarks, full keyboard navigability, high color contrast, and screen-reader compatibility.'],
       ['UK Time Zone Overlap (GMT & BST)', 'Our standard working hours provide dedicated daily overlap with the UK working day (9:00 AM to 1:30 PM GMT / 2:30 PM BST) for sprint standups, review calls, and Slack collaboration.'],
       ['Transparent GBP Pricing & Invoicing', 'Fixed-milestone scopes in GBP with milestone-based delivery, ensuring zero hidden exchange surprises or fluctuating contractor rates.'],
-      ['Full IP & Source Code Ownership', 'We are happy to sign an NDA before you share confidential requirements. Complete assignment of intellectual property rights and full Git repository handover upon milestone completion and final payment.']
+      ['Full IP & Source Code Ownership', 'We are happy to sign an NDA before you share confidential requirements. Complete assignment of intellectual property rights and full Git repository handover upon full payment of the relevant invoices.']
     ],
     faqs: [
       ['How do you handle time-zone collaboration with UK clients?', 'Our standard working day provides full coverage between 9:00 AM and 1:30 PM GMT / 2:30 PM BST. We conduct weekly video demos, maintain transparent communication via Slack or Microsoft Teams, and share real-time Jira/Trello boards.'],
       ['How do you approach UK data privacy and GDPR?', 'We build with UK GDPR requirements in mind from the ground up: database encryption at rest, HTTPS/TLS in transit, cookie banner compliance options, and structured user consent logs.'],
       ['Can we pay in British Pounds (GBP)?', 'Yes. We quote and invoice in GBP with milestone-based payments tied to agreed deliverables. You only approve payments when milestone criteria are satisfied.'],
-      ['Who owns the intellectual property and code?', 'You own 100% of the code, designs, and intellectual property. We provide complete repository transfer and IP assignment upon milestone completion and final payment.']
+      ['Who owns the intellectual property and code?', 'You own 100% of the code, designs, and intellectual property. We provide complete repository transfer and IP assignment upon full payment of the relevant invoices.']
     ]
   },
   {
@@ -287,7 +286,7 @@ const markets = [
     badge: 'Overlap: Evening-IST Calls by Arrangement',
     solutions: [
       ['PIPEDA-Aware Data Practices', 'We build with Canadian federal and provincial privacy legislation (PIPEDA) in mind: strict data segregation, audit logging, and clear user privacy controls.'],
-      ['Bilingual English/French Capabilities', 'Internationalization (i18n) engineered into the core architecture, allowing your digital product to support seamless English and French language switching across Canada.'],
+      ['Multilingual & Localization (i18n) Architecture', 'Internationalization (i18n) engineered into the core architecture, allowing your digital product to support multiple languages and locale-specific routing.'],
       ['Stripe & Interac-Friendly Payments', 'Support for popular Canadian payment gateways and workflows, including Stripe Canada, Apple Pay, Google Pay, and Interac-friendly checkout integrations.'],
       ['Predictable CAD Milestone Pricing', 'Get transparent proposals and milestone billing in Canadian Dollars (CAD). Fixed milestones protect your budget from scope creep and currency volatility.'],
       ['Scheduled Overlap by Arrangement', 'Scheduled evening-IST calls by arrangement to align with Canadian morning schedules (EST/EDT) for daily synchronization, live demos, and sprint planning.'],
@@ -295,7 +294,7 @@ const markets = [
     ],
     faqs: [
       ['How do you coordinate with Canadian clients across time zones?', 'We structure scheduled evening-IST calls by arrangement during your morning hours (EST/EDT). Regular sprint updates, async loom walkthroughs, and shared task boards keep progress continuous and transparent.'],
-      ['Can our website or app be built in both English and French?', 'Yes. We architect localization (i18n) from the beginning, supporting dynamic content switching, locale-specific URLs, and bilingual SEO metadata.'],
+      ['Can our website or app be built for multiple languages?', 'Yes. We architect localization (i18n) from the beginning, supporting dynamic content switching, locale-specific URLs, and bilingual SEO metadata.'],
       ['How are payments structured for Canadian projects?', 'We work on milestone-based billing in CAD. Each milestone is defined by tangible deliverables (e.g. wireframes, core API build, frontend completion), and funds are released upon your review.'],
       ['Do you work under an NDA?', 'Yes, absolutely. We are happy to sign an NDA before you share confidential requirements.']
     ]
@@ -308,21 +307,21 @@ const markets = [
     locale: 'en_AE',
     htmlLang: 'en-AE',
     title: 'Web & Mobile App Development for UAE Businesses | Atech',
-    description: 'Software, mobile apps, custom CRM and ecommerce development for businesses in Dubai & the UAE. Arabic/RTL support, UAE payment gateways and close time-zone alignment.',
-    heroSubtitle: 'We engineer high-performance web applications, mobile apps, and custom business platforms for Dubai and UAE companies. Full working day time-zone alignment, Arabic/RTL support, and AED pricing.',
+    description: 'Software, mobile apps, custom CRM and ecommerce development for businesses in Dubai & the UAE. RTL-ready architecture, UAE payment gateways and close time-zone alignment.',
+    heroSubtitle: 'We engineer high-performance web applications, mobile apps, and custom business platforms for Dubai and UAE companies. Full working day time-zone alignment, RTL-ready architecture, and AED pricing.',
     badge: 'Full Working Day Alignment (GST, UTC+4)',
     solutions: [
-      ['Arabic & Right-to-Left (RTL) Layouts', 'Complete bidirectional support engineered from the ground up: native Arabic typography, mirrored UI elements, and seamless English/Arabic toggling.'],
+      ['Modern RTL & Multilingual UI Architecture', 'Bidirectional and internationalization support engineered into frontend frameworks: clean RTL-friendly layout structures, flexible font rendering, and locale switching.'],
       ['UAE VAT-Ready Billing & Invoicing', 'Custom invoice generators, accounting workflows, and ERP modules built with Federal Tax Authority (FTA) 5% VAT calculation and reporting standards in mind.'],
       ['UAE Payment Gateways Integration', 'Direct integrations with UAE payment processors including Telr, PayTabs, Network International, Stripe UAE, Apple Pay, and Tamara / Tabby BNPL.'],
-      ['WhatsApp Business API Workflows', 'Automated customer enquiry capture, instant order updates, quote dispatches, and CRM lead routing directly via WhatsApp.'],
-      ['Seamless GST Time-Zone Alignment', 'India Standard Time is only 1.5 hours ahead of UAE Gulf Standard Time (GST), giving our engineering teams complete real-time working day overlap.'],
-      ['Enterprise CRM & Real Estate Solutions', 'Lead distribution engines, property listing aggregators, agent commission modules, and multi-currency deal pipelines tailored for Dubai enterprises.']
+      ['WhatsApp Messaging Workflows', 'Automated customer enquiry capture, instant order updates, quote dispatches, and CRM lead routing directly via WhatsApp.'],
+      ['Gulf Standard Time alignment', 'India Standard Time is only 1.5 hours ahead of UAE Gulf Standard Time (GST), giving our engineering teams complete real-time working day overlap.'],
+      ['Enterprise CRM & Business Solutions', 'Custom sales pipelines, automated enquiry routing, client portals, and multi-currency reporting tailored for modern businesses.']
     ],
     faqs: [
       ['What is the time difference between India and Dubai?', 'India is only 1 hour and 30 minutes ahead of Dubai (GST). This allows virtually 100% working day alignment for live calls, instant messaging, and rapid iteration.'],
-      ['Can you integrate local UAE payment processors like Telr or PayTabs?', 'Yes. We have experience integrating UAE gateways including Telr, PayTabs, Network International, as well as Stripe UAE, Apple Pay, and Tabby.'],
-      ['Do you support bilingual English and Arabic interfaces?', 'Yes. We build responsive RTL layouts with proper Arabic typography, mirrored icons, and localized number formats.'],
+      ['Can you integrate local UAE payment processors like Telr or PayTabs?', 'Yes. We can integrate UAE gateways including Telr, PayTabs, Network International, as well as Stripe UAE, Apple Pay, and Tabby.'],
+      ['Do you support right-to-left (RTL) and multilingual interfaces?', 'Yes. We build responsive RTL layouts with proper Arabic typography, mirrored icons, and localized number formats.'],
       ['Can we pay in UAE Dirhams (AED)?', 'Yes, quotes and milestone invoices can be settled in AED or USD through straightforward bank wire or payment card transfers.']
     ]
   },
@@ -340,21 +339,21 @@ const markets = [
     badge: 'Same Time Zone (IST): Full Working-Day Overlap',
     ctaOrder: ['whatsapp', 'booking'],
     solutions: [
-      ['INR Milestone Pricing & Invoicing', 'Transparent pricing and milestone-based invoicing in Indian Rupees (INR). Fixed-scope deliverables ensure zero budget ambiguity for your engineering roadmap [TODO: confirm GST registration & invoicing status before claiming GST e-invoicing].'],
-      ['Indian Payment Integrations (UPI, Razorpay, PayU)', 'Seamless integration with Indian payment infrastructure: instant UPI QR & intent flows, Razorpay, PayU, and Cashfree for cards, net banking, and automated recurring e-mandates.'],
-      ['WhatsApp Business API Integrations', 'Automate customer lead capture, order confirmations, payment receipts, status notifications, and customer support routing natively through the official WhatsApp Business API.'],
-      ['DPDP Act-Aware Architecture', 'We engineer digital systems with India\'s Digital Personal Data Protection (DPDP) Act principles in mind: clear notice mechanisms, purpose-specific consent logging, and robust access controls. We build with DPDP Act principles in mind and do not claim certification.'],
-      ['Hindi & English Interfaces [TODO: confirm]', 'Bilingual user experience support for Hindi and English interfaces [TODO: confirm bilingual interface capability with team], enabling seamless multi-language navigation for regional customer bases across India.'],
+      ['INR Milestone Pricing & Invoicing', 'Transparent pricing and milestone-based invoicing in Indian Rupees (INR). GST-registered. Invoices include GSTIN and GST breakdown. Fixed-scope deliverables ensure predictable budgets with milestones tied to verified code releases.'],
+      ['Indian Payment Integrations (UPI, Razorpay, PayU)', 'Seamless integration with Indian payment infrastructure: instant UPI QR & intent flows, Razorpay, and PayU for cards and net banking.'],
+      ['WhatsApp Messaging Integrations', 'Automate customer lead capture, order confirmations, payment receipts, status notifications, and customer support routing directly through WhatsApp.'],
+      ['DPDP Act-Aware Architecture', 'We engineer digital systems with India\'s Digital Personal Data Protection (DPDP Act) principles in mind: clear notice mechanisms, purpose-specific consent logging, and robust access controls. We build with DPDP Act principles in mind and do not claim certification.'],
+      ['Multilingual User Experience Architecture', 'Frontends engineered with internationalization (i18n) frameworks, allowing multi-language UI toggles, localized form labels, and regional notification flows across web and mobile.'],
       ['Same Time Zone (IST): Full Working-Day Overlap', 'Full 100% working day alignment in Indian Standard Time (IST). Live sprint reviews, immediate Slack/WhatsApp collaboration, and rapid turnaround without international timezone delays.'],
-      ['Indore-Based Team & In-Person Meetings [TODO: confirm]', 'Headquartered in Indore, Madhya Pradesh. Direct collaboration with our senior technical leads, with in-person architecture workshops and kickoff meetings available [TODO: confirm policy on in-person client meetings].']
+      ['Indore-Based Engineering Team', 'Headquartered in Indore, Madhya Pradesh. Direct remote collaboration with our team via scheduled video walkthroughs, shared communication channels, and real-time sprint tracking.']
     ],
     faqs: [
-      ['How are milestone payments and invoicing handled for Indian businesses?', 'We provide structured milestone-based proposals in Indian Rupees (INR). Payments are split across clear deliverables (e.g. architecture & wireframes, MVP core, final release), with invoices settled via direct NEFT/RTGS/IMPS bank transfer or payment gateways. [TODO: confirm GST invoicing details].'],
-      ['Which Indian payment gateways do you integrate?', 'We integrate leading Indian payment processors including Razorpay, Cashfree, PayU, and Stripe India, supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, net banking, and automated recurring e-mandates.'],
-      ['How do you address data privacy under the DPDP Act?', 'We architect platforms with Digital Personal Data Protection (DPDP) Act principles in mind: explicit user consent mechanisms, data minimization, secure encrypted storage, and straightforward mechanisms for users to request data correction or erasure. We build with DPDP Act principles in mind and never claim government certification.'],
-      ['Can our software support both Hindi and English?', 'Yes, we can architect localization (i18n) to support both English and Hindi UI languages, including localized form labels, validation messages, and regional notification templates [TODO: confirm specific language scope].'],
-      ['Are in-person discovery or review meetings possible?', 'Our core engineering and leadership team is based in Indore, Madhya Pradesh. In-person scoping workshops, architecture discussions, or milestone reviews can be arranged in Indore or at your office [TODO: confirm travel & meeting availability].'],
-      ['Who owns the intellectual property and source code?', 'You own 100% of the intellectual property, source code, and design assets upon milestone completion and final payment. We provide full Git repository access with zero proprietary lock-in. We are happy to sign an NDA before you share confidential requirements.']
+      ['How are milestone payments and invoicing handled for Indian businesses?', 'We provide structured milestone-based proposals in Indian Rupees (INR). We are GST-registered; invoices include our GSTIN and a clear GST tax breakdown. Payments are split across clear deliverables (e.g. architecture & wireframes, MVP core, final release), with invoices settled via direct NEFT/RTGS/IMPS bank transfer or online payment gateways.'],
+      ['Which Indian payment gateways do you integrate?', 'We can integrate leading Indian payment processors including Razorpay, PayU, and Stripe India, supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, and net banking.'],
+      ['How do you address data privacy under the DPDP Act?', 'We architect platforms with Digital Personal Data Protection (DPDP Act) principles in mind: explicit user consent mechanisms, data minimization, secure encrypted storage, and straightforward mechanisms for users to request data correction or erasure. We build with DPDP Act principles in mind and never claim government certification.'],
+      ['Can our software support multiple languages?', 'Yes, we architect internationalization (i18n) from the foundation, allowing clean multi-language switching, localized validation messages, and regional notification templates.'],
+      ['Are in-person discovery or review meetings possible?', 'Our core engineering and leadership team is based in Indore, Madhya Pradesh. We conduct detailed virtual architecture and scoping workshops via video conference, with in-person sessions possible subject to scheduling and mutual agreement.'],
+      ['Who owns the intellectual property and source code?', 'You own 100% of the intellectual property, source code, and design assets upon full payment of the relevant invoices. We provide full Git repository access with zero proprietary lock-in. We are happy to sign an NDA before you share confidential requirements.']
     ]
   }
 ];
@@ -386,7 +385,7 @@ const orgNode = {
       telephone: PHONE,
       contactType: 'customer service',
       email: EMAIL,
-      availableLanguage: ['English', 'Hindi'],
+      availableLanguage: ['English'],
       areaServed: ['GB', 'CA', 'AE', 'IN']
     }
   ],
@@ -399,17 +398,16 @@ const orgNode = {
   ]
 };
 
-const head = ({ title, description, url, type = 'website', locale = 'en_GB', jsonld = [] }) => `<!doctype html>
+const head = ({ title, description, url, type = 'website', locale = 'en_GB', jsonld = [], robots = 'index,follow,max-image-preview:large' }) => `<!doctype html>
 <html lang="${locale === 'en_CA' ? 'en-CA' : locale === 'en_AE' ? 'en-AE' : locale === 'en_IN' ? 'en-IN' : 'en-GB'}"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="${robots}">
 <link rel="canonical" href="${url}">
 <link rel="alternate" hreflang="en-GB" href="${base}/uk/">
 <link rel="alternate" hreflang="en-CA" href="${base}/canada/">
 <link rel="alternate" hreflang="en-AE" href="${base}/dubai-uae/">
-<link rel="alternate" hreflang="en-IN" href="${base}/india/">
 <link rel="alternate" hreflang="x-default" href="${base}/">
 <meta name="theme-color" content="#080b16">
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="Atech Infotech"><meta property="og:locale" content="${locale}">
@@ -427,14 +425,14 @@ const head = ({ title, description, url, type = 'website', locale = 'en_GB', jso
 <header class="top"><div class="wrap">
 <a class="brand" href="/"><div class="brand-box">A</div><div>Atech <span>Infotech</span></div></a>
 <nav class="nav" aria-label="Main">
-<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a><a href="/india/">India</a>
+<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a>
 <a href="/#services">Services</a><a href="/work/">Work</a><a href="/pricing/">Pricing</a><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a>
 </nav></div></header>`;
 
 const footer = `<footer class="foot"><div class="wrap">
 <p>
 <a href="/">Home</a>
-<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a><a href="/india/">India</a>
+<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a>
 <a href="/work/">Case Studies</a>
 <a href="/pricing/">Pricing</a>
 <a href="/about/">About</a>
@@ -575,6 +573,7 @@ for (const m of markets) {
     description: m.description,
     url,
     locale: m.locale,
+    robots: m.slug === 'india' ? 'noindex,follow' : 'index,follow,max-image-preview:large',
     jsonld: [
       orgNode,
       crumbLd([['Home', `${base}/`], [m.countryName, url]]),
@@ -592,8 +591,8 @@ for (const m of markets) {
 <div style="margin:16px 0 24px"><span class="badge" style="font-size:14px;padding:6px 14px">${escapeHtml(m.badge)}</span></div>
 ${m.ctaOrder && m.ctaOrder[0] === 'whatsapp' ? `
 <a class="cta" href="${waLink(`Hi Atech Infotech, I am contacting you from ${m.countryName} regarding a software development project.`)}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-<a class="cta-ghost" href="/#contact">Request a call (${m.currency})</a>` : `
-<a class="cta" href="/#contact">Request a call (${m.currency})</a>
+<a class="cta-ghost" href="${BOOKING_URL}" target="_blank" rel="noopener noreferrer" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'booking_click',location:'market_hero'});">Book a 30-min call</a>` : `
+<a class="cta" href="${BOOKING_URL}" target="_blank" rel="noopener noreferrer" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'booking_click',location:'market_hero'});">Book a 30-min call</a>
 <a class="cta-ghost" href="${waLink(`Hi Atech Infotech, I am contacting you from ${m.countryName} regarding a software development project.`)}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>`}
 </section>
 
@@ -698,7 +697,7 @@ write('pricing/index.html', head({
       mainEntity: [
         { '@type': 'Question', name: 'How are project quotes calculated?', acceptedAnswer: { '@type': 'Answer', text: 'We evaluate the technical specification, user roles, API integrations, and database architecture into itemized milestones.' } },
         { '@type': 'Question', name: 'Which currencies can we be invoiced in?', acceptedAnswer: { '@type': 'Answer', text: 'We invoice directly in British Pounds (GBP), Canadian Dollars (CAD), UAE Dirhams (AED), or US Dollars (USD).' } },
-        { '@type': 'Question', name: 'Who owns the code and IP?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of the intellectual property, database schema, and source code upon milestone payment.' } }
+        { '@type': 'Question', name: 'Who owns the code and IP?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of the intellectual property, database schema, and source code upon full payment of the relevant invoices.' } }
       ]
     }
   ]
@@ -756,7 +755,7 @@ write('about/index.html', head({
 </section>
 <section class="section"><div class="grid">
 <article class="card"><h3>Experienced Engineering</h3><p>You collaborate directly with experienced full-stack engineers with 15+ years of software delivery leadership.</p></article>
-<article class="card"><h3>100% Code &amp; IP Ownership</h3><p>All code, repositories, and assets are assigned upon milestone completion and final payment. Full Git rights are handed over with zero licensing traps or exit fees.</p></article>
+<article class="card"><h3>100% Code &amp; IP Ownership</h3><p>All code, repositories, and assets are assigned upon full payment of the relevant invoices. Full Git rights are handed over with zero licensing traps or exit fees.</p></article>
 <article class="card"><h3>Dedicated Overlap Windows</h3><p>Structured overlap for UK working hours (9:00 AM – 1:30 PM GMT / 2:30 PM BST), UAE full working day (GST), and Canadian morning schedules via evening-IST calls by arrangement.</p></article>
 <article class="card"><h3>Milestone Certainty</h3><p>Every phase is defined by tangible deliverables and signed off before funds are released. Predictable budgets, no surprises.</p></article>
 </div></section>
@@ -839,7 +838,7 @@ write('terms/index.html', head({
 </section>
 <section class="section"><div class="card">
 <h2>1. Scope &amp; Milestones</h2><p>Software development services are delivered in defined milestones according to an agreed Statement of Work (SOW).</p>
-<h2>2. Code &amp; IP Ownership</h2><p>Upon full milestone payment, all custom source code, documentation, and digital assets are 100% assigned to the client with zero vendor lock-in.</p>
+<h2>2. Code &amp; IP Ownership</h2><p>Upon full payment of the relevant invoices, all custom source code, documentation, and digital assets are 100% assigned to the client with zero vendor lock-in.</p>
 <h2>3. Confidentiality</h2><p>We are happy to sign an NDA before you share confidential requirements.</p>
 </div></section></main>` + footer);
 
@@ -865,9 +864,9 @@ const regionalVariants = [
   {
     region: 'uae',
     currency: 'AED',
-    subheadline: 'We engineer high-performance web applications, mobile apps, and custom CRM/ERP platforms for Dubai and UAE companies, with full working-day alignment, Arabic/RTL support, and AED billing.',
+    subheadline: 'We engineer high-performance web applications, mobile apps, and custom CRM/ERP platforms for Dubai and UAE companies, with full working-day alignment, RTL-ready architecture, and AED billing.',
     overlap: 'UAE near-full working day overlap: only 1.5h time difference (GST, UTC+4)',
-    bannerText: 'Visiting from the UAE? Explore our Dubai & UAE solutions with Arabic & VAT support.',
+    bannerText: 'Visiting from the UAE? Explore our Dubai & UAE solutions with VAT-ready billing & integrations.',
     bannerLink: '/dubai-uae/'
   },
   {
@@ -924,7 +923,6 @@ const entries = [
   [`${base}/uk/`, '0.9', 'monthly'],
   [`${base}/canada/`, '0.9', 'monthly'],
   [`${base}/dubai-uae/`, '0.9', 'monthly'],
-  [`${base}/india/`, '0.9', 'monthly'],
   ...services.map((s) => [`${base}/services/${s.slug}/`, '0.8', 'monthly']),
   [`${base}/work/`, '0.8', 'monthly'],
   ...caseStudies.map((cs) => [`${base}/work/${cs.slug}/`, '0.7', 'monthly']),

@@ -61,10 +61,10 @@ const Footer = () => {
                 <div className="footer__links-group">
                     <h4>Target Markets</h4>
                     <ul>
-                        {markets.map((m) => (
+                        {markets.filter(m => m.slug !== 'india').map((m) => (
                             <li key={m.slug}>
                                 <a href={m.path}>
-                                    <span style={{ marginRight: '6px' }}>{m.slug === 'uk' ? '🇬🇧' : m.slug === 'canada' ? '🇨🇦' : m.slug === 'india' ? '🇮🇳' : '🇦🇪'}</span>
+                                    <span style={{ marginRight: '6px' }}>{m.slug === 'uk' ? '🇬🇧' : m.slug === 'canada' ? '🇨🇦' : '🇦🇪'}</span>
                                     {m.countryName}
                                 </a>
                             </li>

@@ -52,7 +52,7 @@ assert(Boolean(regions.global.heroSubheadline && regions.global.heroSubheadline.
 assert(regions.uk.banner && regions.uk.banner.linkUrl === '/uk/', 'UK suggestion banner links to /uk/');
 assert(regions.canada.banner && regions.canada.banner.linkUrl === '/canada/', 'Canada suggestion banner links to /canada/');
 assert(regions.uae.banner && regions.uae.banner.linkUrl === '/dubai-uae/', 'UAE suggestion banner links to /dubai-uae/');
-assert(regions.india.banner && regions.india.banner.linkUrl === '/india/', 'India suggestion banner links to /india/');
+assert(regions.india.banner === null, 'India has no suggestion banner while unpublished');
 assert(regions.global.banner === null, 'Global has no suggestion banner');
 
 console.log('\n--- 3. Testing Vercel Edge Middleware Logic ---');
@@ -142,7 +142,7 @@ if (fs.existsSync(dist)) {
   assert(sitemap.includes('/uk/'), 'sitemap.xml includes /uk/');
   assert(sitemap.includes('/canada/'), 'sitemap.xml includes /canada/');
   assert(sitemap.includes('/dubai-uae/'), 'sitemap.xml includes /dubai-uae/');
-  assert(sitemap.includes('/india/'), 'sitemap.xml includes /india/');
+  assert(!sitemap.includes('/india/'), 'sitemap.xml strictly excludes unpublished /india/');
 
   // Check /v/ variant static HTML files
   for (const r of ['uk', 'canada', 'uae', 'india']) {
@@ -157,13 +157,24 @@ if (fs.existsSync(dist)) {
   }
 
   // Check real standalone market pages
-  for (const m of ['uk', 'canada', 'dubai-uae', 'india']) {
+  for (const m of ['uk', 'canada', 'dubai-uae']) {
     const filePath = path.join(dist, `${m}/index.html`);
     assert(fs.existsSync(filePath), `Market page exists: dist/${m}/index.html`);
     if (fs.existsSync(filePath)) {
       const html = fs.readFileSync(filePath, 'utf-8');
       assert(html.includes('content="index,follow,max-image-preview:large"'), `${m} market page has index,follow`);
       assert(html.includes(`href="https://www.atechinfotech.com/${m}/"`), `${m} market page has self-referencing canonical`);
+    }
+  }
+
+  // Check unpublished India market page
+  {
+    const indiaPath = path.join(dist, 'india/index.html');
+    assert(fs.existsSync(indiaPath), 'Market page exists: dist/india/index.html');
+    if (fs.existsSync(indiaPath)) {
+      const html = fs.readFileSync(indiaPath, 'utf-8');
+      assert(html.includes('content="noindex,follow"'), 'india market page has noindex,follow while unpublished');
+      assert(html.includes('href="https://www.atechinfotech.com/india/"'), 'india market page has self-referencing canonical');
     }
   }
 } else {

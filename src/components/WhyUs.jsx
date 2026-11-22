@@ -17,7 +17,7 @@ const reasons = [
     {
         icon: '🔐',
         title: 'You Own All Code & IP',
-        description: 'Upon milestone completion and final payment, all Git repositories, documentation, and digital assets belong 100% to you. No vendor lock-in, licensing traps, or exit fees.',
+        description: 'Upon full payment of the relevant invoices, all Git repositories, documentation, and digital assets belong 100% to you. No vendor lock-in, licensing traps, or exit fees.',
         highlight: '100% IP Ownership'
     },
     {
