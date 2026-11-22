@@ -53,7 +53,7 @@ const PricingPage = () => {
             {/* Contact CTA */}
             <Contact
                 title="Request a Custom Project Estimate"
-                subtitle="Share your requirements and we will reply within 24 hours with an itemized milestone breakdown."
+                subtitle="Share your requirements and we will reply within 1 business day with an itemized milestone breakdown."
             />
         </div>
     );

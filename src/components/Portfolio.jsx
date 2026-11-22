@@ -1,9 +1,9 @@
 import React from 'react';
 import './Portfolio.css';
-import { getPublishedCaseStudies } from '../data/work';
+import { getPublishedCaseStudies, getCaseStudyDisplay } from '../data/work';
 
 const Portfolio = () => {
-    const publishedProjects = getPublishedCaseStudies();
+    const publishedProjects = getPublishedCaseStudies().map(getCaseStudyDisplay);
 
     return (
         <section className="section portfolio" id="portfolio">
@@ -50,7 +50,7 @@ const Portfolio = () => {
                                     >
                                         Read Case Study →
                                     </a>
-                                    {project.liveUrl && (
+                                    {project.liveUrl ? (
                                         <a
                                             className="portfolio-card__live-link"
                                             href={project.liveUrl}
@@ -59,6 +59,10 @@ const Portfolio = () => {
                                         >
                                             Visit Live Site ↗
                                         </a>
+                                    ) : (
+                                        <span className="badge" style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(255, 255, 255, 0.05)', color: 'var(--text-secondary)' }}>
+                                            {project.badgeText}
+                                        </span>
                                     )}
                                 </div>
                             </div>

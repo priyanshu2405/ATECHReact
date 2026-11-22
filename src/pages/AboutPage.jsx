@@ -7,7 +7,7 @@ const values = [
     {
         icon: '🛡️',
         title: 'Senior Engineering Integrity',
-        desc: 'We never pass your architecture to inexperienced trainees. You work with seasoned full-stack developers with 15+ years of software delivery experience.'
+        desc: 'You work directly with seasoned full-stack developers with 15+ years of software delivery experience.'
     },
     {
         icon: '🎯',
@@ -17,12 +17,12 @@ const values = [
     {
         icon: '🔐',
         title: 'Complete IP & Code Ownership',
-        desc: 'You own 100% of your source code, database schemas, and designs. We transfer full Git ownership upon milestone sign-off.'
+        desc: 'You own 100% of your source code, database schemas, and designs. Complete repository transfer and IP assignment take place upon milestone completion and final payment.'
     },
     {
         icon: '🌐',
         title: 'International Overlap & Empathy',
-        desc: 'We respect the schedules and standards of international clients, offering reliable overlap hours for the UK, Canada, and UAE.'
+        desc: 'We respect the schedules and standards of international and domestic clients, offering reliable overlap hours for the UK, Canada, UAE, and India.'
     }
 ];
 
@@ -40,7 +40,7 @@ const AboutPage = () => {
                     </h1>
                     <p className="about-hero__subtitle">
                         We build custom web apps, cross-platform mobile apps, and business software platforms
-                        for growing enterprises across the UK, Canada, the UAE, and worldwide.
+                        for growing enterprises across the UK, Canada, the UAE, India, and worldwide.
                     </p>
                 </div>
             </section>
@@ -55,8 +55,8 @@ const AboutPage = () => {
                         </h2>
                         <p className="about-story__p">
                             Atech Infotech was founded with a straightforward mission: provide fast-growing businesses
-                            in the UK, Canada, and the UAE with direct access to senior full-stack developers without
-                            the inflated fees, sales middlemen, or unreliable junior delegation common in traditional agencies.
+                            in the UK, Canada, the UAE, and India with direct access to senior full-stack developers without
+                            the inflated agency fees, sales middlemen, or rotating account managers common in traditional agencies.
                         </p>
                         <p className="about-story__p">
                             With over <strong>15 years of technical leadership experience</strong> across complex enterprise
@@ -133,8 +133,8 @@ const AboutPage = () => {
                             <span className="about-intl__icon">🕒</span>
                             <h3>Daily Time-Zone Overlap</h3>
                             <p>
-                                We structure our engineering shifts to overlap with UK afternoon hours (2-6 PM UK time),
-                                UAE full working hours, and Canadian morning schedules (EST/EDT).
+                                We structure our engineering shifts to overlap with UK working hours (9:00 AM – 1:30 PM GMT / 2:30 PM BST),
+                                UAE full working hours, and Canadian morning schedules via evening-IST calls by arrangement.
                             </p>
                         </div>
 
@@ -158,9 +158,9 @@ const AboutPage = () => {
 
                         <div className="about-intl__card glass-card">
                             <span className="about-intl__icon">📜</span>
-                            <h3>Legal NDAs &amp; Clean Handover</h3>
+                            <h3>Confidentiality &amp; Clean Handover</h3>
                             <p>
-                                We sign mutual Non-Disclosure Agreements before scoping, maintain clean Git repository commits,
+                                We are happy to sign an NDA before you share confidential requirements, maintain clean Git repository commits,
                                 and transfer all assets without vendor lock-in.
                             </p>
                         </div>

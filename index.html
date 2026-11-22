@@ -3,30 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <script>
-    window.addEventListener('error', function (e) {
-      console.error('GLOBAL JS ERROR:', e.error || e.message);
-      var b = document.getElementById('global-error-overlay');
-      if (!b) {
-        b = document.createElement('div');
-        b.id = 'global-error-overlay';
-        b.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:16px;z-index:999999;font-family:monospace;font-size:14px;white-space:pre-wrap;box-shadow:0 4px 12px rgba(0,0,0,0.5);';
-        document.body ? document.body.prepend(b) : document.documentElement.appendChild(b);
-      }
-      b.textContent = 'Global JS Error: ' + (e.message || e.error) + '\nat ' + (e.filename || '') + ':' + (e.lineno || '');
-    });
-    window.addEventListener('unhandledrejection', function (e) {
-      console.error('UNHANDLED REJECTION:', e.reason);
-      var b = document.getElementById('global-error-overlay');
-      if (!b) {
-        b = document.createElement('div');
-        b.id = 'global-error-overlay';
-        b.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#b91c1c;color:white;padding:16px;z-index:999999;font-family:monospace;font-size:14px;white-space:pre-wrap;box-shadow:0 4px 12px rgba(0,0,0,0.5);';
-        document.body ? document.body.prepend(b) : document.documentElement.appendChild(b);
-      }
-      b.textContent = 'Unhandled Promise Rejection: ' + (e.reason?.stack || e.reason);
-    });
-  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -34,16 +10,16 @@
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Web &amp; Mobile Apps for UK, Canada &amp; UAE | Atech</title>
+  <title>Custom Web &amp; Mobile App Development | Atech Infotech</title>
   <meta name="theme-color" content="#080b16" />
-  <meta name="description" content="Custom software development company serving the UK, Canada &amp; UAE. We build websites, ecommerce, mobile apps and bespoke CRM/ERP systems with senior engineers." />
+  <meta name="description" content="Custom software development company serving the UK, Canada, UAE &amp; India. We build websites, ecommerce, mobile apps and bespoke CRM/ERP platforms." />
   <meta name="author" content="Atech Infotech" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="googlebot" content="index,follow,max-image-preview:large" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Custom Web &amp; Mobile Apps for UK, Canada &amp; UAE | Atech" />
-  <meta property="og:description" content="Bespoke software development company serving businesses in the UK, Canada and UAE. Fixed-scope milestones, senior engineering and full IP ownership." />
+  <meta property="og:title" content="Custom Web &amp; Mobile App Development | Atech Infotech" />
+  <meta property="og:description" content="Bespoke software development company serving businesses in the UK, Canada, UAE and India. Fixed-scope milestones, senior engineering and full IP ownership." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.atechinfotech.com/" />
   <meta property="og:site_name" content="Atech Infotech" />
@@ -51,19 +27,20 @@
   <meta property="og:image" content="https://www.atechinfotech.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Atech Infotech - Software development for UK, Canada and UAE" />
+  <meta property="og:image:alt" content="Atech Infotech - Software development for UK, Canada, UAE and India" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.atechinfotech.com/og-image.png" />
-  <meta name="twitter:title" content="Custom Web &amp; Mobile Apps for UK, Canada &amp; UAE | Atech" />
-  <meta name="twitter:description" content="Bespoke software, mobile apps and CRM/ERP systems for businesses in the UK, Canada and UAE." />
+  <meta name="twitter:title" content="Custom Web &amp; Mobile App Development | Atech Infotech" />
+  <meta name="twitter:description" content="Bespoke software, mobile apps and CRM/ERP systems for businesses in the UK, Canada, UAE and India." />
 
   <!-- Canonical & International Hreflang Alternates -->
   <link rel="canonical" href="https://www.atechinfotech.com/" />
   <link rel="alternate" hreflang="en-GB" href="https://www.atechinfotech.com/uk/" />
   <link rel="alternate" hreflang="en-CA" href="https://www.atechinfotech.com/canada/" />
   <link rel="alternate" hreflang="en-AE" href="https://www.atechinfotech.com/dubai-uae/" />
+  <link rel="alternate" hreflang="en-IN" href="https://www.atechinfotech.com/india/" />
   <link rel="alternate" hreflang="x-default" href="https://www.atechinfotech.com/" />
 
   <!-- Fonts Preload -->
@@ -87,7 +64,7 @@
         "url": "https://www.atechinfotech.com/",
         "logo": "https://www.atechinfotech.com/favicon.png",
         "image": "https://www.atechinfotech.com/og-image.png",
-        "description": "Senior software development company serving growing businesses in the UK, Canada, the UAE, and worldwide with custom web apps, mobile apps, and CRM/ERP platforms.",
+        "description": "Senior software development company serving growing businesses in the UK, Canada, UAE, India, and worldwide with custom web apps, mobile apps, and CRM/ERP platforms.",
         "foundingDate": "2024",
         "telephone": "+91 7678410628",
         "email": "priyanshu@atechinfotech.com",
@@ -193,7 +170,7 @@
         "@type": "WebPage",
         "@id": "https://www.atechinfotech.com/#webpage",
         "url": "https://www.atechinfotech.com/",
-        "name": "Custom Web & Mobile Apps for UK, Canada & UAE | Atech Infotech",
+        "name": "Custom Web & Mobile App Development | Atech Infotech",
         "isPartOf": {
           "@id": "https://www.atechinfotech.com/#website"
         },
@@ -206,10 +183,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How do you collaborate across time zones with clients in the UK, Canada, and UAE?",
+            "name": "How do you collaborate across time zones with clients in the UK, Canada, UAE, and India?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We schedule dedicated overlap windows every working day. UAE clients receive full-day alignment (1.5h difference). UK clients receive 4 dedicated afternoon hours (2-6 PM UK time). Canadian clients receive dedicated morning EST/EDT calls."
+              "text": "We schedule dedicated overlap windows every working day. Full working-day overlap for India (IST). UAE clients receive near-full day alignment (1.5h difference). UK clients receive 9:00 AM – 1:30 PM GMT / 2:30 PM BST overlap. Canadian clients receive evening-IST calls by arrangement for morning EST synchronization."
             }
           },
           {
@@ -233,7 +210,7 @@
             "name": "Do you sign Non-Disclosure Agreements (NDAs)?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, we regularly execute bilateral Non-Disclosure Agreements before reviewing confidential business workflows or technical specifications."
+              "text": "Yes, absolutely. We are happy to sign an NDA before you share confidential requirements."
             }
           }
         ]
@@ -261,16 +238,17 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5RN9GGR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="root">
     <div id="seo-static" style="max-width:960px;margin:0 auto;padding:32px 20px;font-family:Inter,Arial,sans-serif;color:#f7f9ff;background:#080b16;min-height:100vh;line-height:1.7">
-      <header><strong>Atech Infotech</strong> &middot; Software development company serving the UK, Canada &amp; UAE</header>
+      <header><strong>Atech Infotech</strong> &middot; Software development company serving the UK, Canada, UAE &amp; India</header>
       <main>
-        <h1>Custom Web &amp; Mobile Apps for Growing Businesses in the UK, Canada &amp; UAE</h1>
+        <h1>Custom Web &amp; Mobile Apps for Growing Businesses</h1>
         <p>We design and build websites, ecommerce platforms, mobile apps, and custom CRM/ERP systems, with senior engineers, fixed-scope milestones and full code ownership.</p>
         
         <h2>Target Markets</h2>
         <ul>
-          <li><a href="/uk/">United Kingdom (UK)</a>: GDPR-aware builds, Stripe/GoCardless integrations, WCAG accessibility, 2-6 PM UK overlap.</li>
-          <li><a href="/canada/">Canada</a>: PIPEDA-aware builds, bilingual English/French apps, CAD milestone pricing.</li>
+          <li><a href="/uk/">United Kingdom (UK)</a>: GDPR-aware builds, Stripe/GoCardless integrations, WCAG accessibility, 9 AM – 1:30 PM GMT / 2:30 PM BST overlap.</li>
+          <li><a href="/canada/">Canada</a>: PIPEDA-aware builds, bilingual English/French apps, CAD milestone pricing, evening-IST calls by arrangement.</li>
           <li><a href="/dubai-uae/">Dubai &amp; UAE</a>: Arabic/RTL support, VAT-ready invoicing, UAE payment gateways, full working day alignment.</li>
+          <li><a href="/india/">India</a>: INR milestone invoicing, UPI/Razorpay integrations, DPDP Act-aware architecture, full IST working day overlap.</li>
         </ul>
 
         <h2>Our Core Services</h2>
@@ -285,8 +263,8 @@
 
         <h2>Selected Work &amp; Case Studies</h2>
         <ul>
-          <li><a href="/work/futura-kitchen-sinks/">Futura Kitchen Sinks</a>: digital product catalogue with direct WhatsApp lead routing.</li>
-          <li><a href="/work/unicou-exam-vouchers/">UniCou Exam Vouchers</a>: education voucher distribution and agent management portal.</li>
+          <li><a href="/work/futura-kitchen-sinks/">Kitchen Hardware Digital Catalogue</a>: digital product catalogue with direct WhatsApp lead routing.</li>
+          <li><a href="/work/unicou-exam-vouchers/">Exam Voucher Platform</a>: education voucher distribution and agent management portal.</li>
         </ul>
 
         <h2>Navigation &amp; Resources</h2>
@@ -301,7 +279,7 @@
         </ul>
 
         <h2>Contact</h2>
-        <p>Headquarters: 1782 Omaxe City-1, Indore, Madhya Pradesh 452010, India. Phone: <a href="tel:+917678410628">+91 7678410628</a>. Email: <a href="mailto:priyanshu@atechinfotech.com">priyanshu@atechinfotech.com</a>. Overlap available for UK, Canada &amp; UAE.</p>
+        <p>Headquarters: 1782 Omaxe City-1, Indore, Madhya Pradesh 452010, India. Phone: <a href="tel:+917678410628">+91 7678410628</a>. Email: <a href="mailto:priyanshu@atechinfotech.com">priyanshu@atechinfotech.com</a>. Overlap available for UK, Canada &amp; UAE; full working-day overlap for India.</p>
       </main>
     </div>
   </div>

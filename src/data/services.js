@@ -76,7 +76,7 @@ export const services = [
       ['Logistics & operational sync', 'Connect inventory, automated shipping calculations, carrier tracking APIs, and webhook alerts to your warehouse.']
     ],
     faqs: [
-      ['Can you build multi-currency stores for UK, Canada, and UAE shoppers?', 'Yes. We implement geolocation-aware currency switching (GBP, CAD, AED, USD) with localized payment gateway checkout options.'],
+      ['Can you build multi-currency stores for UK, Canada, UAE, and India shoppers?', 'Yes. We implement geolocation-aware currency switching (GBP, CAD, AED, INR, USD) with localized payment gateway checkout options.'],
       ['Do you support custom B2B wholesale pricing rules?', 'Yes. We can architect customer group pricing, minimum order thresholds, and invoice request workflows alongside public retail catalogues.'],
       ['How do you ensure checkout performance and security?', 'We adhere to PCI-DSS compliance best practices, utilizing tokenized checkout sessions so credit card numbers never hit your web server.']
     ]

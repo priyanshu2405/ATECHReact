@@ -5,19 +5,19 @@ const reasons = [
     {
         icon: '👨‍💻',
         title: 'Senior-Led Delivery (15+ Years)',
-        description: 'You work directly with experienced software architects and senior engineers, not junior delegates or rotating offshore trainees.',
+        description: 'You work directly with experienced full-stack engineers who bring 15+ years of software delivery leadership to your project.',
         highlight: '15+ Years Experience'
     },
     {
         icon: '🎯',
         title: 'Clear Fixed-Scope Milestones',
-        description: 'Every project begins with a well-defined specification and agreed milestones. You pay for verified working software, with zero budget surprises.',
+        description: 'Every project begins with a well-defined specification and agreed milestones. You pay for agreed working software, with zero budget surprises.',
         highlight: 'Zero Scope Creep'
     },
     {
         icon: '🔐',
         title: 'You Own All Code & IP',
-        description: 'From day one, all Git repositories, documentation, and digital assets belong 100% to you. No vendor lock-in, licensing traps, or exit fees.',
+        description: 'Upon milestone completion and final payment, all Git repositories, documentation, and digital assets belong 100% to you. No vendor lock-in, licensing traps, or exit fees.',
         highlight: '100% IP Ownership'
     },
     {

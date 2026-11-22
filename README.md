@@ -52,14 +52,15 @@ The website incorporates zero-redirect, zero-layout-shift country personalisatio
                 - GB  ──> Rewrite "/" to "/v/uk/"
                 - CA  ──> Rewrite "/" to "/v/canada/"
                 - AE  ──> Rewrite "/" to "/v/uae/"
+                - IN  ──> Rewrite "/" to "/v/india/"
                 - Other ──> Pass through to Global Homepage ("/")
 ```
 
 ### 1. Variant Differences (Strictly Scoped)
 Variants differ **ONLY** in four specific aspects (no cloaking, no duplicate content):
-1. **Hero Sub-Headline**: Tailored for regional audience (UK: GDPR-aware & afternoon overlap; Canada: PIPEDA-aware & morning EST overlap; UAE: Arabic/RTL, VAT-ready, full day alignment; Global: standard outcome-focused copy).
-2. **Displayed Pricing Currency**: UK: GBP (£), Canada: CAD ($), UAE: AED (د.إ), Global: USD ($).
-3. **CTA Priority**: UAE visitors see **WhatsApp Us** as primary and Booking as secondary; UK, Canada, and Global see **Book a 30-Min Call** as primary and WhatsApp as secondary.
+1. **Hero Sub-Headline**: Tailored for regional audience (UK: GDPR-aware & afternoon overlap; Canada: PIPEDA-aware & morning EST overlap; UAE: Arabic/RTL, VAT-ready, full day alignment; India: INR milestone invoicing & same time zone IST overlap; Global: standard outcome-focused copy).
+2. **Displayed Pricing Currency**: UK: GBP (£), Canada: CAD ($), UAE: AED (د.إ), India: INR (₹), Global: USD ($).
+3. **CTA Priority**: UAE and India visitors see **WhatsApp Us** as primary and Booking as secondary; UK, Canada, and Global see **Book a 30-Min Call** as primary and WhatsApp as secondary.
 4. **Time-Zone Overlap Windows**: Highlighting dedicated overlap hours with India Standard Time.
 
 ### 2. Single Source of Truth (`src/data/regions.js`)
@@ -70,7 +71,7 @@ All regional variations are defined in `src/data/regions.js`. A single shared `H
 - Variant pages have `<link rel="canonical" href="https://www.atechinfotech.com/">` pointing strictly to root.
 - `/v/` is disallowed in `robots.txt` (`Disallow: /v/`).
 - `/v/*` is strictly excluded from `sitemap.xml`.
-- Real market pages (`/uk/`, `/canada/`, `/dubai-uae/`) remain independent, crawlable index pages with self-referencing canonicals and localized hreflang tags.
+- Real market pages (`/uk/`, `/canada/`, `/dubai-uae/`, `/india/`) remain independent, crawlable index pages with self-referencing canonicals and localized hreflang tags.
 
 ### 4. Edge Caching & Vary Headers
 In `vercel.json` and `middleware.js`:

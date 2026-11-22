@@ -21,7 +21,7 @@ const Footer = () => {
                     </a>
                     <p className="footer__brand-desc">
                         Bespoke web applications, cross-platform mobile apps, and custom CRM/ERP platforms
-                        for growing businesses in the UK, Canada, UAE, and worldwide.
+                        for growing businesses in the UK, Canada, UAE, India, and worldwide.
                     </p>
                     <p className="footer__address-line">
                         <strong>Headquarters:</strong> {config.address.fullFormatted}
@@ -64,7 +64,7 @@ const Footer = () => {
                         {markets.map((m) => (
                             <li key={m.slug}>
                                 <a href={m.path}>
-                                    <span style={{ marginRight: '6px' }}>{m.hero.eyebrow.includes('UK') ? '🇬🇧' : m.hero.eyebrow.includes('Canada') ? '🇨🇦' : '🇦🇪'}</span>
+                                    <span style={{ marginRight: '6px' }}>{m.slug === 'uk' ? '🇬🇧' : m.slug === 'canada' ? '🇨🇦' : m.slug === 'india' ? '🇮🇳' : '🇦🇪'}</span>
                                     {m.countryName}
                                 </a>
                             </li>
@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
 
             <div className="container footer__bottom">
-                <p>&copy; {new Date().getFullYear()} Atech Infotech. All rights reserved. Built with senior engineers in India, serving clients in the UK, Canada &amp; UAE.</p>
+                <p>&copy; {new Date().getFullYear()} Atech Infotech. All rights reserved. Built with senior engineers in India, serving clients in the UK, Canada, UAE &amp; India.</p>
                 <div className="footer__bottom-right">
                     <RegionSwitcher variant="footer" />
                     <div className="footer__bottom-flag">

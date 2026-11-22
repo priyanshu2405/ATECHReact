@@ -44,7 +44,7 @@ const CaseStudyPage = ({ slug }) => {
                     <h1 className="cs-hero__title">{project.title}</h1>
                     <p className="cs-hero__lead">{project.summary}</p>
 
-                    {project.liveUrl && (
+                    {project.liveUrl ? (
                         <div className="cs-hero__cta-row">
                             <a
                                 href={project.liveUrl}
@@ -54,6 +54,12 @@ const CaseStudyPage = ({ slug }) => {
                             >
                                 Visit Live Website ↗
                             </a>
+                        </div>
+                    ) : (
+                        <div className="cs-hero__cta-row" style={{ marginTop: '16px' }}>
+                            <span className="badge" style={{ fontSize: '0.85rem', padding: '8px 16px', background: 'rgba(0, 198, 255, 0.12)', border: '1px solid rgba(0, 198, 255, 0.25)', color: '#00c6ff' }}>
+                                🔒 {project.badgeText}
+                            </span>
                         </div>
                     )}
                 </div>
@@ -161,7 +167,7 @@ const CaseStudyPage = ({ slug }) => {
                                 </div>
                             </div>
 
-                            {project.liveUrl && (
+                            {project.liveUrl ? (
                                 <a
                                     href={project.liveUrl}
                                     target="_blank"
@@ -170,6 +176,10 @@ const CaseStudyPage = ({ slug }) => {
                                 >
                                     Open Project URL ↗
                                 </a>
+                            ) : (
+                                <div style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                    {project.badgeText}
+                                </div>
                             )}
                         </div>
                     </aside>

@@ -24,8 +24,9 @@ assert(countryToRegion('CA') === 'canada', 'CA maps to canada');
 assert(countryToRegion('ca') === 'canada', 'ca maps to canada');
 assert(countryToRegion('AE') === 'uae', 'AE maps to uae');
 assert(countryToRegion('ae') === 'uae', 'ae maps to uae');
+assert(countryToRegion('IN') === 'india', 'IN maps to india');
+assert(countryToRegion('in') === 'india', 'in (lowercase) maps to india');
 assert(countryToRegion('US') === 'global', 'US maps to global');
-assert(countryToRegion('IN') === 'global', 'IN maps to global');
 assert(countryToRegion(null) === 'global', 'null maps to global');
 assert(countryToRegion('') === 'global', 'empty string maps to global');
 
@@ -33,9 +34,11 @@ console.log('\n--- 2. Testing Regional Configuration & Content Integrity ---');
 assert(regions.uk.currency === 'GBP', 'UK currency is GBP');
 assert(regions.canada.currency === 'CAD', 'Canada currency is CAD');
 assert(regions.uae.currency === 'AED', 'UAE currency is AED');
+assert(regions.india.currency === 'INR', 'India currency is INR');
 assert(regions.global.currency === 'USD', 'Global currency is USD');
 
 assert(regions.uae.ctaOrder[0] === 'whatsapp', 'UAE CTA priority is WhatsApp first');
+assert(regions.india.ctaOrder[0] === 'whatsapp', 'India CTA priority is WhatsApp first');
 assert(regions.uk.ctaOrder[0] === 'booking', 'UK CTA priority is Booking first');
 assert(regions.canada.ctaOrder[0] === 'booking', 'Canada CTA priority is Booking first');
 assert(regions.global.ctaOrder[0] === 'booking', 'Global CTA priority is Booking first');
@@ -43,11 +46,13 @@ assert(regions.global.ctaOrder[0] === 'booking', 'Global CTA priority is Booking
 assert(Boolean(regions.uk.heroSubheadline && regions.uk.heroSubheadline.length > 30), 'UK has unique hero subheadline');
 assert(Boolean(regions.canada.heroSubheadline && regions.canada.heroSubheadline.length > 30), 'Canada has unique hero subheadline');
 assert(Boolean(regions.uae.heroSubheadline && regions.uae.heroSubheadline.length > 30), 'UAE has unique hero subheadline');
+assert(Boolean(regions.india.heroSubheadline && regions.india.heroSubheadline.length > 30), 'India has unique hero subheadline');
 assert(Boolean(regions.global.heroSubheadline && regions.global.heroSubheadline.length > 30), 'Global has hero subheadline');
 
 assert(regions.uk.banner && regions.uk.banner.linkUrl === '/uk/', 'UK suggestion banner links to /uk/');
 assert(regions.canada.banner && regions.canada.banner.linkUrl === '/canada/', 'Canada suggestion banner links to /canada/');
 assert(regions.uae.banner && regions.uae.banner.linkUrl === '/dubai-uae/', 'UAE suggestion banner links to /dubai-uae/');
+assert(regions.india.banner && regions.india.banner.linkUrl === '/india/', 'India suggestion banner links to /india/');
 assert(regions.global.banner === null, 'Global has no suggestion banner');
 
 console.log('\n--- 3. Testing Vercel Edge Middleware Logic ---');
@@ -95,6 +100,10 @@ for (const b of botUAs) {
   const resAE = middleware(reqAE);
   assert(resAE.headers.get('x-middleware-rewrite')?.includes('/v/uae/'), 'AE rewrites to /v/uae/');
 
+  const reqIN = createMockRequest({ country: 'IN' });
+  const resIN = middleware(reqIN);
+  assert(resIN.headers.get('x-middleware-rewrite')?.includes('/v/india/'), 'IN rewrites to /v/india/');
+
   const reqUS = createMockRequest({ country: 'US' });
   const resUS = middleware(reqUS);
   assert(resUS.headers.get('x-middleware-next') === '1', 'Unknown/US country passes through to global /');
@@ -105,6 +114,10 @@ for (const b of botUAs) {
   const req = createMockRequest({ country: 'GB', cookie: 'atech_region=uae' });
   const res = middleware(req);
   assert(res.headers.get('x-middleware-rewrite')?.includes('/v/uae/'), 'Cookie atech_region=uae overrides GB country header');
+
+  const reqIndia = createMockRequest({ country: 'GB', cookie: 'atech_region=india' });
+  const resIndia = middleware(reqIndia);
+  assert(resIndia.headers.get('x-middleware-rewrite')?.includes('/v/india/'), 'Cookie atech_region=india overrides GB country header');
 }
 
 // 3d. Dev query override: ?geo=CA overrides in non-production
@@ -112,6 +125,10 @@ for (const b of botUAs) {
   const req = createMockRequest({ url: 'http://localhost:5173/?geo=CA', country: 'GB' });
   const res = middleware(req);
   assert(res.headers.get('x-middleware-rewrite')?.includes('/v/canada/'), 'Dev ?geo=CA query overrides country');
+
+  const reqDevIN = createMockRequest({ url: 'http://localhost:5173/?geo=IN', country: 'GB' });
+  const resDevIN = middleware(reqDevIN);
+  assert(resDevIN.headers.get('x-middleware-rewrite')?.includes('/v/india/'), 'Dev ?geo=IN query overrides country');
 }
 
 console.log('\n--- 4. Testing Static Build Output & SEO Safety ---');
@@ -125,9 +142,10 @@ if (fs.existsSync(dist)) {
   assert(sitemap.includes('/uk/'), 'sitemap.xml includes /uk/');
   assert(sitemap.includes('/canada/'), 'sitemap.xml includes /canada/');
   assert(sitemap.includes('/dubai-uae/'), 'sitemap.xml includes /dubai-uae/');
+  assert(sitemap.includes('/india/'), 'sitemap.xml includes /india/');
 
   // Check /v/ variant static HTML files
-  for (const r of ['uk', 'canada', 'uae']) {
+  for (const r of ['uk', 'canada', 'uae', 'india']) {
     const filePath = path.join(dist, `v/${r}/index.html`);
     assert(fs.existsSync(filePath), `Static variant exists: dist/v/${r}/index.html`);
     if (fs.existsSync(filePath)) {
@@ -139,7 +157,7 @@ if (fs.existsSync(dist)) {
   }
 
   // Check real standalone market pages
-  for (const m of ['uk', 'canada', 'dubai-uae']) {
+  for (const m of ['uk', 'canada', 'dubai-uae', 'india']) {
     const filePath = path.join(dist, `${m}/index.html`);
     assert(fs.existsSync(filePath), `Market page exists: dist/${m}/index.html`);
     if (fs.existsSync(filePath)) {
@@ -153,7 +171,7 @@ if (fs.existsSync(dist)) {
 }
 
 console.log('\n--- 5. Testing Pricing Calculation & Safe Formatting ---');
-for (const curr of ['GBP', 'CAD', 'AED', 'USD']) {
+for (const curr of ['GBP', 'CAD', 'AED', 'INR', 'USD']) {
   for (const m of engagementModels) {
     const p = m.pricing[curr];
     const formatted = formatPriceDisplay(p);

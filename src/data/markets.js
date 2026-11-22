@@ -19,8 +19,8 @@ export const markets = [
     hero: {
       eyebrow: 'UK & International Delivery · Senior Engineering',
       title: 'Software & App Development for UK Businesses',
-      subtitle: 'We build custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups. Fixed-scope milestones, afternoon UK time overlap, and full code ownership.',
-      badge: 'Overlap: 2:00 PM – 6:00 PM UK Time (GMT/BST)',
+      subtitle: 'We build custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups. Fixed-scope milestones, morning-to-afternoon UK time overlap, and full code ownership.',
+      badge: 'Overlap: 9:00 AM – 1:30 PM GMT / 2:30 PM BST',
     },
     solutions: [
       {
@@ -40,8 +40,8 @@ export const markets = [
       },
       {
         icon: '🕒',
-        title: 'Dedicated Afternoon UK Time Overlap',
-        desc: 'Our working hours provide 4 solid hours of daily overlap with the UK working day (2:00 PM to 6:00 PM UK time) for sprint standups, review calls, and Slack collaboration.'
+        title: 'UK Time Zone Overlap (GMT & BST)',
+        desc: 'Our standard working hours provide dedicated daily overlap with the UK working day (9:00 AM to 1:30 PM GMT / 2:30 PM BST) for sprint standups, review calls, and Slack collaboration.'
       },
       {
         icon: '💷',
@@ -51,7 +51,7 @@ export const markets = [
       {
         icon: '📜',
         title: 'Full IP & Source Code Ownership',
-        desc: 'All custom software is built under comprehensive non-disclosure agreements with complete assignment of intellectual property rights and full Git repository handover.'
+        desc: 'We are happy to sign an NDA before you share confidential requirements. Complete assignment of intellectual property rights and full Git repository handover upon milestone completion and final payment.'
       }
     ],
     servicesList: [
@@ -63,7 +63,7 @@ export const markets = [
     faqs: [
       {
         q: 'How do you handle time-zone collaboration with UK clients?',
-        a: 'Our standard working day provides full coverage between 2:00 PM and 6:00 PM UK time (both GMT and BST). We conduct weekly video demos, maintain transparent communication via Slack or Microsoft Teams, and share real-time Jira/Trello boards.'
+        a: 'Our standard working day provides full coverage between 9:00 AM and 1:30 PM GMT / 2:30 PM BST. We conduct weekly video demos, maintain transparent communication via Slack or Microsoft Teams, and share real-time Jira/Trello boards.'
       },
       {
         q: 'How do you approach UK data privacy and GDPR?',
@@ -71,11 +71,11 @@ export const markets = [
       },
       {
         q: 'Can we pay in British Pounds (GBP)?',
-        a: 'Yes. We quote and invoice in GBP with milestone-based payments tied to verified deliverables. You only approve payments when milestone criteria are satisfied.'
+        a: 'Yes. We quote and invoice in GBP with milestone-based payments tied to agreed deliverables. You only approve payments when milestone criteria are satisfied.'
       },
       {
         q: 'Who owns the intellectual property and code?',
-        a: 'You own 100% of the code, designs, and intellectual property. We provide full repository access from day one, and complete IP assignment upon project completion.'
+        a: 'You own 100% of the code, designs, and intellectual property. We provide complete repository transfer and IP assignment upon milestone completion and final payment.'
       }
     ]
   },
@@ -94,7 +94,7 @@ export const markets = [
       eyebrow: 'Canada & North America Delivery · Senior Engineering',
       title: 'Web & Mobile App Development for Canadian Businesses',
       subtitle: 'We design and engineer bespoke web applications, cross-platform mobile apps, and business software for Canadian startups and established enterprises. Transparent milestone delivery and full IP ownership.',
-      badge: 'Overlap Windows for Eastern & Pacific Canada',
+      badge: 'Overlap: Evening-IST Calls by Arrangement',
     },
     solutions: [
       {
@@ -119,13 +119,13 @@ export const markets = [
       },
       {
         icon: '🤝',
-        title: 'Scheduled Overlap & Dedicated Demos',
-        desc: 'Dedicated morning overlap with Eastern Time (EST/EDT) for daily synchronization, live demos, and sprint planning sessions.'
+        title: 'Scheduled Overlap by Arrangement',
+        desc: 'Scheduled evening-IST calls by arrangement to align with Canadian morning schedules (EST/EDT) for daily synchronization, live demos, and sprint planning.'
       },
       {
         icon: '🔒',
-        title: 'Strict Confidentiality & Mutual NDAs',
-        desc: 'We execute mutual NDAs before reviewing sensitive business requirements, ensuring your proprietary product ideas remain strictly confidential.'
+        title: 'Confidentiality & Mutual NDAs',
+        desc: 'We are happy to sign an NDA before you share confidential requirements, ensuring your proprietary product ideas remain strictly confidential.'
       }
     ],
     servicesList: [
@@ -137,7 +137,7 @@ export const markets = [
     faqs: [
       {
         q: 'How do you coordinate with Canadian clients across time zones?',
-        a: 'We structure dedicated overlap windows during your morning hours (EST/EDT). Regular sprint updates, async loom walkthroughs, and shared task boards keep progress continuous and transparent.'
+        a: 'We structure scheduled evening-IST calls by arrangement during your morning hours (EST/EDT). Regular sprint updates, async video walkthroughs, and shared task boards keep progress continuous and transparent.'
       },
       {
         q: 'Can our website or app be built in both English and French?',
@@ -149,7 +149,7 @@ export const markets = [
       },
       {
         q: 'Do you work under an NDA?',
-        a: 'Yes, we gladly execute a mutual Non-Disclosure Agreement prior to receiving any project specifications, wireframes, or data models.'
+        a: 'Yes, absolutely. We are happy to sign an NDA before you share confidential requirements.'
       }
     ]
   },
@@ -184,7 +184,7 @@ export const markets = [
       {
         icon: '💳',
         title: 'UAE Payment Gateways Integration',
-        desc: 'Direct integrations with leading UAE payment processors including Telr, PayTabs, Network International, Stripe UAE, Apple Pay, and Tamara / Tabby BNPL.'
+        desc: 'Direct integrations with UAE payment processors including Telr, PayTabs, Network International, Stripe UAE, Apple Pay, and Tamara / Tabby BNPL.'
       },
       {
         icon: '💬',
@@ -224,6 +224,94 @@ export const markets = [
       {
         q: 'Can we pay in UAE Dirhams (AED)?',
         a: 'Yes, quotes and milestone invoices can be settled in AED or USD through straightforward bank wire or payment card transfers.'
+      }
+    ]
+  },
+  {
+    slug: 'india',
+    path: '/india/',
+    countryCode: 'IN',
+    countryName: 'India',
+    currency: 'INR',
+    currencySymbol: '₹',
+    locale: 'en_IN',
+    htmlLang: 'en-IN',
+    metaTitle: 'Software & App Development for Indian Businesses | Atech',
+    metaDescription: 'Custom web and mobile app development for Indian businesses. Senior engineers, INR milestone invoicing, UPI/Razorpay integrations, and DPDP Act-aware builds.',
+    ctaOrder: ['whatsapp', 'booking'],
+    hero: {
+      eyebrow: 'HQ Indore · Senior Engineering Delivery',
+      title: 'Custom Software & Mobile Apps for Indian Businesses',
+      subtitle: 'We engineer bespoke web applications, mobile apps, and business platforms for Indian startups and enterprises. INR milestone invoicing, direct engineering access, and zero timezone gap.',
+      badge: 'Same Time Zone (IST): Full Working-Day Overlap',
+    },
+    solutions: [
+      {
+        icon: '₹',
+        title: 'INR Milestone Pricing & Invoicing',
+        desc: 'Transparent pricing and milestone-based invoicing in Indian Rupees (INR). Fixed-scope deliverables ensure zero budget ambiguity for your engineering roadmap [TODO: confirm GST registration & invoicing status before claiming GST e-invoicing].'
+      },
+      {
+        icon: '💳',
+        title: 'Indian Payment Integrations (UPI, Razorpay, PayU, Cashfree)',
+        desc: 'Seamless integration with Indian payment infrastructure: instant UPI QR & intent flows, Razorpay, PayU, and Cashfree for cards, net banking, and automated recurring e-mandates.'
+      },
+      {
+        icon: '💬',
+        title: 'WhatsApp Business API Integrations',
+        desc: 'Automate customer lead capture, order confirmations, payment receipts, status notifications, and customer support routing natively through the official WhatsApp Business API.'
+      },
+      {
+        icon: '🛡️',
+        title: 'DPDP Act-Aware Architecture',
+        desc: 'We engineer digital systems with India\'s Digital Personal Data Protection (DPDP) Act principles in mind: clear notice mechanisms, purpose-specific consent logging, and robust access controls. We build with DPDP Act principles in mind and do not claim certification.'
+      },
+      {
+        icon: '🌐',
+        title: 'Hindi & English Interfaces [TODO: confirm]',
+        desc: 'Bilingual user experience support for Hindi and English interfaces [TODO: confirm bilingual interface capability with team], enabling seamless multi-language navigation for regional customer bases across India.'
+      },
+      {
+        icon: '🕒',
+        title: 'Same Time Zone (IST): Full Working-Day Overlap',
+        desc: 'Full 100% working day alignment in Indian Standard Time (IST). Live sprint reviews, immediate Slack/WhatsApp collaboration, and rapid turnaround without international timezone delays.'
+      },
+      {
+        icon: '📍',
+        title: 'Indore-Based Team & In-Person Meetings [TODO: confirm]',
+        desc: 'Headquartered in Indore, Madhya Pradesh. Direct collaboration with our senior technical leads, with in-person architecture workshops and kickoff meetings available [TODO: confirm policy on in-person client meetings].'
+      }
+    ],
+    servicesList: [
+      { name: 'Custom CRM & ERP Software', desc: 'Bespoke operational systems, distributor portals, and internal workflows tailored to Indian business models.' },
+      { name: 'Mobile Apps (Flutter & iOS/Android)', desc: 'Fast, high-performance Android and iOS mobile applications with native UPI checkout and offline sync.' },
+      { name: 'Ecommerce & B2B Wholesaler Portals', desc: 'Custom storefronts with multi-tier pricing, bulk ordering, and integrated Indian payment gateways.' },
+      { name: 'Custom Web Apps & Portals', desc: 'Modern web platforms built with React, Node.js, secure authentication, and cloud scalability.' }
+    ],
+    faqs: [
+      {
+        q: 'How are milestone payments and invoicing handled for Indian businesses?',
+        a: 'We provide structured milestone-based proposals in Indian Rupees (INR). Payments are split across clear deliverables (e.g. architecture & wireframes, MVP core, final release), with invoices settled via direct NEFT/RTGS/IMPS bank transfer or payment gateways. [TODO: confirm GST invoicing details].'
+      },
+      {
+        q: 'Which Indian payment gateways do you integrate?',
+        a: 'We integrate leading Indian payment processors including Razorpay, Cashfree, PayU, and Stripe India, supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, net banking, and automated recurring e-mandates.'
+      },
+      {
+        q: 'How do you address data privacy under the DPDP Act?',
+        a: 'We architect platforms with Digital Personal Data Protection (DPDP) Act principles in mind: explicit user consent mechanisms, data minimization, secure encrypted storage, and straightforward mechanisms for users to request data correction or erasure. We build with DPDP Act principles in mind and never claim government certification.'
+      },
+      {
+        q: 'Can our software support both Hindi and English?',
+        a: 'Yes, we can architect localization (i18n) to support both English and Hindi UI languages, including localized form labels, validation messages, and regional notification templates [TODO: confirm specific language scope].'
+      },
+      {
+        q: 'Are in-person discovery or review meetings possible?',
+        a: 'Our core engineering and leadership team is based in Indore, Madhya Pradesh. In-person scoping workshops, architecture discussions, or milestone reviews can be arranged in Indore or at your office [TODO: confirm travel & meeting availability].'
+      },
+      {
+        q: 'Who owns the intellectual property and source code?',
+        a: 'You own 100% of the intellectual property, source code, and design assets upon milestone completion and final payment. We provide full Git repository access with zero proprietary lock-in. We are happy to sign an NDA before you share confidential requirements.'
       }
     ]
   }

@@ -8,6 +8,7 @@ const countries = [
     { code: 'UK', label: 'United Kingdom (UK)' },
     { code: 'Canada', label: 'Canada' },
     { code: 'UAE', label: 'United Arab Emirates (Dubai / UAE)' },
+    { code: 'India', label: 'India' },
     { code: 'Other', label: 'Other / Global' }
 ];
 
@@ -22,17 +23,17 @@ const projectTypes = [
 ];
 
 const budgetRanges = [
-    'Under £5,000 / $8,500 CAD / 22,000 AED',
-    '£5,000 – £15,000 / $8,500 – $25,000 CAD',
-    '£15,000 – £30,000 / $25,000 – $50,000 CAD',
-    '£30,000+ / $50,000+ CAD / Enterprise'
+    'Under £5,000 / $8,500 CAD / 22,000 AED / ₹5,00,000',
+    '£5,000 – £15,000 / $8,500 – $25,000 CAD / ₹5,00,000 – ₹15,00,000',
+    '£15,000 – £30,000 / $25,000 – $50,000 CAD / ₹15,00,000 – ₹30,00,000',
+    '£30,000+ / $50,000+ CAD / ₹30,00,000+ / Enterprise'
 ];
 
 const Contact = ({
     initialCountry = '',
     region = 'global',
     title = 'Start Your Project',
-    subtitle = 'Tell us what you want to build. We reply with a practical scope and milestone plan within 24 hours.'
+    subtitle = 'Tell us what you want to build. We reply with a practical scope and milestone plan within 1 business day.'
 }) => {
     const [form, setForm] = useState({
         name: '',
@@ -233,7 +234,7 @@ const Contact = ({
                                 <div className="contact__success-icon">✓</div>
                                 <h3>Thank you! Message Received.</h3>
                                 <p>
-                                    Our senior team will review your project requirements and respond within 24 hours
+                                    Our senior team will review your project requirements and respond within 1 business day
                                     with a clear milestone roadmap.
                                 </p>
                                 <button

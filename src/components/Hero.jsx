@@ -136,7 +136,7 @@ const Hero = ({ region }) => {
                 <line x1="8" y1="2" x2="8" y2="6" />
                 <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            Book a Free 30-Min Call
+            {config.bookingUrl ? 'Book a Free 30-Min Call' : 'Request a Free Call'}
         </button>
     );
 
@@ -165,15 +165,14 @@ const Hero = ({ region }) => {
                     <div className="hero__badge">
                         <span className="hero__badge-pulse" />
                         <span className="hero__badge-text">
-                            Software development company · India · Serving the UK, Canada &amp; UAE
+                            Software development company · India · Serving the UK, Canada, UAE &amp; India
                         </span>
                     </div>
 
                     {/* H1 */}
                     <h1 className="hero__title">
                         Custom Web &amp; Mobile Apps for{' '}
-                        <span className="gradient-text">Growing Businesses</span>{' '}
-                        in the UK, Canada &amp; UAE
+                        <span className="gradient-text">Growing Businesses</span>
                     </h1>
 
                     {/* Sub-headline (Tailored per region) */}
@@ -212,7 +211,7 @@ const Hero = ({ region }) => {
                         </div>
                         <div className="hero__fact-item">
                             <span className="hero__fact-icon" aria-hidden="true">🌐</span>
-                            <span className="hero__fact-text">Overlap hours for UK / UAE / Canada</span>
+                            <span className="hero__fact-text">Overlap hours for UK, Canada, UAE &amp; India</span>
                         </div>
                     </div>
                 </div>

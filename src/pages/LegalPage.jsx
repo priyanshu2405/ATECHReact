@@ -63,7 +63,7 @@ export const PrivacyPolicyPage = () => {
                     </p>
                     <ul>
                         <li>
-                            <strong><code>atech_region</code></strong>: A functional preference cookie stored for up to 180 days (SameSite=Lax) when you manually select a regional currency or market (UK, Canada, UAE, Global). It stores zero personal data or identifying information and is used strictly to display relevant regional currency and time-zone overlap information.
+                            <strong><code>atech_region</code></strong>: A functional preference cookie stored for up to 180 days (SameSite=Lax) when you manually select a regional currency or market (UK, Canada, UAE, India, Global). It stores zero personal data or identifying information and is used strictly to display relevant regional currency and time-zone overlap information.
                         </li>
                         <li>
                             <strong><code>atech_banner_dismissed_[region]</code></strong>: A functional cookie stored for up to 180 days to remember that you dismissed a country recommendation banner, avoiding repetitive notices.
@@ -133,7 +133,7 @@ export const TermsPage = () => {
                     <h2>4. Confidentiality &amp; Non-Disclosure</h2>
                     <p>
                         Both parties agree to treat all commercial, technical, and architectural information as strictly confidential.
-                        We gladly execute bilateral Non-Disclosure Agreements (NDAs) prior to receiving confidential documentation.
+                        We are happy to sign an NDA before you share confidential requirements.
                     </p>
 
                     <h2>5. Invoicing &amp; Payment Terms</h2>
@@ -142,9 +142,9 @@ export const TermsPage = () => {
                         payments are released upon client verification of milestone deliverables.
                     </p>
 
-                    <h2>6. Warranty &amp; Limitation of Liability</h2>
+                    <h2>6. Post-Launch Support &amp; Limitation of Liability</h2>
                     <p>
-                        We provide an included 30-day post-launch warranty on fixed-price projects to resolve defects in agreed scope.
+                        We provide an agreed post-launch support window on fixed-price projects to resolve defects in agreed scope.
                         To the maximum extent permitted by law, our liability is limited to the amounts paid under the relevant Statement of Work.
                     </p>
 

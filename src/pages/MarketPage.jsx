@@ -53,20 +53,41 @@ const MarketPage = ({ marketSlug }) => {
                     </div>
 
                     <div className="market-hero__actions">
-                        <button
-                            type="button"
-                            className="btn btn-primary market-hero__btn"
-                            onClick={handleBooking}
-                        >
-                            Book a 30-Min Discovery Call ({market.currency})
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-ghost market-hero__btn"
-                            onClick={handleWhatsApp}
-                        >
-                            WhatsApp Us Direct
-                        </button>
+                        {market.ctaOrder && market.ctaOrder[0] === 'whatsapp' ? (
+                            <>
+                                <button
+                                    type="button"
+                                    className="btn btn-primary market-hero__btn"
+                                    onClick={handleWhatsApp}
+                                >
+                                    💬 WhatsApp Us Direct
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-ghost market-hero__btn"
+                                    onClick={handleBooking}
+                                >
+                                    {config.bookingUrl ? `Book a 30-Min Call (${market.currency})` : `Request a Call (${market.currency})`}
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button
+                                    type="button"
+                                    className="btn btn-primary market-hero__btn"
+                                    onClick={handleBooking}
+                                >
+                                    {config.bookingUrl ? `Book a 30-Min Call (${market.currency})` : `Request a Call (${market.currency})`}
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-ghost market-hero__btn"
+                                    onClick={handleWhatsApp}
+                                >
+                                    WhatsApp Us Direct
+                                </button>
+                            </>
+                        )}
                     </div>
                 </div>
             </section>
@@ -130,9 +151,9 @@ const MarketPage = ({ marketSlug }) => {
 
             {/* Contact Form with Preselected Country */}
             <Contact
-                initialCountry={market.slug === 'uk' ? 'UK' : market.slug === 'canada' ? 'Canada' : 'UAE'}
+                initialCountry={market.slug === 'uk' ? 'UK' : market.slug === 'canada' ? 'Canada' : market.slug === 'india' ? 'India' : 'UAE'}
                 title={`Start Your ${market.countryName} Project`}
-                subtitle={`Fixed-scope milestone quote in ${market.currency}. Guaranteed response within 24 hours.`}
+                subtitle={`Fixed-scope milestone quote in ${market.currency}. Fast response within 1 business day.`}
             />
         </div>
     );

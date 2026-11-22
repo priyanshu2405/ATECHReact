@@ -188,23 +188,25 @@ const articles = [
   }
 ];
 
-// Verified Case Studies (Drafts excluded from public generation & sitemap)
+// Selected Case Studies (Drafts excluded from public generation & sitemap)
 const caseStudies = [
   {
     slug: 'futura-kitchen-sinks',
-    title: 'Futura Kitchen Sinks: Digital Product Catalogue & Lead Generation Platform',
-    shortTitle: 'Futura Kitchen Sinks',
-    clientType: 'Manufacturing & Hardware Brand',
+    permission: 'anonymised',
+    references_available: false,
+    title: 'Digital Product Catalogue & Lead Generation Platform',
+    shortTitle: 'Kitchen Hardware Catalogue',
+    clientType: 'Kitchen Hardware Manufacturer',
     industry: 'Consumer Goods & Hardware',
     country: 'India',
-    liveUrl: 'https://futurasink.com/',
-    summary: 'Responsive product catalogue platform for a leading kitchen sink manufacturer with direct WhatsApp enquiry workflows and downloadable product brochures.',
+    liveUrl: null,
+    summary: 'Responsive product catalogue platform for a kitchen sink manufacturer with direct WhatsApp enquiry workflows and downloadable product brochures.',
     problem: 'The client needed a modern, lightweight digital catalogue to present hundreds of sink models, technical specifications, and finishes to homeowners, architects, and retail distributors without complex ecommerce overhead.',
     solution: 'Engineered a modern, responsive web catalogue using React.js and a modular component architecture. Focused on high-speed page loads, clear dimensional diagrams, category filters, and frictionless lead capture through integrated WhatsApp enquiry buttons.',
     features: [
       'Comprehensive product catalogue with multi-dimensional filtering',
       'One-click direct WhatsApp enquiry routed with specific product SKU',
-      'Downloadable digital specification brochures and warranty guides',
+      'Downloadable digital specification brochures and technical guides',
       'Mobile-optimized responsive layouts for contractors on job sites',
       'Fast image loading and SEO foundations for search visibility'
     ],
@@ -217,12 +219,14 @@ const caseStudies = [
   },
   {
     slug: 'unicou-exam-vouchers',
-    title: 'UniCou: Education Exam Voucher Distribution & Agent Portal',
-    shortTitle: 'UniCou Exam Vouchers',
-    clientType: 'EdTech & Certification Services',
+    permission: 'anonymised',
+    references_available: false,
+    title: 'Education Exam Voucher Distribution & Agent Portal',
+    shortTitle: 'Exam Voucher Platform',
+    clientType: 'Certification & EdTech Services',
     industry: 'Education & Examination Vouchers',
     country: 'United Kingdom / Global',
-    liveUrl: 'https://unicouuk.janshaurya.org/',
+    liveUrl: null,
     summary: 'Secure exam voucher distribution platform designed for international students, education consultancies, and academic partner agents.',
     problem: 'Managing bulk discounted exam vouchers for international test takers and certified agency partners required manual verification, resulting in slow turnaround and payment friction.',
     solution: 'Designed and implemented a role-based portal that allows individual candidates and registered partner agencies to view available exam vouchers, purchase in bulk, and receive validated voucher codes through automated workflows.',
@@ -253,21 +257,21 @@ const markets = [
     htmlLang: 'en-GB',
     title: 'Software & App Development for UK Businesses | Atech Infotech',
     description: 'Custom software, web apps, mobile apps and CRM systems for growing UK businesses. Senior engineers, UK time-zone overlap, fixed-scope milestones and GBP invoicing.',
-    heroSubtitle: 'We build custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups. Fixed-scope milestones, afternoon UK time overlap, and full code ownership.',
-    badge: 'Overlap: 2:00 PM – 6:00 PM UK Time (GMT/BST)',
+    heroSubtitle: 'We build custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups. Fixed-scope milestones, morning-to-afternoon UK time overlap, and full code ownership.',
+    badge: 'Overlap: 9:00 AM – 1:30 PM GMT / 2:30 PM BST',
     solutions: [
       ['GDPR-Aware Architecture', 'We build with UK and EU GDPR principles in mind: encrypted data storage, clear cookie consent setups, role-based access control, and straightforward data export and deletion mechanisms.'],
       ['UK Payment & Banking Integrations', 'Seamless integrations with Stripe UK, GoCardless for Direct Debit collections, and Open Banking APIs for instant bank transfers and payment reconciliation.'],
       ['Accessibility (WCAG-Minded Builds)', 'We engineer frontends with WCAG 2.1 AA accessibility guidelines in mind: semantic landmarks, full keyboard navigability, high color contrast, and screen-reader compatibility.'],
-      ['Dedicated Afternoon UK Time Overlap', 'Our working hours provide 4 solid hours of daily overlap with the UK working day (2:00 PM to 6:00 PM UK time) for sprint standups, review calls, and Slack collaboration.'],
+      ['UK Time Zone Overlap (GMT & BST)', 'Our standard working hours provide dedicated daily overlap with the UK working day (9:00 AM to 1:30 PM GMT / 2:30 PM BST) for sprint standups, review calls, and Slack collaboration.'],
       ['Transparent GBP Pricing & Invoicing', 'Fixed-milestone scopes in GBP with milestone-based delivery, ensuring zero hidden exchange surprises or fluctuating contractor rates.'],
-      ['Full IP & Source Code Ownership', 'All custom software is built under comprehensive non-disclosure agreements with complete assignment of intellectual property rights and full Git repository handover.']
+      ['Full IP & Source Code Ownership', 'We are happy to sign an NDA before you share confidential requirements. Complete assignment of intellectual property rights and full Git repository handover upon milestone completion and final payment.']
     ],
     faqs: [
-      ['How do you handle time-zone collaboration with UK clients?', 'Our standard working day provides full coverage between 2:00 PM and 6:00 PM UK time (both GMT and BST). We conduct weekly video demos, maintain transparent communication via Slack or Microsoft Teams, and share real-time Jira/Trello boards.'],
+      ['How do you handle time-zone collaboration with UK clients?', 'Our standard working day provides full coverage between 9:00 AM and 1:30 PM GMT / 2:30 PM BST. We conduct weekly video demos, maintain transparent communication via Slack or Microsoft Teams, and share real-time Jira/Trello boards.'],
       ['How do you approach UK data privacy and GDPR?', 'We build with UK GDPR requirements in mind from the ground up: database encryption at rest, HTTPS/TLS in transit, cookie banner compliance options, and structured user consent logs.'],
-      ['Can we pay in British Pounds (GBP)?', 'Yes. We quote and invoice in GBP with milestone-based payments tied to verified deliverables. You only approve payments when milestone criteria are satisfied.'],
-      ['Who owns the intellectual property and code?', 'You own 100% of the code, designs, and intellectual property. We provide full repository access from day one, and complete IP assignment upon project completion.']
+      ['Can we pay in British Pounds (GBP)?', 'Yes. We quote and invoice in GBP with milestone-based payments tied to agreed deliverables. You only approve payments when milestone criteria are satisfied.'],
+      ['Who owns the intellectual property and code?', 'You own 100% of the code, designs, and intellectual property. We provide complete repository transfer and IP assignment upon milestone completion and final payment.']
     ]
   },
   {
@@ -280,20 +284,20 @@ const markets = [
     title: 'Web & Mobile App Development for Canadian Businesses | Atech',
     description: 'Custom software, web portals, mobile apps and cloud systems for Canadian businesses. Senior engineering, PIPEDA-aware builds, bilingual options and CAD pricing.',
     heroSubtitle: 'We design and engineer bespoke web applications, cross-platform mobile apps, and business software for Canadian startups and established enterprises. Transparent milestone delivery and full IP ownership.',
-    badge: 'Overlap Windows for Eastern & Pacific Canada',
+    badge: 'Overlap: Evening-IST Calls by Arrangement',
     solutions: [
       ['PIPEDA-Aware Data Practices', 'We build with Canadian federal and provincial privacy legislation (PIPEDA) in mind: strict data segregation, audit logging, and clear user privacy controls.'],
       ['Bilingual English/French Capabilities', 'Internationalization (i18n) engineered into the core architecture, allowing your digital product to support seamless English and French language switching across Canada.'],
       ['Stripe & Interac-Friendly Payments', 'Support for popular Canadian payment gateways and workflows, including Stripe Canada, Apple Pay, Google Pay, and Interac-friendly checkout integrations.'],
       ['Predictable CAD Milestone Pricing', 'Get transparent proposals and milestone billing in Canadian Dollars (CAD). Fixed milestones protect your budget from scope creep and currency volatility.'],
-      ['Scheduled Overlap & Dedicated Demos', 'Dedicated morning overlap with Eastern Time (EST/EDT) for daily synchronization, live demos, and sprint planning sessions.'],
-      ['Strict Confidentiality & Mutual NDAs', 'We execute mutual NDAs before reviewing sensitive business requirements, ensuring your proprietary product ideas remain strictly confidential.']
+      ['Scheduled Overlap by Arrangement', 'Scheduled evening-IST calls by arrangement to align with Canadian morning schedules (EST/EDT) for daily synchronization, live demos, and sprint planning.'],
+      ['Confidentiality & Mutual NDAs', 'We are happy to sign an NDA before you share confidential requirements, ensuring your proprietary product ideas remain strictly confidential.']
     ],
     faqs: [
-      ['How do you coordinate with Canadian clients across time zones?', 'We structure dedicated overlap windows during your morning hours (EST/EDT). Regular sprint updates, async loom walkthroughs, and shared task boards keep progress continuous and transparent.'],
+      ['How do you coordinate with Canadian clients across time zones?', 'We structure scheduled evening-IST calls by arrangement during your morning hours (EST/EDT). Regular sprint updates, async loom walkthroughs, and shared task boards keep progress continuous and transparent.'],
       ['Can our website or app be built in both English and French?', 'Yes. We architect localization (i18n) from the beginning, supporting dynamic content switching, locale-specific URLs, and bilingual SEO metadata.'],
       ['How are payments structured for Canadian projects?', 'We work on milestone-based billing in CAD. Each milestone is defined by tangible deliverables (e.g. wireframes, core API build, frontend completion), and funds are released upon your review.'],
-      ['Do you work under an NDA?', 'Yes, we gladly execute a mutual Non-Disclosure Agreement prior to receiving any project specifications, wireframes, or data models.']
+      ['Do you work under an NDA?', 'Yes, absolutely. We are happy to sign an NDA before you share confidential requirements.']
     ]
   },
   {
@@ -310,7 +314,7 @@ const markets = [
     solutions: [
       ['Arabic & Right-to-Left (RTL) Layouts', 'Complete bidirectional support engineered from the ground up: native Arabic typography, mirrored UI elements, and seamless English/Arabic toggling.'],
       ['UAE VAT-Ready Billing & Invoicing', 'Custom invoice generators, accounting workflows, and ERP modules built with Federal Tax Authority (FTA) 5% VAT calculation and reporting standards in mind.'],
-      ['UAE Payment Gateways Integration', 'Direct integrations with leading UAE payment processors including Telr, PayTabs, Network International, Stripe UAE, Apple Pay, and Tamara / Tabby BNPL.'],
+      ['UAE Payment Gateways Integration', 'Direct integrations with UAE payment processors including Telr, PayTabs, Network International, Stripe UAE, Apple Pay, and Tamara / Tabby BNPL.'],
       ['WhatsApp Business API Workflows', 'Automated customer enquiry capture, instant order updates, quote dispatches, and CRM lead routing directly via WhatsApp.'],
       ['Seamless GST Time-Zone Alignment', 'India Standard Time is only 1.5 hours ahead of UAE Gulf Standard Time (GST), giving our engineering teams complete real-time working day overlap.'],
       ['Enterprise CRM & Real Estate Solutions', 'Lead distribution engines, property listing aggregators, agent commission modules, and multi-currency deal pipelines tailored for Dubai enterprises.']
@@ -320,6 +324,37 @@ const markets = [
       ['Can you integrate local UAE payment processors like Telr or PayTabs?', 'Yes. We have experience integrating UAE gateways including Telr, PayTabs, Network International, as well as Stripe UAE, Apple Pay, and Tabby.'],
       ['Do you support bilingual English and Arabic interfaces?', 'Yes. We build responsive RTL layouts with proper Arabic typography, mirrored icons, and localized number formats.'],
       ['Can we pay in UAE Dirhams (AED)?', 'Yes, quotes and milestone invoices can be settled in AED or USD through straightforward bank wire or payment card transfers.']
+    ]
+  },
+  {
+    slug: 'india',
+    path: '/india/',
+    countryName: 'India',
+    currency: 'INR',
+    locale: 'en_IN',
+    htmlLang: 'en-IN',
+    title: 'Software & App Development for Indian Businesses | Atech',
+    h1: 'Custom Software & Mobile Apps for Indian Businesses',
+    description: 'Custom web and mobile app development for Indian businesses. Senior engineers, INR milestone invoicing, UPI/Razorpay integrations, and DPDP Act-aware builds.',
+    heroSubtitle: 'We engineer bespoke web applications, mobile apps, and business platforms for Indian startups and enterprises. INR milestone invoicing, direct engineering access, and zero timezone gap.',
+    badge: 'Same Time Zone (IST): Full Working-Day Overlap',
+    ctaOrder: ['whatsapp', 'booking'],
+    solutions: [
+      ['INR Milestone Pricing & Invoicing', 'Transparent pricing and milestone-based invoicing in Indian Rupees (INR). Fixed-scope deliverables ensure zero budget ambiguity for your engineering roadmap [TODO: confirm GST registration & invoicing status before claiming GST e-invoicing].'],
+      ['Indian Payment Integrations (UPI, Razorpay, PayU)', 'Seamless integration with Indian payment infrastructure: instant UPI QR & intent flows, Razorpay, PayU, and Cashfree for cards, net banking, and automated recurring e-mandates.'],
+      ['WhatsApp Business API Integrations', 'Automate customer lead capture, order confirmations, payment receipts, status notifications, and customer support routing natively through the official WhatsApp Business API.'],
+      ['DPDP Act-Aware Architecture', 'We engineer digital systems with India\'s Digital Personal Data Protection (DPDP) Act principles in mind: clear notice mechanisms, purpose-specific consent logging, and robust access controls. We build with DPDP Act principles in mind and do not claim certification.'],
+      ['Hindi & English Interfaces [TODO: confirm]', 'Bilingual user experience support for Hindi and English interfaces [TODO: confirm bilingual interface capability with team], enabling seamless multi-language navigation for regional customer bases across India.'],
+      ['Same Time Zone (IST): Full Working-Day Overlap', 'Full 100% working day alignment in Indian Standard Time (IST). Live sprint reviews, immediate Slack/WhatsApp collaboration, and rapid turnaround without international timezone delays.'],
+      ['Indore-Based Team & In-Person Meetings [TODO: confirm]', 'Headquartered in Indore, Madhya Pradesh. Direct collaboration with our senior technical leads, with in-person architecture workshops and kickoff meetings available [TODO: confirm policy on in-person client meetings].']
+    ],
+    faqs: [
+      ['How are milestone payments and invoicing handled for Indian businesses?', 'We provide structured milestone-based proposals in Indian Rupees (INR). Payments are split across clear deliverables (e.g. architecture & wireframes, MVP core, final release), with invoices settled via direct NEFT/RTGS/IMPS bank transfer or payment gateways. [TODO: confirm GST invoicing details].'],
+      ['Which Indian payment gateways do you integrate?', 'We integrate leading Indian payment processors including Razorpay, Cashfree, PayU, and Stripe India, supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, net banking, and automated recurring e-mandates.'],
+      ['How do you address data privacy under the DPDP Act?', 'We architect platforms with Digital Personal Data Protection (DPDP) Act principles in mind: explicit user consent mechanisms, data minimization, secure encrypted storage, and straightforward mechanisms for users to request data correction or erasure. We build with DPDP Act principles in mind and never claim government certification.'],
+      ['Can our software support both Hindi and English?', 'Yes, we can architect localization (i18n) to support both English and Hindi UI languages, including localized form labels, validation messages, and regional notification templates [TODO: confirm specific language scope].'],
+      ['Are in-person discovery or review meetings possible?', 'Our core engineering and leadership team is based in Indore, Madhya Pradesh. In-person scoping workshops, architecture discussions, or milestone reviews can be arranged in Indore or at your office [TODO: confirm travel & meeting availability].'],
+      ['Who owns the intellectual property and source code?', 'You own 100% of the intellectual property, source code, and design assets upon milestone completion and final payment. We provide full Git repository access with zero proprietary lock-in. We are happy to sign an NDA before you share confidential requirements.']
     ]
   }
 ];
@@ -365,7 +400,7 @@ const orgNode = {
 };
 
 const head = ({ title, description, url, type = 'website', locale = 'en_GB', jsonld = [] }) => `<!doctype html>
-<html lang="${locale === 'en_CA' ? 'en-CA' : locale === 'en_AE' ? 'en-AE' : 'en-GB'}"><head>
+<html lang="${locale === 'en_CA' ? 'en-CA' : locale === 'en_AE' ? 'en-AE' : locale === 'en_IN' ? 'en-IN' : 'en-GB'}"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
@@ -374,11 +409,12 @@ const head = ({ title, description, url, type = 'website', locale = 'en_GB', jso
 <link rel="alternate" hreflang="en-GB" href="${base}/uk/">
 <link rel="alternate" hreflang="en-CA" href="${base}/canada/">
 <link rel="alternate" hreflang="en-AE" href="${base}/dubai-uae/">
+<link rel="alternate" hreflang="en-IN" href="${base}/india/">
 <link rel="alternate" hreflang="x-default" href="${base}/">
 <meta name="theme-color" content="#080b16">
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="Atech Infotech"><meta property="og:locale" content="${locale}">
 <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${url}">
-<meta property="og:image" content="${ogImage}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Atech Infotech - Software development for UK, Canada and UAE">
+<meta property="og:image" content="${ogImage}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Atech Infotech - Software development for UK, Canada, UAE and India">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(title)}"><meta name="twitter:description" content="${escapeHtml(description)}"><meta name="twitter:image" content="${ogImage}">
 <link rel="icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -391,14 +427,14 @@ const head = ({ title, description, url, type = 'website', locale = 'en_GB', jso
 <header class="top"><div class="wrap">
 <a class="brand" href="/"><div class="brand-box">A</div><div>Atech <span>Infotech</span></div></a>
 <nav class="nav" aria-label="Main">
-<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a>
+<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a><a href="/india/">India</a>
 <a href="/#services">Services</a><a href="/work/">Work</a><a href="/pricing/">Pricing</a><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a>
 </nav></div></header>`;
 
 const footer = `<footer class="foot"><div class="wrap">
 <p>
 <a href="/">Home</a>
-<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a>
+<a href="/uk/">UK</a><a href="/canada/">Canada</a><a href="/dubai-uae/">UAE</a><a href="/india/">India</a>
 <a href="/work/">Case Studies</a>
 <a href="/pricing/">Pricing</a>
 <a href="/about/">About</a>
@@ -407,7 +443,7 @@ const footer = `<footer class="foot"><div class="wrap">
 <a href="/privacy-policy/">Privacy Policy</a>
 <a href="/terms/">Terms</a>
 </p>
-<p>&copy; ${new Date().getFullYear()} Atech Infotech. Software development company serving the UK, Canada and UAE. Phone ${PHONE}.</p>
+<p>&copy; ${new Date().getFullYear()} Atech Infotech. Software development company serving the UK, Canada, UAE and India. Phone ${PHONE}.</p>
 </div></footer></body></html>`;
 
 const waLink = (text) => `https://wa.me/917678410628?text=${encodeURIComponent(text)}`;
@@ -460,7 +496,7 @@ for (const s of services) {
 <section class="section"><h2>Frequently asked questions</h2>${s.faqs.map(([q, a]) => `<article class="faq"><h3>${escapeHtml(q)}</h3><p>${escapeHtml(a)}</p></article>`).join('')}</section>
 ${relArticles.length ? `<section class="section related"><h2>Helpful guides</h2>${relArticles.map((a) => `<a href="/blog/${a.slug}/">${escapeHtml(a.title)} (${a.readingTime})</a>`).join('')}</section>` : ''}
 <section class="section related"><h2>Other services</h2>${others.map((o) => `<a href="/services/${o.slug}/">${escapeHtml(o.nav)}</a>`).join('')}</section>
-<section class="section"><h2>Talk to our senior engineers</h2><p class="muted">Share your goals, required features and preferred timeline. We provide an itemized milestone scope within 24 hours.</p><a class="cta" href="mailto:${EMAIL}?subject=${encodeURIComponent(`Enquiry: ${s.nav}`)}">Email us</a><a class="cta-ghost" href="tel:+917678410628">Call ${PHONE}</a></section>
+<section class="section"><h2>Talk to our senior engineers</h2><p class="muted">Share your goals, required features and preferred timeline. We provide an itemized milestone scope within 1 business day.</p><a class="cta" href="mailto:${EMAIL}?subject=${encodeURIComponent(`Enquiry: ${s.nav}`)}">Email us</a><a class="cta-ghost" href="tel:+917678410628">Call ${PHONE}</a></section>
 </main>` + footer;
   write(`services/${s.slug}/index.html`, html);
 }
@@ -522,7 +558,7 @@ for (const a of articles) {
 <p class="lead">${escapeHtml(a.description)}</p>
 ${a.sections.map(([h, ps]) => `<h2>${escapeHtml(h)}</h2>${ps.map((p) => `<p>${escapeHtml(p)}</p>`).join('')}`).join('')}
 <h2>Need help scoping your project?</h2>
-<p>Atech Infotech builds custom web applications, cross-platform mobile apps, and business platforms for clients in the UK, Canada, and UAE. Tell us what you are planning and we will propose a practical, fixed-milestone scope.</p>
+<p>Atech Infotech builds custom web applications, cross-platform mobile apps, and business platforms for clients in the UK, Canada, UAE, and India. Tell us what you are planning and we will propose a practical, fixed-milestone scope.</p>
 <a class="cta" href="/#contact">Get a free consultation</a>
 <a class="cta-ghost" href="${waLink(`Hi Atech Infotech, I read your guide "${a.title}" and would like to talk.`)}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
 </article>
@@ -551,11 +587,14 @@ for (const m of markets) {
 <main class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / Markets / ${escapeHtml(m.countryName)}</nav>
 <section class="hero">
 <div class="eyebrow">${escapeHtml(m.countryName)} &middot; Senior Engineering Delivery</div>
-<h1>${escapeHtml(m.title.split('|')[0].trim())}</h1>
+<h1>${escapeHtml(m.h1 || m.title.split('|')[0].trim())}</h1>
 <p class="lead">${escapeHtml(m.heroSubtitle)}</p>
 <div style="margin:16px 0 24px"><span class="badge" style="font-size:14px;padding:6px 14px">${escapeHtml(m.badge)}</span></div>
-<a class="cta" href="/#contact">Book a discovery call (${m.currency})</a>
-<a class="cta-ghost" href="${waLink(`Hi Atech Infotech, I am contacting you from ${m.countryName} regarding a software development project.`)}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+${m.ctaOrder && m.ctaOrder[0] === 'whatsapp' ? `
+<a class="cta" href="${waLink(`Hi Atech Infotech, I am contacting you from ${m.countryName} regarding a software development project.`)}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+<a class="cta-ghost" href="/#contact">Request a call (${m.currency})</a>` : `
+<a class="cta" href="/#contact">Request a call (${m.currency})</a>
+<a class="cta-ghost" href="${waLink(`Hi Atech Infotech, I am contacting you from ${m.countryName} regarding a software development project.`)}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>`}
 </section>
 
 <section class="section">
@@ -570,7 +609,7 @@ ${m.faqs.map(([q, a]) => `<article class="faq"><h3>${escapeHtml(q)}</h3><p>${esc
 
 <section class="section">
 <h2>Start your ${escapeHtml(m.countryName)} project with senior engineers</h2>
-<p class="muted">Fixed-scope milestone quote in ${m.currency}. Guaranteed response within 24 hours.</p>
+<p class="muted">Fixed-scope milestone quote in ${m.currency}. Fast response within 1 business day.</p>
 <a class="cta" href="/contact/">Enquire online</a>
 <a class="cta-ghost" href="mailto:${EMAIL}?subject=${encodeURIComponent(`Enquiry from ${m.countryName}`)}">Email us</a>
 </section>
@@ -582,7 +621,7 @@ ${m.faqs.map(([q, a]) => `<article class="faq"><h3>${escapeHtml(q)}</h3><p>${esc
 const workIndexUrl = `${base}/work/`;
 write('work/index.html', head({
   title: 'Case Studies: Web, Mobile & Custom Platforms | Atech Infotech',
-  description: 'Explore verified case studies from Atech Infotech: digital product catalogues, education exam voucher portals, and custom business platforms.',
+  description: 'Explore selected case studies from Atech Infotech: digital product catalogues, education exam voucher portals, and custom business platforms.',
   url: workIndexUrl,
   jsonld: [orgNode, crumbLd([['Home', `${base}/`], ['Work', workIndexUrl]])]
 }) + `
@@ -598,6 +637,7 @@ write('work/index.html', head({
 <h3><a class="title" href="/work/${cs.slug}/">${escapeHtml(cs.shortTitle)}</a></h3>
 <p>${escapeHtml(cs.summary)}</p>
 <div style="margin:14px 0">${cs.techStack.map(t => `<span class="badge" style="margin-right:6px">${escapeHtml(t)}</span>`).join('')}</div>
+<p style="margin-bottom:8px"><span class="badge" style="font-size:12px;padding:4px 10px">${cs.references_available ? 'Private client project: private demo and client reference available on request' : 'Private client project: private demo available on request'}</span></p>
 <p><a href="/work/${cs.slug}/">Read full case study &rarr;</a></p>
 </article>`).join('')}</div></section>
 </main>` + footer);
@@ -615,7 +655,7 @@ for (const cs of caseStudies) {
 <div class="eyebrow">${escapeHtml(cs.industry)} &middot; ${escapeHtml(cs.country)} &middot; ${escapeHtml(cs.clientType)}</div>
 <h1>${escapeHtml(cs.title)}</h1>
 <p class="lead">${escapeHtml(cs.summary)}</p>
-${cs.liveUrl ? `<a class="cta" href="${cs.liveUrl}" target="_blank" rel="noopener noreferrer">Visit live project &rarr;</a>` : ''}
+${cs.liveUrl ? `<a class="cta" href="${cs.liveUrl}" target="_blank" rel="noopener noreferrer">Visit live project &rarr;</a>` : `<span class="badge" style="display:inline-block;margin-top:16px;padding:8px 16px;font-size:13px">${cs.references_available ? 'Private client project: private demo and client reference available on request' : 'Private client project: private demo available on request'}</span>`}
 </section>
 
 <section class="section"><div class="grid">
@@ -673,9 +713,9 @@ write('pricing/index.html', head({
 <article class="card">
 <span class="badge">Most Popular</span>
 <h3>Fixed-Price Project</h3>
-<p>Best for well-defined scopes and milestone-driven deliverables. You pay for verified working software.</p>
+<p>Best for well-defined scopes and milestone-driven deliverables. You pay for agreed working software.</p>
 <div style="font-size:24px;font-weight:800;color:#00c6ff;margin:16px 0">Request a quote</div>
-<p style="font-size:14px;color:#a8b2d8">Per-milestone delivery &middot; 30-day warranty &middot; 100% IP ownership</p>
+<p style="font-size:14px;color:#a8b2d8">Per-milestone delivery &middot; Post-launch support &middot; 100% IP ownership</p>
 </article>
 <article class="card">
 <span class="badge">Continuous Growth</span>
@@ -694,7 +734,7 @@ write('pricing/index.html', head({
 </div></section>
 <section class="section">
 <h2>Request an itemized proposal</h2>
-<p class="muted">Tell us what you want to build. We will reply within 24 hours with an itemized milestone breakdown.</p>
+<p class="muted">Tell us what you want to build. We will reply within 1 business day with an itemized milestone breakdown.</p>
 <a class="cta" href="/contact/">Request a project quote</a>
 <a class="cta-ghost" href="${waLink('Hi Atech Infotech, I would like to discuss pricing and project models.')}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
 </section>
@@ -704,7 +744,7 @@ write('pricing/index.html', head({
 const aboutUrl = `${base}/about/`;
 write('about/index.html', head({
   title: 'About Atech Infotech | Senior Software Development Company',
-  description: '15+ years of senior software delivery experience. Learn about our story, values, founder leadership, and international overlap with UK, Canada & UAE.',
+  description: '15+ years of senior software delivery experience. Learn about our story, values, founder leadership, and international overlap with UK, Canada, UAE & India.',
   url: aboutUrl,
   jsonld: [orgNode, crumbLd([['Home', `${base}/`], ['About', aboutUrl]])]
 }) + `
@@ -715,9 +755,9 @@ write('about/index.html', head({
 <p class="lead">We provide founders and CTOs with direct access to experienced full-stack engineers, transparent milestone delivery, and zero proprietary lock-in.</p>
 </section>
 <section class="section"><div class="grid">
-<article class="card"><h3>Senior-Led Architecture</h3><p>We do not delegate your product to junior trainees. You collaborate directly with senior architects with 15+ years of software delivery experience.</p></article>
-<article class="card"><h3>100% Code &amp; IP Ownership</h3><p>You own all code, repositories, and assets from day one. Full Git rights are handed over with zero licensing traps or exit fees.</p></article>
-<article class="card"><h3>Dedicated Overlap Windows</h3><p>Structured overlap for UK afternoon hours (2-6 PM UK), UAE full working day (GST), and Canadian morning schedules (EST/EDT).</p></article>
+<article class="card"><h3>Experienced Engineering</h3><p>You collaborate directly with experienced full-stack engineers with 15+ years of software delivery leadership.</p></article>
+<article class="card"><h3>100% Code &amp; IP Ownership</h3><p>All code, repositories, and assets are assigned upon milestone completion and final payment. Full Git rights are handed over with zero licensing traps or exit fees.</p></article>
+<article class="card"><h3>Dedicated Overlap Windows</h3><p>Structured overlap for UK working hours (9:00 AM – 1:30 PM GMT / 2:30 PM BST), UAE full working day (GST), and Canadian morning schedules via evening-IST calls by arrangement.</p></article>
 <article class="card"><h3>Milestone Certainty</h3><p>Every phase is defined by tangible deliverables and signed off before funds are released. Predictable budgets, no surprises.</p></article>
 </div></section>
 <section class="section">
@@ -731,8 +771,8 @@ write('about/index.html', head({
 // 7. ---- CONTACT (/contact)
 const contactUrl = `${base}/contact/`;
 write('contact/index.html', head({
-  title: 'Contact Atech Infotech | UK, Canada & UAE Software Scoping',
-  description: 'Contact Atech Infotech to discuss your web, mobile or custom CRM/ERP project. Guaranteed response within 24 hours with an itemized milestone scope.',
+  title: 'Contact Atech Infotech | UK, Canada, UAE & India Software Scoping',
+  description: 'Contact Atech Infotech to discuss your web, mobile or custom CRM/ERP project. Fast response within 1 business day with an itemized milestone scope.',
   url: contactUrl,
   jsonld: [orgNode, crumbLd([['Home', `${base}/`], ['Contact', contactUrl]])]
 }) + `
@@ -740,7 +780,7 @@ write('contact/index.html', head({
 <section class="hero">
 <div class="eyebrow">Direct Engineering Access</div>
 <h1>Start Your Project Today</h1>
-<p class="lead">Reach out via form, email, or WhatsApp. We reply with a practical milestone roadmap and fixed quote within 24 hours.</p>
+<p class="lead">Reach out via form, email, or WhatsApp. We reply with a practical milestone roadmap and fixed quote within 1 business day.</p>
 </section>
 <section class="section"><div class="grid">
 <article class="card"><h3>Direct Contact Details</h3>
@@ -751,8 +791,8 @@ write('contact/index.html', head({
 </article>
 <article class="card"><h3>Time-Zone Overlap Windows</h3>
 <p><strong>UAE (GST):</strong> Full working day overlap (only 1.5h difference)</p>
-<p><strong>UK (GMT/BST):</strong> 2:00 PM – 6:00 PM UK time dedicated overlap</p>
-<p><strong>Canada (EST):</strong> Dedicated morning call synchronization</p>
+<p><strong>UK (GMT/BST):</strong> 9:00 AM – 1:30 PM GMT / 2:30 PM BST dedicated overlap</p>
+<p><strong>Canada (EST/PST):</strong> Evening-IST calls by arrangement (morning EST/EDT alignment)</p>
 <p><strong>India (IST):</strong> Mon&ndash;Fri: 9:00 AM &ndash; 7:00 PM IST</p>
 </article>
 </div></section>
@@ -800,7 +840,7 @@ write('terms/index.html', head({
 <section class="section"><div class="card">
 <h2>1. Scope &amp; Milestones</h2><p>Software development services are delivered in defined milestones according to an agreed Statement of Work (SOW).</p>
 <h2>2. Code &amp; IP Ownership</h2><p>Upon full milestone payment, all custom source code, documentation, and digital assets are 100% assigned to the client with zero vendor lock-in.</p>
-<h2>3. Confidentiality</h2><p>We execute bilateral Non-Disclosure Agreements (NDAs) before reviewing confidential technical requirements.</p>
+<h2>3. Confidentiality</h2><p>We are happy to sign an NDA before you share confidential requirements.</p>
 </div></section></main>` + footer);
 
 // 8b. ---- REGIONAL HOMEPAGE VARIANTS (/v/uk, /v/canada, /v/uae)
@@ -809,16 +849,16 @@ const regionalVariants = [
   {
     region: 'uk',
     currency: 'GBP',
-    subheadline: 'We engineer custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups, with senior engineers, fixed-scope milestones and UK afternoon overlap.',
-    overlap: 'UK dedicated overlap: 2:00 PM – 6:00 PM UK time (GMT/BST) [TODO: overlap window in UK time]',
+    subheadline: 'We engineer custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups, with senior engineers, fixed-scope milestones and UK morning-to-afternoon overlap.',
+    overlap: 'UK overlap: 9:00 AM – 1:30 PM GMT / 2:30 PM BST',
     bannerText: 'Visiting from the UK? Explore our dedicated UK services & GDPR-aware builds.',
     bannerLink: '/uk/'
   },
   {
     region: 'canada',
     currency: 'CAD',
-    subheadline: 'We build bespoke web applications, cross-platform mobile apps, and business systems for Canadian startups and growing businesses, with senior engineers, fixed-scope milestones and dedicated morning EST overlap.',
-    overlap: 'Canada dedicated overlap: Morning Eastern Time (EST/EDT) calls [TODO: overlap window]',
+    subheadline: 'We build bespoke web applications, cross-platform mobile apps, and business systems for Canadian startups and growing businesses, with senior engineers, fixed-scope milestones and evening-IST calls by arrangement.',
+    overlap: 'Canada overlap: Evening-IST calls by arrangement (morning EST/EDT alignment)',
     bannerText: 'Visiting from Canada? Explore our Canadian development services & PIPEDA-aware builds.',
     bannerLink: '/canada/'
   },
@@ -829,6 +869,14 @@ const regionalVariants = [
     overlap: 'UAE near-full working day overlap: only 1.5h time difference (GST, UTC+4)',
     bannerText: 'Visiting from the UAE? Explore our Dubai & UAE solutions with Arabic & VAT support.',
     bannerLink: '/dubai-uae/'
+  },
+  {
+    region: 'india',
+    currency: 'INR',
+    subheadline: 'We design and build bespoke software, mobile apps, and custom business platforms for Indian enterprises and growing businesses, with senior engineers, INR milestone invoicing, and local time-zone collaboration.',
+    overlap: 'Same time zone (IST): full working-day overlap',
+    bannerText: 'Visiting from India? See our dedicated India page.',
+    bannerLink: '/india/'
   }
 ];
 
@@ -876,6 +924,7 @@ const entries = [
   [`${base}/uk/`, '0.9', 'monthly'],
   [`${base}/canada/`, '0.9', 'monthly'],
   [`${base}/dubai-uae/`, '0.9', 'monthly'],
+  [`${base}/india/`, '0.9', 'monthly'],
   ...services.map((s) => [`${base}/services/${s.slug}/`, '0.8', 'monthly']),
   [`${base}/work/`, '0.8', 'monthly'],
   ...caseStudies.map((cs) => [`${base}/work/${cs.slug}/`, '0.7', 'monthly']),
@@ -894,8 +943,8 @@ write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /404.html\nDisallow: /v/
 console.log(`Generated:
 - ${services.length} service pages
 - ${articles.length} articles & blog index
-- 3 international market pages (UK, Canada, UAE)
+- ${markets.length} international market pages (${markets.map((m) => m.countryName).join(', ')})
 - ${caseStudies.length} case studies & work index (drafts excluded)
-- 3 regional static variant pages (UK, Canada, UAE at /v/*) with noindex
+- ${regionalVariants.length} regional static variant pages (${regionalVariants.map((v) => v.region).join(', ')} at /v/*) with noindex
 - Pricing, About, Contact, Privacy, Terms, 404.html
 - sitemap.xml (${entries.length} URLs, /v/* excluded) & robots.txt (Disallow: /v/)`);

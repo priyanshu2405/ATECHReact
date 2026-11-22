@@ -1,17 +1,17 @@
 import React from 'react';
 import './Work.css';
-import { getPublishedCaseStudies } from '../data/work';
+import { getPublishedCaseStudies, getCaseStudyDisplay } from '../data/work';
 import Contact from '../components/Contact';
 
 const WorkIndexPage = () => {
-    const published = getPublishedCaseStudies();
+    const published = getPublishedCaseStudies().map(getCaseStudyDisplay);
 
     return (
         <div className="work-page">
             <section className="work-hero">
                 <div className="container">
                     <div className="work-hero__badge">
-                        <span>Verified Case Studies · Real Products</span>
+                        <span>Case Studies · Real Products</span>
                     </div>
                     <h1 className="work-hero__title">
                         Software &amp; Digital Platforms <span className="gradient-text">Shipped for Clients</span>
@@ -60,7 +60,7 @@ const WorkIndexPage = () => {
                                     <a href={`/work/${project.slug}/`} className="btn btn-primary work-card__btn">
                                         Read Full Case Study →
                                     </a>
-                                    {project.liveUrl && (
+                                    {project.liveUrl ? (
                                         <a
                                             href={project.liveUrl}
                                             target="_blank"
@@ -69,6 +69,10 @@ const WorkIndexPage = () => {
                                         >
                                             Visit Live Project ↗
                                         </a>
+                                    ) : (
+                                        <span className="badge" style={{ fontSize: '0.78rem', padding: '6px 12px', background: 'rgba(255, 255, 255, 0.05)', color: 'var(--text-secondary)' }}>
+                                            {project.badgeText}
+                                        </span>
                                     )}
                                 </div>
                             </div>

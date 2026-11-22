@@ -32,11 +32,12 @@ export const deleteCookie = (name) => {
 export const detectClientRegion = () => {
   if (typeof window === 'undefined') return 'global';
 
-  // 1. Direct path check for variant URLs (e.g. /v/uk, /v/canada, /v/uae)
+  // 1. Direct path check for variant URLs (e.g. /v/uk, /v/canada, /v/uae, /v/india)
   const path = window.location.pathname;
   if (path.startsWith('/v/uk')) return 'uk';
   if (path.startsWith('/v/canada')) return 'canada';
   if (path.startsWith('/v/uae')) return 'uae';
+  if (path.startsWith('/v/india')) return 'india';
 
   // 2. Dev/Preview Query override ?geo=GB|CA|AE|XX (disabled in production)
   const isProduction = import.meta.env.VITE_VERCEL_ENV === 'production';

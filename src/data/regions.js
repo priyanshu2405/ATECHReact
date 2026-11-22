@@ -18,7 +18,7 @@ export const regions = {
     currencySymbol: '$',
     heroSubheadline: 'We design and build websites, ecommerce platforms, mobile apps, and custom CRM/ERP systems, with senior engineers, fixed-scope milestones and full code ownership.',
     ctaOrder: ['booking', 'whatsapp'], // booking first, whatsapp second
-    overlapHours: 'HQ India (IST): Mon–Fri: 9:00 AM – 7:00 PM IST · Overlap available for UK, Canada & UAE',
+    overlapHours: 'HQ India (IST): Mon–Fri: 9:00 AM – 7:00 PM IST · Overlap available for UK, UAE & Canada',
     marketPath: null,
     banner: null
   },
@@ -30,9 +30,9 @@ export const regions = {
     flag: '🇬🇧',
     currency: 'GBP',
     currencySymbol: '£',
-    heroSubheadline: 'We engineer custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups, with senior engineers, fixed-scope milestones and UK afternoon overlap.',
+    heroSubheadline: 'We engineer custom web apps, mobile applications, and bespoke CRM platforms for UK enterprises and scaling startups, with senior engineers, fixed-scope milestones and UK morning-to-afternoon overlap.',
     ctaOrder: ['booking', 'whatsapp'], // booking first, whatsapp second
-    overlapHours: 'UK dedicated overlap: 2:00 PM – 6:00 PM UK time (GMT/BST) [TODO: overlap window in UK time]',
+    overlapHours: 'UK overlap: 9:00 AM – 1:30 PM GMT / 2:30 PM BST',
     marketPath: '/uk/',
     banner: {
       text: 'Visiting from the UK? Explore our dedicated UK services & GDPR-aware builds.',
@@ -48,9 +48,9 @@ export const regions = {
     flag: '🇨🇦',
     currency: 'CAD',
     currencySymbol: '$',
-    heroSubheadline: 'We build bespoke web applications, cross-platform mobile apps, and business systems for Canadian startups and growing businesses, with senior engineers, fixed-scope milestones and dedicated morning EST overlap.',
+    heroSubheadline: 'We build bespoke web applications, cross-platform mobile apps, and business systems for Canadian startups and growing businesses, with senior engineers, fixed-scope milestones and evening-IST calls by arrangement.',
     ctaOrder: ['booking', 'whatsapp'], // booking first, whatsapp second
-    overlapHours: 'Canada dedicated overlap: Morning Eastern Time (EST/EDT) calls [TODO: overlap window]',
+    overlapHours: 'Canada overlap: Evening-IST calls by arrangement (morning EST/EDT alignment)',
     marketPath: '/canada/',
     banner: {
       text: 'Visiting from Canada? Explore our Canadian development services & PIPEDA-aware builds.',
@@ -75,6 +75,24 @@ export const regions = {
       linkText: 'See UAE Page →',
       linkUrl: '/dubai-uae/'
     }
+  },
+  india: {
+    id: 'india',
+    code: 'IN',
+    name: 'India',
+    label: 'India',
+    flag: '🇮🇳',
+    currency: 'INR',
+    currencySymbol: '₹',
+    heroSubheadline: 'We design and build bespoke software, mobile apps, and custom business platforms for Indian enterprises and growing businesses, with senior engineers, INR milestone invoicing, and local time-zone collaboration.',
+    ctaOrder: ['whatsapp', 'booking'], // WhatsApp first, booking second
+    overlapHours: 'Same time zone (IST): full working-day overlap',
+    marketPath: '/india/',
+    banner: {
+      text: 'Visiting from India? See our dedicated India page.',
+      linkText: 'See India Page →',
+      linkUrl: '/india/'
+    }
   }
 };
 
@@ -84,6 +102,7 @@ export const countryToRegion = (countryCode) => {
   if (c === 'GB') return 'uk';
   if (c === 'CA') return 'canada';
   if (c === 'AE') return 'uae';
+  if (c === 'IN') return 'india';
   return 'global';
 };
 

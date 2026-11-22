@@ -20,6 +20,7 @@ const HomePage = ({ region: propRegion }) => {
     const initialCountry = activeRegion === 'uk' ? 'UK'
         : activeRegion === 'canada' ? 'Canada'
         : activeRegion === 'uae' ? 'UAE'
+        : activeRegion === 'india' ? 'India'
         : 'Other';
 
     return (
@@ -54,7 +55,7 @@ const HomePage = ({ region: propRegion }) => {
             {/* 8. Final CTA & Full Contact Form */}
             <Contact
                 title="Start Your Project Today"
-                subtitle="Book a free 30-min discovery call or send your requirements. We respond with a fixed milestone proposal within 24 hours."
+                subtitle="Request a call or send your requirements. We respond with a fixed milestone proposal within 1 business day."
                 region={activeRegion}
                 initialCountry={initialCountry}
             />

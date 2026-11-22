@@ -6,6 +6,7 @@ const regionOptions = [
     { id: 'uk', label: 'United Kingdom', flag: '🇬🇧', currency: 'GBP (£)' },
     { id: 'canada', label: 'Canada', flag: '🇨🇦', currency: 'CAD ($)' },
     { id: 'uae', label: 'Dubai / UAE', flag: '🇦🇪', currency: 'AED (د.إ)' },
+    { id: 'india', label: 'India', flag: '🇮🇳', currency: 'INR (₹)' },
     { id: 'global', label: 'Global / Auto-detect', flag: '🌐', currency: 'USD ($)' },
 ];
 

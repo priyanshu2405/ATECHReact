@@ -8,8 +8,8 @@ No real statistics, prices, client identities, certifications, or testimonials h
 ## 1. Business & Contact Configuration (`src/data/config.js`)
 
 - [x] **Email**: `priyanshu@atechinfotech.com` (Official domain email configured)
-- [ ] **Booking URL**: `[TODO: Calendly/Cal.com link]` (e.g. `https://calendly.com/atechinfotech/discovery` or `https://cal.com/atechinfotech/30min`)
-- [ ] **Canada Overlap Window**: `[TODO: Canada timezone overlap window]` (e.g. "Canada (EST): 8:00 AM – 11:30 AM EST" or similar based on your preferred shift)
+- [ ] **Booking URL**: `[TODO: Cal.com link]` (e.g. `https://cal.com/atechinfotech/30min`)
+- [ ] **Canada Overlap Window**: `Evening-IST calls by arrangement (morning EST/EDT alignment)`
 - [ ] **Founder Section**:
   - Founder Name: `[TODO: Founder Name]`
   - Founder Title: `[TODO: Founder Title / Role]`
@@ -36,16 +36,19 @@ All prices on public pages show **"Request a quote"** until you replace these pl
   - GBP: `[TODO: price in GBP]` (e.g. "£2,500")
   - CAD: `[TODO: price in CAD]` (e.g. "$4,500 CAD")
   - AED: `[TODO: price in AED]` (e.g. "12,000 AED")
+  - INR: `[TODO: price in INR]` (e.g. "₹2,50,000")
   - USD: `[TODO: price in USD]` (e.g. "$3,500")
 - [ ] **Monthly Retainer**:
   - GBP: `[TODO: price in GBP/mo]`
   - CAD: `[TODO: price in CAD/mo]`
   - AED: `[TODO: price in AED/mo]`
+  - INR: `[TODO: price in INR/mo]`
   - USD: `[TODO: price in USD/mo]`
 - [ ] **Dedicated Senior Developer**:
   - GBP: `[TODO: price in GBP/mo]`
   - CAD: `[TODO: price in CAD/mo]`
   - AED: `[TODO: price in AED/mo]`
+  - INR: `[TODO: price in INR/mo]`
   - USD: `[TODO: price in USD/mo]`
 - [ ] **Starting From per Service**:
   - Custom CRM/ERP & Automation: `[TODO: starting price]`
@@ -59,17 +62,26 @@ All prices on public pages show **"Request a quote"** until you replace these pl
 
 ## 3. Case Studies & Metrics (`src/data/work.js`)
 
-- [ ] **Futura Kitchen Sinks**:
-  - Verified Metrics: `[TODO: result/metric]` (e.g. "% increase in WhatsApp enquiry conversion or catalogue downloads after launch")
+> **Client Permission & Anonymisation Policy**:
+> - Each case study has a `permission` field: `"named" | "anonymised" | "pending"`. Default is `"anonymised"`.
+> - When `permission: "anonymised"` or `"pending"`: no client name, no logo, no brand colours, no real live URLs, and generic titles only.
+> - Badge: Displays `"Private client project: private demo available on request"` unless `references_available: true` is explicitly configured in `src/data/work.js`.
+> - Draft case studies remain unpublished while permission is `"pending"`.
+
+- [ ] **Kitchen Hardware Catalogue** (Internal ref: Futura):
+  - Current status: `permission: "anonymised"`, `references_available: false`.
+  - To display named client brand: obtain written client approval and set `permission: "named"` in `src/data/work.js`.
+  - Metrics: `[TODO: result/metric]` (e.g. "% increase in WhatsApp enquiry conversion or catalogue downloads after launch")
   - Client Testimonial (Optional): `[TODO: quote from client with permission]`
-- [ ] **UniCou Exam Vouchers**:
-  - Verified Metrics: `[TODO: result/metric]` (e.g. "number of voucher orders processed or partner institutions onboarded")
+- [ ] **Exam Voucher Platform** (Internal ref: UniCou):
+  - Current status: `permission: "anonymised"`, `references_available: false`.
+  - To display named client brand: obtain written client approval and set `permission: "named"` in `src/data/work.js`.
+  - Metrics: `[TODO: result/metric]` (e.g. "number of voucher orders processed or partner institutions onboarded")
   - Client Testimonial (Optional): `[TODO: quote from client with permission]`
 - [ ] **Draft Case Studies (Unpublished - Activate when ready)**:
-  - Custom Multi-Tenant CRM Platform: Needs client permission, industry confirmation, screenshots, live URL or metrics.
-  - Ride-Hailing Mobile App: Needs product name, features, tech stack, screenshots.
-  - Luxury Ecommerce Platform: Needs brand name, store features, tech stack, metrics.
-  - Flutter Mobile App with Laravel Backend: Needs project title, overview, app store links.
+  - Custom Multi-Tenant CRM Platform (`permission: "pending"`): Needs client permission, industry confirmation, screenshots, live URL or metrics.
+  - Ride-Hailing Mobile App (`permission: "pending"`): Needs product name, features, tech stack, screenshots.
+  - Luxury Ecommerce Platform (`permission: "pending"`): Needs brand name, store features, tech stack, metrics.
 
 ---
 
@@ -87,7 +99,19 @@ All prices on public pages show **"Request a quote"** until you replace these pl
 
 ## 6. Regional Personalisation & Timezone Overlap (`src/data/regions.js`)
 
-- [ ] **UK Overlap Window**: `[TODO: overlap window in UK time]` (default displayed: "2:00 PM – 6:00 PM UK time (GMT/BST)"). Fill in your exact preferred overlap schedule.
-- [ ] **Canada Overlap Window**: `[TODO: overlap window]` (default displayed: "Morning Eastern Time (EST/EDT) calls"). Fill in your exact preferred overlap schedule.
-- [ ] **Regional Starting Rates**: Fill in starting figures in `src/data/pricing.js` for GBP (£), CAD ($), AED (د.إ), and USD ($) once finalized. Until filled, all cards safely show "Request a quote".
+- [x] **UK Overlap Window**: `9:00 AM – 1:30 PM GMT / 2:30 PM BST` (Option A: 9:00–19:00 IST)
+- [x] **Canada Overlap Window**: `Evening-IST calls by arrangement (morning EST/EDT alignment)`
+- [x] **India Overlap Window**: `Same time zone (IST): full working-day overlap`
+- [ ] **Regional Starting Rates**: Fill in starting figures in `src/data/pricing.js` for GBP (£), CAD ($), AED (د.إ), INR (₹), and USD ($) once finalized. Until filled, all cards safely show "Request a quote".
+
+---
+
+## 7. India Target Market Placeholders & Confirmations (`/india/`)
+
+Before public promotion or marketing in India, confirm the following items:
+
+- [ ] **Hindi/English Interfaces**: Confirm team scope for bilingual UI development and localized support before removing `[TODO: confirm]` in `/india/` solutions and FAQs.
+- [ ] **Indore In-Person Meetings**: Confirm company policy on travel and in-person architecture scoping workshops in Indore / client offices before removing `[TODO: confirm]`.
+- [ ] **GST Registration & E-Invoicing**: Do not claim GST registration number or GST e-invoicing compliance until official GSTIN registration and tax invoicing credentials are fully established.
+- [ ] **INR Pricing**: Provide standard INR rates for fixed milestones, monthly retainers, and dedicated developer augmentation in `src/data/pricing.js`.
 

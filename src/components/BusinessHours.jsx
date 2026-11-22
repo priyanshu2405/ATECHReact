@@ -43,7 +43,7 @@ const BusinessHours = ({ region = 'global' }) => {
                     <span className="business-hours__flag">🇬🇧</span>
                     <div className="business-hours__info">
                         <strong>UK (GMT/BST):</strong>
-                        <span>2:00 PM – 6:00 PM UK time dedicated overlap [TODO: overlap window in UK time]</span>
+                        <span>9:00 AM – 1:30 PM GMT / 2:30 PM BST UK overlap</span>
                     </div>
                 </div>
 
@@ -51,15 +51,15 @@ const BusinessHours = ({ region = 'global' }) => {
                     <span className="business-hours__flag">🇨🇦</span>
                     <div className="business-hours__info">
                         <strong>Canada (EST/PST):</strong>
-                        <span>{config.businessHours.canada}</span>
+                        <span>Evening-IST calls by arrangement (morning EST/EDT alignment)</span>
                     </div>
                 </div>
 
-                <div className={`business-hours__item ${region === 'global' ? 'business-hours__item--active' : ''}`}>
+                <div className={`business-hours__item ${region === 'global' || region === 'india' ? 'business-hours__item--active' : ''}`}>
                     <span className="business-hours__flag">🇮🇳</span>
                     <div className="business-hours__info">
                         <strong>HQ India (IST):</strong>
-                        <span>{config.businessHours.ist}</span>
+                        <span>{config.businessHours.ist} {region === 'india' ? '· Full working-day overlap' : ''}</span>
                     </div>
                 </div>
             </div>

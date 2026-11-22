@@ -13,8 +13,8 @@
 
 export const homepageFaqs = [
   {
-    q: 'How do you collaborate across time zones with clients in the UK, Canada, and UAE?',
-    a: 'We schedule dedicated overlap windows every working day. For UAE clients, we have full-day working alignment (only 1.5 hours difference). For UK clients, we provide 4 dedicated afternoon hours (2:00 PM – 6:00 PM UK time). For Canadian clients, we schedule dedicated morning EST/EDT calls. We keep communication continuous through Slack, Microsoft Teams, WhatsApp, and weekly recorded video demos.'
+    q: 'How do you collaborate across time zones with clients in the UK, Canada, UAE, and India?',
+    a: 'We schedule dedicated overlap windows every working day. For India clients, our entire engineering team operates in IST with 100% full-day overlap. For UAE clients, we have near-full working alignment (only 1.5 hours difference). For UK clients, we provide daily overlap from 9:00 AM – 1:30 PM GMT / 2:30 PM BST. For Canadian clients, we schedule evening-IST calls by arrangement to align with your morning hours. We keep communication continuous through Slack, Microsoft Teams, WhatsApp, and weekly recorded video demos.'
   },
   {
     q: 'How do payments work? Do we pay everything upfront?',
@@ -22,15 +22,15 @@ export const homepageFaqs = [
   },
   {
     q: 'Who owns the intellectual property and source code?',
-    a: 'You own 100% of the intellectual property, design assets, and source code from the moment it is paid for. We work as a work-for-hire engineering team and transfer full Git repository rights upon milestone completion. There are zero licensing traps or proprietary lock-ins.'
+    a: 'You own 100% of the intellectual property, design assets, and source code. We work as a work-for-hire engineering team and transfer full Git repository rights upon milestone completion and final payment. There are zero licensing traps or proprietary lock-ins.'
   },
   {
     q: 'Do you provide post-launch support and maintenance?',
-    a: 'Yes. Every fixed-price project includes a complimentary 30-day warranty window to resolve any functional issues or bugs that emerge post-deployment. Afterwards, you can choose an ongoing monthly retainer for continuous feature updates or retain us on an ad-hoc basis.'
+    a: 'Yes. Every fixed-price project includes an included post-launch support window to resolve any functional issues or bugs that emerge post-deployment. Afterwards, you can choose an ongoing monthly retainer for continuous feature updates or retain us on an ad-hoc basis.'
   },
   {
     q: 'Will you sign a Non-Disclosure Agreement (NDA) before we discuss details?',
-    a: 'Yes, absolutely. We regularly execute bilateral Non-Disclosure Agreements before reviewing confidential business workflows, design mockups, or proprietary APIs. Your ideas and commercial strategies remain strictly confidential.'
+    a: 'Yes, absolutely. We are happy to sign an NDA before you share confidential requirements. Your ideas, workflows, and commercial strategies remain strictly confidential.'
   },
   {
     q: 'How long do typical web and mobile development projects take?',

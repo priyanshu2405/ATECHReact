@@ -35,7 +35,7 @@ export default function middleware(request) {
     });
   }
 
-  // 2. Dev / Preview override (?geo=GB|CA|AE|XX)
+  // 2. Dev / Preview override (?geo=GB|CA|AE|IN|XX)
   // Disabled when VERCEL_ENV is production
   let region = null;
   const isProduction = process.env.VERCEL_ENV === 'production';
@@ -46,15 +46,16 @@ export default function middleware(request) {
       if (code === 'GB') region = 'uk';
       else if (code === 'CA') region = 'canada';
       else if (code === 'AE') region = 'uae';
+      else if (code === 'IN') region = 'india';
       else region = 'global';
     }
   }
 
-  // 3. Cookie override (atech_region: uk | canada | uae | global)
+  // 3. Cookie override (atech_region: uk | canada | uae | india | global)
   if (!region) {
     const cookies = parseCookies(request.headers.get('cookie') || '');
     const cookieRegion = cookies['atech_region'];
-    if (cookieRegion && ['uk', 'canada', 'uae', 'global'].includes(cookieRegion)) {
+    if (cookieRegion && ['uk', 'canada', 'uae', 'india', 'global'].includes(cookieRegion)) {
       region = cookieRegion;
     }
   }
@@ -68,13 +69,15 @@ export default function middleware(request) {
       region = 'canada';
     } else if (country === 'AE') {
       region = 'uae';
+    } else if (country === 'IN') {
+      region = 'india';
     } else {
       region = 'global';
     }
   }
 
   // 5. Rewrite or Pass-through
-  // If region is uk, canada, or uae -> rewrite "/" to internal static page "/v/[region]"
+  // If region is uk, canada, uae, or india -> rewrite "/" to internal static page "/v/[region]"
   // The URL in the visitor's browser remains "/"
   if (region && region !== 'global') {
     const rewriteUrl = new URL(`/v/${region}/`, request.url);

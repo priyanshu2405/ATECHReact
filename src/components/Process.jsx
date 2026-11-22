@@ -25,7 +25,7 @@ const steps = [
     {
         num: '05',
         title: 'Launch & Support',
-        desc: 'Production deployment, rigorous UAT, complete IP handover, and an included 30-day post-launch warranty window.'
+        desc: 'Production deployment, rigorous UAT, complete IP handover, and an included post-launch support window.'
     }
 ];
 

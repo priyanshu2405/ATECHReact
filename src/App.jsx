@@ -43,6 +43,8 @@ function App() {
                         <Route path="/v/canada/" element={<HomePage region="canada" />} />
                         <Route path="/v/uae" element={<HomePage region="uae" />} />
                         <Route path="/v/uae/" element={<HomePage region="uae" />} />
+                        <Route path="/v/india" element={<HomePage region="india" />} />
+                        <Route path="/v/india/" element={<HomePage region="india" />} />
                         <Route path="/v/global" element={<HomePage region="global" />} />
                         <Route path="/v/global/" element={<HomePage region="global" />} />
 
@@ -65,6 +67,8 @@ function App() {
                         <Route path="/canada/" element={<MarketPage marketSlug="canada" />} />
                         <Route path="/dubai-uae" element={<MarketPage marketSlug="dubai-uae" />} />
                         <Route path="/dubai-uae/" element={<MarketPage marketSlug="dubai-uae" />} />
+                        <Route path="/india" element={<MarketPage marketSlug="india" />} />
+                        <Route path="/india/" element={<MarketPage marketSlug="india" />} />
 
                         {/* Legal */}
                         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

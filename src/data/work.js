@@ -1,29 +1,39 @@
 /**
  * Case Studies & Portfolio Data
  * HARD RULE: Only real information or [TODO: result/metric] placeholders.
- * Draft items have `draft: true` and are excluded from the public index and sitemap.
+ * Permission rules:
+ * - permission: "named" | "anonymised" | "pending" (default: "anonymised")
+ * - references_available: boolean (default: false)
+ * - When "anonymised" or "pending": no client name, no logo, no brand colours,
+ *   no real names/emails/addresses in screenshots, generic titles only, no liveUrl.
+ * - Badge text:
+ *   references_available ? "Private client project: private demo and client reference available on request"
+ *                        : "Private client project: private demo available on request"
+ * - Draft case studies stay unpublished while permission is "pending".
  */
 
 export const caseStudies = [
   {
     slug: 'futura-kitchen-sinks',
-    title: 'Futura Kitchen Sinks: Digital Product Catalogue & Lead Generation Platform',
-    shortTitle: 'Futura Kitchen Sinks',
-    clientType: 'Manufacturing & Kitchen Hardware Brand',
+    permission: 'anonymised', // 'named' | 'anonymised' | 'pending'
+    references_available: false, // true only when client has confirmed references in writing
+    // Generic presentation (used when anonymised or pending)
+    title: 'Digital Product Catalogue & Lead Generation Platform',
+    shortTitle: 'Kitchen Hardware Catalogue',
+    clientType: 'Kitchen Hardware Manufacturer',
     industry: 'Consumer Goods & Hardware',
     country: 'India',
     published: true,
     draft: false,
-    liveUrl: 'https://futurasink.com/',
-    color: '#ec2027',
+    color: '#00c6ff', // Theme accent, not client brand colour
     icon: '🚰',
-    summary: 'Responsive product catalogue platform for a leading kitchen sink manufacturer with direct WhatsApp enquiry workflows and downloadable product brochures.',
+    summary: 'Responsive product catalogue platform for a kitchen sink manufacturer with direct WhatsApp enquiry workflows and downloadable product brochures.',
     problem: 'The client needed a modern, lightweight digital catalogue to present hundreds of sink models, technical specifications, and finishes to homeowners, architects, and retail distributors without complex ecommerce overhead.',
     solution: 'Engineered a modern, responsive web catalogue using React.js and a modular component architecture. Focused on high-speed page loads, clear dimensional diagrams, category filters, and frictionless lead capture through integrated WhatsApp enquiry buttons.',
     features: [
       'Comprehensive product catalogue with multi-dimensional filtering',
       'One-click direct WhatsApp enquiry routed with specific product SKU',
-      'Downloadable digital specification brochures and warranty guides',
+      'Downloadable digital specification brochures and technical guides',
       'Mobile-optimized responsive layouts for contractors on job sites',
       'Fast image loading and SEO foundations for search visibility'
     ],
@@ -39,19 +49,29 @@ export const caseStudies = [
       { label: 'Catalogue Access', value: 'Instant PDF' },
       { label: 'Client Metric', value: '[TODO: metric]' }
     ],
-    testimonial: null // [TODO: client testimonial when approved in writing]
+    testimonial: null,
+    // Stored client metadata (activated only when permission === 'named')
+    namedDetails: {
+      clientName: 'Futura Kitchen Sinks',
+      title: 'Futura Kitchen Sinks: Digital Product Catalogue & Lead Generation Platform',
+      shortTitle: 'Futura Kitchen Sinks',
+      brandColor: '#ec2027',
+      liveUrl: 'https://futurasink.com/'
+    }
   },
   {
     slug: 'unicou-exam-vouchers',
-    title: 'UniCou: Education Exam Voucher Distribution & Agent Portal',
-    shortTitle: 'UniCou Exam Vouchers',
-    clientType: 'EdTech & Certification Services',
+    permission: 'anonymised', // 'named' | 'anonymised' | 'pending'
+    references_available: false, // true only when client has confirmed references in writing
+    // Generic presentation (used when anonymised or pending)
+    title: 'Education Exam Voucher Distribution & Agent Portal',
+    shortTitle: 'Exam Voucher Platform',
+    clientType: 'Certification & EdTech Services',
     industry: 'Education & Examination Vouchers',
     country: 'United Kingdom / Global',
     published: true,
     draft: false,
-    liveUrl: 'https://unicouuk.janshaurya.org/',
-    color: '#06d6a0',
+    color: '#7b2ff7', // Theme accent, not client brand colour
     icon: '🎓',
     summary: 'Secure exam voucher distribution platform designed for international students, education consultancies, and academic partner agents.',
     problem: 'Managing bulk discounted exam vouchers for international test takers and certified agency partners required manual verification, resulting in slow turnaround and payment friction.',
@@ -75,12 +95,22 @@ export const caseStudies = [
       { label: 'Security', value: 'Encrypted Allocation' },
       { label: 'Agent Metric', value: '[TODO: metric]' }
     ],
-    testimonial: null // [TODO: client testimonial when approved in writing]
+    testimonial: null,
+    // Stored client metadata (activated only when permission === 'named')
+    namedDetails: {
+      clientName: 'UniCou',
+      title: 'UniCou: Education Exam Voucher Distribution & Agent Portal',
+      shortTitle: 'UniCou Exam Vouchers',
+      brandColor: '#06d6a0',
+      liveUrl: 'https://unicouuk.janshaurya.org/'
+    }
   },
 
   // ---- DRAFT-ONLY CASE STUDIES (EXCLUDED FROM PUBLIC INDEX AND SITEMAP) ----
   {
     slug: 'multi-tenant-crm-platform',
+    permission: 'pending', // Drafts stay unpublished while permission is 'pending'
+    references_available: false,
     title: 'Custom Multi-Tenant CRM Platform for Service Enterprises',
     shortTitle: 'Multi-Tenant CRM Platform',
     clientType: 'B2B Enterprise',
@@ -106,6 +136,8 @@ export const caseStudies = [
   },
   {
     slug: 'ride-hailing-mobile-app',
+    permission: 'pending', // Drafts stay unpublished while permission is 'pending'
+    references_available: false,
     title: 'On-Demand Ride Hailing & Dispatch Mobile App',
     shortTitle: 'Ride-Hailing Mobile App',
     clientType: 'Mobility Startup',
@@ -113,7 +145,7 @@ export const caseStudies = [
     country: 'International',
     published: false,
     draft: true,
-    color: '#f72585',
+    color: '#7b2ff7',
     icon: '🚗',
     summary: '[TODO: Overview of ride hailing mobile app with driver and rider apps]',
     problem: '[TODO: Real-time driver dispatch and fare calculation challenges]',
@@ -131,6 +163,8 @@ export const caseStudies = [
   },
   {
     slug: 'luxury-ecommerce-platform',
+    permission: 'pending', // Drafts stay unpublished while permission is 'pending'
+    references_available: false,
     title: 'Luxury Goods Ecommerce Platform & Bespoke Checkout',
     shortTitle: 'Luxury Ecommerce Platform',
     clientType: 'Retail Brand',
@@ -138,7 +172,7 @@ export const caseStudies = [
     country: 'International',
     published: false,
     draft: true,
-    color: '#f4a261',
+    color: '#00c6ff',
     icon: '💎',
     summary: '[TODO: High-end bespoke ecommerce store with multi-currency checkout]',
     problem: '[TODO: Off-the-shelf limitations with custom variant selectors and international taxes]',
@@ -156,6 +190,41 @@ export const caseStudies = [
   }
 ];
 
-export const getPublishedCaseStudies = () => caseStudies.filter((c) => !c.draft);
-export const getCaseStudyBySlug = (slug) => caseStudies.find((c) => c.slug === slug);
+/**
+ * Returns case study presentation model according to its permission status:
+ * - "anonymised" / "pending": generic title, no client name, no brand colour, no liveUrl, private demo badge.
+ * - "named": client name, logo/colours, liveUrl permitted.
+ */
+export function getCaseStudyDisplay(project) {
+  if (!project) return null;
+  const isNamed = project.permission === 'named';
+  const named = project.namedDetails || {};
+
+  const badgeText = project.references_available
+    ? 'Private client project: private demo and client reference available on request'
+    : 'Private client project: private demo available on request';
+
+  return {
+    ...project,
+    title: isNamed && named.title ? named.title : project.title,
+    shortTitle: isNamed && named.shortTitle ? named.shortTitle : project.shortTitle,
+    clientType: isNamed && named.clientName ? `${named.clientName} (${project.clientType})` : project.clientType,
+    color: isNamed && named.brandColor ? named.brandColor : (project.color || '#00c6ff'),
+    liveUrl: isNamed ? (named.liveUrl || project.liveUrl || null) : null,
+    isAnonymised: !isNamed,
+    badgeText
+  };
+}
+
+/**
+ * Draft case studies stay unpublished while permission is "pending".
+ */
+export const getPublishedCaseStudies = () =>
+  caseStudies.filter((c) => !c.draft && c.published && c.permission !== 'pending');
+
+export const getCaseStudyBySlug = (slug) => {
+  const found = caseStudies.find((c) => c.slug === slug);
+  return found ? getCaseStudyDisplay(found) : null;
+};
+
 export default caseStudies;

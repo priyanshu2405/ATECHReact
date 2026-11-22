@@ -9,6 +9,7 @@ export const currencies = [
   { code: 'GBP', symbol: '£', label: 'GBP (£)', flag: '🇬🇧', country: 'United Kingdom' },
   { code: 'CAD', symbol: '$', label: 'CAD ($)', flag: '🇨🇦', country: 'Canada' },
   { code: 'AED', symbol: 'AED ', label: 'AED (د.إ)', flag: '🇦🇪', country: 'Dubai / UAE' },
+  { code: 'INR', symbol: '₹', label: 'INR (₹)', flag: '🇮🇳', country: 'India' },
   { code: 'USD', symbol: '$', label: 'USD ($)', flag: '🇺🇸', country: 'United States & Global' },
 ];
 
@@ -23,13 +24,14 @@ export const engagementModels = [
       'Fixed total quote with milestones linked to tangible deliverables',
       'Zero cost overruns on agreed scope',
       'Weekly progress demos & code reviews',
-      '30-day post-launch warranty & bug-fix window',
+      'Included post-launch support & bug-fix window',
       'Full IP and source code assignment upon completion'
     ],
     pricing: {
       GBP: '[TODO: price in GBP]',
       CAD: '[TODO: price in CAD]',
       AED: '[TODO: price in AED]',
+      INR: '[TODO: price in INR]',
       USD: '[TODO: price in USD]',
     },
     billingPeriod: 'per project',
@@ -53,6 +55,7 @@ export const engagementModels = [
       GBP: '[TODO: price in GBP/mo]',
       CAD: '[TODO: price in CAD/mo]',
       AED: '[TODO: price in AED/mo]',
+      INR: '[TODO: price in INR/mo]',
       USD: '[TODO: price in USD/mo]',
     },
     billingPeriod: 'per month',
@@ -76,6 +79,7 @@ export const engagementModels = [
       GBP: '[TODO: price in GBP/mo]',
       CAD: '[TODO: price in CAD/mo]',
       AED: '[TODO: price in AED/mo]',
+      INR: '[TODO: price in INR/mo]',
       USD: '[TODO: price in USD/mo]',
     },
     billingPeriod: 'per month',
@@ -94,6 +98,7 @@ export const servicePricingRanges = [
       GBP: '[TODO: starting price in GBP]',
       CAD: '[TODO: starting price in CAD]',
       AED: '[TODO: starting price in AED]',
+      INR: '[TODO: starting price in INR]',
       USD: '[TODO: starting price in USD]',
     }
   },
@@ -106,6 +111,7 @@ export const servicePricingRanges = [
       GBP: '[TODO: starting price in GBP]',
       CAD: '[TODO: starting price in CAD]',
       AED: '[TODO: starting price in AED]',
+      INR: '[TODO: starting price in INR]',
       USD: '[TODO: starting price in USD]',
     }
   },
@@ -118,6 +124,7 @@ export const servicePricingRanges = [
       GBP: '[TODO: starting price in GBP]',
       CAD: '[TODO: starting price in CAD]',
       AED: '[TODO: starting price in AED]',
+      INR: '[TODO: starting price in INR]',
       USD: '[TODO: starting price in USD]',
     }
   },
@@ -130,6 +137,7 @@ export const servicePricingRanges = [
       GBP: '[TODO: starting price in GBP]',
       CAD: '[TODO: starting price in CAD]',
       AED: '[TODO: starting price in AED]',
+      INR: '[TODO: starting price in INR]',
       USD: '[TODO: starting price in USD]',
     }
   },
@@ -142,6 +150,7 @@ export const servicePricingRanges = [
       GBP: '[TODO: starting price in GBP]',
       CAD: '[TODO: starting price in CAD]',
       AED: '[TODO: starting price in AED]',
+      INR: '[TODO: starting price in INR]',
       USD: '[TODO: starting price in USD]',
     }
   },
@@ -154,6 +163,7 @@ export const servicePricingRanges = [
       GBP: '[TODO: starting price in GBP]',
       CAD: '[TODO: starting price in CAD]',
       AED: '[TODO: starting price in AED]',
+      INR: '[TODO: starting price in INR]',
       USD: '[TODO: starting price in USD]',
     }
   }

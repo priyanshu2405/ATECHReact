@@ -23,8 +23,8 @@ export const config = {
     `https://wa.me/917678410628?text=${encodeURIComponent(text)}`,
   
   // Booking URL (Calendly/Cal.com)
-  bookingUrl: '', // [TODO: Calendly/Cal.com link] - when empty, booking CTAs link to #contact or open modal
-  bookingPlaceholder: '[TODO: Calendly/Cal.com link]',
+  bookingUrl: '', // [TODO: Cal.com link] - when empty, booking CTAs link to #contact or open modal
+  bookingPlaceholder: '[TODO: Cal.com link]',
   
   // Address & Locations
   address: {
@@ -43,9 +43,9 @@ export const config = {
   // Business hours & Overlap windows
   businessHours: {
     ist: 'Mon–Fri: 9:00 AM – 7:00 PM IST',
-    uae: 'Full overlap with UAE standard business hours (GST, UTC+4)',
-    uk: '2:00 PM – 6:00 PM UK time overlap (GMT/BST)',
-    canada: '[TODO: Canada overlap window (e.g. 8:00 AM – 11:30 AM EST)]',
+    uae: 'Full working day overlap (GST, only 1.5h time difference)',
+    uk: '9:00 AM – 1:30 PM GMT / 2:30 PM BST UK overlap',
+    canada: 'Evening-IST calls by arrangement (morning EST/EDT alignment)',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     opens: '09:00',
     closes: '19:00',
