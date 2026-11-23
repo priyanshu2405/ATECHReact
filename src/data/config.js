@@ -78,7 +78,8 @@ export const config = {
     photo: '',    // [TODO: Founder photo URL]
   },
 
-  // Web3Forms endpoint
+  // Web3Forms endpoint & contact settings
+  contactFormEndpoint: 'https://api.web3forms.com/submit',
   web3FormsKey: 'e6c3c45b-47a9-4bc8-95bb-c7da12ed2352',
 };
 

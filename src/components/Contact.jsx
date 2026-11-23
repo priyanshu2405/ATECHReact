@@ -107,7 +107,9 @@ const Contact = ({
         setLoading(true);
 
         try {
-            const endpoint = config.contactFormEndpoint || '/api/contact';
+            const endpoint = config.contactFormEndpoint || 'https://api.web3forms.com/submit';
+            const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || config.web3FormsKey;
+
             const res = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
@@ -115,33 +117,28 @@ const Contact = ({
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
+                    access_key: accessKey,
                     name: form.name,
                     email: form.email,
-                    company: form.company,
+                    company: form.company || 'Not specified',
                     country: form.country,
-                    projectType: form.projectType,
-                    budget: form.budget,
+                    project_type: form.projectType,
+                    budget_range: form.budget,
                     message: form.message,
-                    timestamp: new Date().toISOString(),
+                    subject: `New Client Enquiry from ${form.country}: ${form.name}`,
+                    from_name: 'Atech Infotech Website'
                 })
-            }).catch(() => null);
+            });
 
-            if (res && res.ok) {
-                trackContactSubmit('contact_form');
-                setSubmitted(true);
-                setForm({
-                    name: '',
-                    email: '',
-                    company: '',
-                    country: initialCountry || 'UK',
-                    projectType: 'Custom CRM / ERP & Automation',
-                    budget: '£5,000 – £15,000 / $8,500 – $25,000 CAD',
-                    message: '',
-                    consent: false,
+            const data = await res.json();
+
+            if (data.success) {
+                trackContactSubmit({
+                    lead_source: 'contact_form',
+                    country: form.country,
+                    service: form.projectType,
+                    budget: form.budget
                 });
-            } else if (!res || res.status === 404 || res.status === 405) {
-                // If API route is not running locally / static preview, treat as recorded
-                trackContactSubmit('contact_form_fallback');
                 setSubmitted(true);
                 setForm({
                     name: '',
@@ -154,9 +151,10 @@ const Contact = ({
                     consent: false,
                 });
             } else {
-                setSubmitError('Submission could not be completed. Please chat with us on WhatsApp or email us directly.');
+                setSubmitError(data.message || 'Submission could not be completed. Please chat with us on WhatsApp or email us directly.');
             }
-        } catch {
+        } catch (err) {
+            console.error('Contact form submission error:', err);
             setSubmitError('Network error. Please message us directly via WhatsApp or email.');
         } finally {
             setLoading(false);
